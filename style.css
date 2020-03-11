@@ -1,0 +1,59 @@
+* {
+  box-sizing: border-box;
+}
+body{
+  font-family:Verdana;
+  color:black;"
+}
+ul {
+  list-style-type: none;
+} 
+
+.menu-options, .option {
+  display: flex;
+  flex-direction: row;
+  height: auto;
+  margin: 8px;
+  background-color:green;
+  margin-top:7px;
+  width:100%;
+  color:black;
+
+}
+.menu-list {
+  border-bottom:2px solid black;
+  background-color: white;
+}
+.welcome-message{
+  background-color:green;
+  padding:15px;
+  text-align:center;
+}
+.section {
+  height: 100vh;
+  margin-top: 60px;
+  overflow: hidden;
+  margin: auto;
+  position: relative;
+}
+.text{
+  }
+.authors{
+  width: 100vw;
+  position: absolute;
+  bottom: 0px;
+  background-color:green;
+  text-align:center;
+  padding:10px;
+  margin-top:7px;
+}
+#Situaita, #Problema, #Reciclare, #Profil {
+  height: 100vh;
+  } 
+
+@media only screen and (max-width:620px) {
+  /* For mobile phones: */
+  .menu, .main, .right {
+    width:100%;
+  }
+}
