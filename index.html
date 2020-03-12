@@ -4,6 +4,7 @@
 		<!-- make page responsive-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="loginStyle.css">
 	<title>Recileaza</title>
 
 </head>
@@ -20,6 +21,7 @@
 				<li class="option"><a href="#Reciclare">De ce sa reciclam?</a></li>
 				<li class="option"><a href="#Situatia">Situatia din zona ta</a></li>
 				<li class="option"><a href="#Problema">Anunta o problema</a></li>
+				<button onclick="document.getElementById('id01').style.display='block'" style="width:auto; ">Login</button>
 			</ul>
 	</nav>
 	<div class="text">
@@ -32,7 +34,23 @@
 			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam architecto veritatis ducimus corrupti quaerat repudiandae nesciunt repellat sint earum magnam doloribus nam dolorum porro labore omnis fugit ea, iure provident!</p>
 	</div>
 </div>
+<div id = "id01" class = "modal">
+    <form class = "modal-content animate">
+        <div class = "container">
+            <label for="username"><b>Username</b></label>
+            <input type="text" name="username" placeholder="Enter Username" required>
+            <label for="password"><b>Password</b></label>
+            <input name = "password" type = "password" placeholder="Enter Password" required>
+            <button type="submit">Login</button>
+        
+        </div>
+        <div class = "container">
+            <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancel">Cancel</button>
+            <span class="fpswd"><a href ="#">Forgot password?</a></span>
 
+        </div>
+    </form>
+</div>
 <!--Page2-->
 <div class="section" id="Reciclare">
 	<div class="text">
