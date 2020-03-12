@@ -1,19 +1,19 @@
     form { 
     border: 3px solid #969696; 
     width: 50%;
+    margin: auto;
     } 
 
     input[type=text], 
     input[type=password] { 
-        width: 100%; 
+        width: 50%; 
         padding: 12px 20px; 
-        margin: 8px 0; 
-        display: inline-block; 
+        margin: auto; 
+        display: block; 
         border: 1px solid rgb(158, 158, 158); 
         box-sizing: border-box; 
-
     } 
-
+    
     button{
         background-color: forestgreen;
         color: ghostwhite;
@@ -53,7 +53,7 @@
         background-color: #d6d6d6;
         margin: 5% auto 15% auto;
         border: 1px solid #888;
-        width: 80%;
+        width: 30%;
     }
     .close{
         position: absolute;
