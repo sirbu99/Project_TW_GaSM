@@ -22,15 +22,17 @@
 	<nav class="navbar">
 		<ul class="menu-options">
 			<li class="option"><a href="#Profil" class="navbarlink">Profilul tau</a></li>
-			<li class="option"><a href="#Reciclare" class="navbarlink">De ce sa reciclam?</a></li>
+			<li class="option"><a href="#Reciclare" class="navbarlink">De ce sa
+					reciclam?</a></li>
 			<li class="option"><a href="#Situatia" class="navbarlink">Situatia din zona ta</a></li>
 			<li class="option"><a class="navbarlink"
 					onclick="document.getElementById('id03').style.display='block'">Anunta o problema</a></li>
-			<button onclick="document.getElementById('id01').style.display='block'" style="width:auto; ">Login</button>
+			<button onclick="document.getElementById('id01').style.display='block'" style="width:auto; " class = "navbutton">Login</button>
 			<button onclick="document.getElementById('id02').style.display='block'"
-				style="width:auto; ">Register</button>
+				style="width:auto; " class = "navbutton">Register</button>
 		</ul>
 	</nav>
+
 	<div id="id03" class="modal">
 		<form class="modal-content animate">
 			<div class="container">
@@ -53,7 +55,7 @@
 				<input name="password" type="password" placeholder="Enter Password" required>
 				<label for="rpassword"><b>Retype Password</b></label>
 				<input name="rpassword" type="password" placeholder="Enter Password Again" required>
-				<button type="submit">SignUp</button>
+				<button type="submit" class = "navbutton">SignUp</button>
 
 			</div>
 			<div class="container">
@@ -69,7 +71,7 @@
 				<input type="text" name="username" placeholder="Enter Username" required>
 				<label for="password"><b>Password</b></label>
 				<input name="password" type="password" placeholder="Enter Password" required>
-				<button type="submit">Login</button>
+				<button type="submit" class = "navbutton">Login</button>
 
 			</div>
 			<div class="container">
@@ -84,26 +86,14 @@
 	<!--Page1-->
 	<section id="Profil">
 
-		<div class="text">
-			<h2>Bine ai revenit "numele persoanei"!</h2>
-			<p>Informatii despre utilizator avscyavcjasvbcasbkjabkjcfbaskfak</p>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam architecto veritatis ducimus corrupti
-				quaerat repudiandae nesciunt repellat sint earum magnam doloribus nam dolorum porro labore omnis fugit
-				ea, iure provident!</p>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam architecto veritatis ducimus corrupti
-				quaerat repudiandae nesciunt repellat sint earum magnam doloribus nam dolorum porro labore omnis fugit
-				ea, iure provident!</p>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam architecto veritatis ducimus corrupti
-				quaerat repudiandae nesciunt repellat sint earum magnam doloribus nam dolorum porro labore omnis fugit
-				ea, iure provident!</p>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam architecto veritatis ducimus corrupti
-				quaerat repudiandae nesciunt repellat sint earum magnam doloribus nam dolorum porro labore omnis fugit
-				ea, iure provident!</p>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam architecto veritatis ducimus corrupti
-				quaerat repudiandae nesciunt repellat sint earum magnam doloribus nam dolorum porro labore omnis fugit
-				ea, iure provident!</p>
-		</div>
-		</div>
+		<div class="card">
+			<img src="avatar.png" alt="Default" style="width:100%">
+			<h1>Generic Name</h1>
+			<p class="usertitle">Citizen</p>
+			<p>Region</p>
+			<p>Some info about the dude</p>
+			<p><button class = "navbutton">See Profile</button></p>
+		  </div>
 	</section>
 
 	<!--Page2-->
@@ -127,29 +117,30 @@
 	</section>
 
 	<!--Page4-->
-		<!--Create a piechart of how much garbage has been collected (requires internet)-->
+	<!--Create a piechart of how much garbage has been collected (requires internet)-->
+	<script src="https://kit.fontawesome.com/342e71a7d6.js" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 	<script type="text/javascript">
 		// Load google charts
-		google.charts.load('current', {'packages':['corechart']});
+		google.charts.load('current', { 'packages': ['corechart'] });
 		google.charts.setOnLoadCallback(drawChart);
-		
+
 		// Draw the chart and set the chart values
 		function drawChart() {
-		  var data = google.visualization.arrayToDataTable([
-		  ['Tip', 'Kilograme de'],
-		  ['Plastic', 800],
-		  ['Metal', 1200],
-		  ['Hârtie', 300],
-		  ['Deșeu Menajer', 500],
-		]);
-		
-		  var options = {'title':'Collected Garbage', 'width':550, 'height':400};
-		
-		  var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-		  chart.draw(data, options);
+			var data = google.visualization.arrayToDataTable([
+				['Tip', 'Kilograme de'],
+				['Plastic', 800],
+				['Metal', 1200],
+				['Hârtie', 300],
+				['Deșeu Menajer', 500],
+			]);
+
+			var options = { 'title': 'Collected Garbage', 'width': 550, 'height': 400 };
+
+			var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+			chart.draw(data, options);
 		}
-		</script>
+	</script>
 	<footer>
 		<div class="authors">
 			Iuliana Holban & Simona Sîrbu & Constantin Suruniuc

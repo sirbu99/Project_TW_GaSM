@@ -6,8 +6,32 @@ body{
   color:black;
 }
 
+body::-webkit-scrollbar{
+  width: 0.25rem;
+}
+
+body::-webkit-scrollbar-track{
+  background-color: darkgray;
+}
+
+body::-webkit-scrollbar-thumb{
+  background-color: chartreuse;
+}
+
 .navbar{
   z-index: 10;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: 2rem;
+  text-align: center;
+}
+
+.usertitle {
+  color: grey;
+  font-size: 1.5rem;
 }
 
 .menu-options, .option {
@@ -26,6 +50,7 @@ body{
 }
 .option{
   float: left;
+  transition: 200ms;
 }
 
 .navbarlink{
@@ -36,11 +61,10 @@ body{
   text-decoration: none;
   cursor: pointer;
 }
-.navbarlink:hover{
-  background-color: rgb(65, 224, 33);
-}
+
 .option:hover{
   transform: scale(1.1);
+  transition: 200ms;
 }
 
 .menu-options{
