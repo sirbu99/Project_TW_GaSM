@@ -12,13 +12,18 @@ ul {
 .menu-options, .option {
   display: flex;
   flex-direction: row;
+  justify-content: space-around;
   height: auto;
   margin: 8px;
   background-color:green;
-  margin-top:7px;
   width:100%;
+  padding: 5px;
+  overflow: hidden;
   color:black;
+}
 
+.menu-options .option:hover{
+  transform: scale(1.1);
 }
 .menu-list {
   border-bottom:2px solid black;
@@ -29,31 +34,38 @@ ul {
   padding:15px;
   text-align:center;
 }
-.section {
+section {
   height: 100vh;
   margin-top: 60px;
   overflow: hidden;
   margin: auto;
-  position: relative;
+  position: 
 }
 .text{
-  }
+  display: block;
+}
+
+nav{
+  position: sticky;
+  top:5px;
+  width: 100%;
+
+}
 .authors{
   width: 100vw;
-  position: absolute;
-  bottom: 0px;
   background-color:green;
   text-align:center;
   padding:10px;
   margin-top:7px;
 }
 #Situaita, #Problema, #Reciclare, #Profil {
-  height: 100vh;
+  height:auto;
   } 
 
 @media only screen and (max-width:620px) {
   /* For mobile phones: */
-  .menu, .main, .right {
-    width:100%;
+  .menu-options .option{
+    display: flex;
+    flex-direction: column;
   }
 }

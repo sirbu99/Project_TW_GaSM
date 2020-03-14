@@ -4,11 +4,12 @@
     } 
 
     input[type=text], 
-    input[type=password] { 
+    input[type=password],
+    input[type=email] { 
         width: 100%; 
         padding: 12px 20px; 
         margin: 8px 0; 
-        display: inline-block; 
+        display: block; 
         border: 1px solid rgb(158, 158, 158); 
         box-sizing: border-box; 
 
@@ -53,7 +54,7 @@
         background-color: #d6d6d6;
         margin: 5% auto 15% auto;
         border: 1px solid #888;
-        width: 80%;
+        width: 50%;
     }
     .close{
         position: absolute;
