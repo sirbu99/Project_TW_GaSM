@@ -19,7 +19,7 @@
 	</header>
 
 	<!--Menu-->
-	<nav id="navbar">
+	<nav class="navbar">
 		<ul class="menu-options">
 			<li class="option"><a href="#Profil" class="navbarlink">Profilul tau</a></li>
 			<li class="option"><a href="#Reciclare" class="navbarlink">De ce sa reciclam?</a></li>
@@ -127,6 +127,7 @@
 	</section>
 
 	<!--Page4-->
+		<!--Create a piechart of how much garbage has been collected (requires internet)-->
 	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 	<script type="text/javascript">
 		// Load google charts
@@ -136,11 +137,11 @@
 		// Draw the chart and set the chart values
 		function drawChart() {
 		  var data = google.visualization.arrayToDataTable([
-		  ['Type', 'KGs of'],
+		  ['Tip', 'Kilograme de'],
 		  ['Plastic', 800],
 		  ['Metal', 1200],
-		  ['Paper', 300],
-		  ['Bio Waste', 500],
+		  ['Hârtie', 300],
+		  ['Deșeu Menajer', 500],
 		]);
 		
 		  var options = {'title':'Collected Garbage', 'width':550, 'height':400};
@@ -151,7 +152,7 @@
 		</script>
 	<footer>
 		<div class="authors">
-			Iuliana Holban & Simona Sirbu & Constantin Suruniuc
+			Iuliana Holban & Simona Sîrbu & Constantin Suruniuc
 		</div>
 	</footer>
 
