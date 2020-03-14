@@ -21,21 +21,34 @@
 	<!--Menu-->
 	<nav id="navbar">
 		<ul class="menu-options">
-			<li class="option"><a href="#Profil" class = "navbarlink">Profilul tau</a></li>
-			<li class="option"><a href="#Reciclare" class = "navbarlink">De ce sa reciclam?</a></li>
-			<li class="option"><a href="#Situatia" class = "navbarlink">Situatia din zona ta</a></li>
-			<li class="option"><a href="#Problema" class = "navbarlink">Anunta o problema</a></li>
+			<li class="option"><a href="#Profil" class="navbarlink">Profilul tau</a></li>
+			<li class="option"><a href="#Reciclare" class="navbarlink">De ce sa reciclam?</a></li>
+			<li class="option"><a href="#Situatia" class="navbarlink">Situatia din zona ta</a></li>
+			<li class="option"><a class="navbarlink"
+					onclick="document.getElementById('id03').style.display='block'">Anunta o problema</a></li>
 			<button onclick="document.getElementById('id01').style.display='block'" style="width:auto; ">Login</button>
-			<button onclick="document.getElementById('id02').style.display='block'" style="width:auto; ">Register</button>
+			<button onclick="document.getElementById('id02').style.display='block'"
+				style="width:auto; ">Register</button>
 		</ul>
 	</nav>
+	<div id="id03" class="modal">
+		<form class="modal-content animate">
+			<div class="container">
+				<p><b>Add form for issue reporting</b></p>
+			</div>
+			<div class="container">
+				<button type="button" onclick="document.getElementById('id03').style.display='none'"
+					class="cancel">Cancel</button>
+			</div>
+		</form>
+	</div>
 	<div id="id02" class="modal">
 		<form class="modal-content animate">
 			<div class="container">
 				<label for="username"><b>Username</b></label>
 				<input type="text" name="username" placeholder="Enter Username" required>
 				<label for="email"><b>Email</b></label>
-				<input type="email" name ="email" placeholder="Enter Email" required>
+				<input type="email" name="email" placeholder="Enter Email" required>
 				<label for="password"><b>Password</b></label>
 				<input name="password" type="password" placeholder="Enter Password" required>
 				<label for="rpassword"><b>Retype Password</b></label>
@@ -108,17 +121,34 @@
 			<h2>Felicitari! / Se poate si mai bine! </h2>
 			<p>In zona ta se recicleaza in procent de 87%, felicitari!</p>
 		</div>
+		<div id="piechart">
 
-	</section>
-
-	<!--Page4-->
-	<section id="Problema">
-		<div class="text">
-			<h2>Daca ai observat vreo problema, te rugam sa ne anunti!</h2>
-			<p>Aici ar trebui un formular de report problem</p>
 		</div>
 	</section>
 
+	<!--Page4-->
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	<script type="text/javascript">
+		// Load google charts
+		google.charts.load('current', {'packages':['corechart']});
+		google.charts.setOnLoadCallback(drawChart);
+		
+		// Draw the chart and set the chart values
+		function drawChart() {
+		  var data = google.visualization.arrayToDataTable([
+		  ['Type', 'KGs of'],
+		  ['Plastic', 800],
+		  ['Metal', 1200],
+		  ['Paper', 300],
+		  ['Bio Waste', 500],
+		]);
+		
+		  var options = {'title':'Collected Garbage', 'width':550, 'height':400};
+		
+		  var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+		  chart.draw(data, options);
+		}
+		</script>
 	<footer>
 		<div class="authors">
 			Iuliana Holban & Simona Sirbu & Constantin Suruniuc
