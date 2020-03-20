@@ -22,25 +22,75 @@
 	<nav class="navbar">
 		<ul class="menu-options">
 			<li class="option"><a href="#Profil" class="navbarlink">Profilul tau</a></li>
-			<li class="option"><a href="#Reciclare" class="navbarlink">De ce sa
-					reciclam?</a></li>
+			<li class="option"><a href="#Reciclare" class="navbarlink">De ce sa reciclam?</a></li>
 			<li class="option"><a href="#Situatia" class="navbarlink">Situatia din zona ta</a></li>
 			<li class="option"><a class="navbarlink"
 					onclick="document.getElementById('id03').style.display='block'">Anunta o problema</a></li>
 			<button onclick="document.getElementById('id01').style.display='block'" style="width:auto; " class = "navbutton">Login</button>
-			<button onclick="document.getElementById('id02').style.display='block'"
-				style="width:auto; " class = "navbutton">Register</button>
+			<button onclick="document.getElementById('id02').style.display='block'" style="width:auto; " class = "navbutton">Register</button>
 		</ul>
 	</nav>
 
 	<div id="id03" class="modal">
 		<form class="modal-content animate">
 			<div class="container">
-				<p><b>Add form for issue reporting</b></p>
-			</div>
-			<div class="container">
-				<button type="button" onclick="document.getElementById('id03').style.display='none'"
-					class="cancel">Cancel</button>
+				<form action="ceva.php"></form>
+				<!-- alege o forma de problema -->
+					<label for="typeIssue">Alege tipul de problema pe care o ai:</label> <br>
+  					<select id="issues" name="issues">
+    					<option value="deseuri">Prea multe deseuri!</option>
+    					<option value="nereciclare">Nu s-a reciclat corespunzator!</option>
+					</select> <br><br>
+				<!-- alege strada unde ai vazut asta -->
+					<label for="place">Alege blocul langa care ai sesizat problema:</label> <br>
+				    <select id="place" name="place">
+						<option>Bulevard Iorga Nicolae</option>	
+						<option>Bulevard Mangeron</option>
+						<option>Dimitrie, prof. dr. doc.</option>
+						<option>Bulevard Metalurgiei</option>
+						<option>Bulevard Poitiers</option>
+						<option>Bulevard Primaverii	</option>
+						<option>Bulevard Rosetti C. A.</option>
+						<option>Bulevard Socola</option>
+						<option>Bulevard Stefan cel Mare si Sfant</option>
+						<option>Bulevard Tutora</option>
+						<option>Bulevard Dacia</option>	
+						<option>Bulevard Dimitrie</option>
+						<option>Cantemir</option>	
+						<option>Bulevard Independentei</option>
+						<option>Piata Garii	</option>
+						<option>Piata Halei	</option>
+						<option>Piata Natiunii</option>
+						<option>Piata Stefan cel Mare si Sfant</option>
+						<option>Piata Unirii</option>
+						<option>Piata Voievozilor</option>
+						<option>Platou Abator</option>
+						<option>Sosea Albinet</option>
+						<option>Sosea Arcu</option>
+						<option>Sosea Barnova</option>
+						<option>Sosea Bucium</option>	
+						<option>Sosea Carlig</option>
+						<option>Strada Buridava	
+						<option>Strada Busuioc</option>	
+						<option>Strada Butnari</option>
+						<option>Strada Buzescu</option>	
+						<option>Strada Buznea</option>	
+						<option>Strada Calafat</option>
+						<option>Strada Calarasi</option>
+						<option>Strada Calugareni</option>	
+						<option>Strada Canta</option>
+						<option>Stradela Manta Rosie</option>	
+						<option>Stradela Mironescu I. I.</option>	
+						<option>Stradela Mizil</option>
+						<option>Stradela Moara de Vant</option>	
+						<option>Stradela Nicorita</option>	
+						<option>Stradela Pacureti</option>
+					</select> <br><br>
+				  <input type="submit">
+				</form>
+					<div>
+						<button type="button" onclick="document.getElementById('id03').style.display='none'"  class="button-cancel">Cancel</button>
+					</div>
 			</div>
 		</form>
 	</div>
@@ -102,7 +152,6 @@
 			<h2>Bine ai venit pe pagina noastra!</h2>
 			<p>Multumim ca sustii si incurajezi reciclarea! Aceasta este singura solutie pentru a ne salva planeta!</p>
 		</div>
-
 	</section>
 
 	<!--Page3-->
@@ -112,11 +161,7 @@
 			<p>In zona ta se recicleaza in procent de 87%, felicitari!</p>
 		</div>
 		<div id="piechart">
-
 		</div>
-	</section>
-
-	<!--Page4-->
 	<!--Create a piechart of how much garbage has been collected (requires internet)-->
 	<script src="https://kit.fontawesome.com/342e71a7d6.js" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -141,6 +186,8 @@
 			chart.draw(data, options);
 		}
 	</script>
+	</section>
+	
 	<footer>
 		<div class="authors">
 			Iuliana Holban & Simona Sîrbu & Constantin Suruniuc

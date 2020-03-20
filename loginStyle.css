@@ -1,94 +1,134 @@
-    form { 
+form { 
     border: 3px solid #969696; 
     width: 50%;
-    } 
+} 
 
-    input[type=text], 
-    input[type=password],
-    input[type=email] { 
-        width: 100%; 
-        padding: 12px 20px; 
-        margin: 8px 0; 
-        display: block; 
-        border: 1px solid rgb(158, 158, 158); 
-        box-sizing: border-box; 
+input[type=text], input[type=password],input[type=email] { 
+    width: 100%; 
+    padding: 12px 20px; 
+    margin: 8px 0; 
+    display: block; 
+    border: 1px solid rgb(158, 158, 158); 
+    box-sizing: border-box; 
 
-    } 
+} 
 
-    .navbutton, .cancel{
-        background-color: forestgreen;
-        color: ghostwhite;
-        padding: 12px 16px;
-        cursor: pointer;
-        width: 100%;
-        border: none;
-        margin: 10px 0;
-    }
+.navbutton, .cancel{
+    background-color: forestgreen;
+    color: ghostwhite;
+    padding: 12px 16px;
+    cursor: pointer;
+    width: 100%;
+    border: none;
+    margin: 10px 0;
+}
 
-    button:hover{
-        opacity: 0.8;
+button:hover{
+    opacity: 0.8;
+}
+.cancel {
+    width: auto;
+    padding: 10px 18 px;
+    background-color: rgb(196, 58, 58);
+}
+span.fpswd{
+    float: right;
+    padding-top: 14px;
+}
+
+.modal{
+    display: none;
+    position: fixed;
+    z-index: 20;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+
+}
+
+.modal-content{
+    background-color: #d6d6d6;
+    margin: 5% auto 15% auto;
+    border: 25px;
+    width: 30%;
+}
+
+/* stilizare form pentru report */
+select{
+    width: 100%;
+    padding: 16px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #f1f1f1;
+  }
+  
+/* stilizare buton submit pentru formular report */
+input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/*stilizare button cancel din formular report*/
+.button-cancel{
+    width: 100%;
+    background-color: red;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #3e8e41;
+  }
+
+.button-cancel:hover{
+    background-color: rgba(255, 0, 0, 0.836);
+}
+
+.close{
+    position: absolute;
+    right: 25%;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+}
+.close:hover,.close:focus{
+    color:red;
+    cursor:pointer;
+}
+.animate{
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s;
+}
+@-webkit-keyframes animatezoom{
+    from{
+        -webkit-transform: scale(0);
     }
-    .cancel {
-        width: auto;
-        padding: 10px 18 px;
-        background-color: rgb(196, 58, 58);
+    to{
+        -webkit-transform: scale(1);
     }
-    span.fpswd{
-        float: right;
-        padding-top: 14px;
+}
+@keyframes animatezoom{
+    from{
+        transform: scale(0);
     }
-    .modal{
-        display: none;
-        position: fixed;
-        z-index: 20;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        background-color: rgb(0, 0, 0);
-        background-color: rgba(0, 0, 0, 0.4);
-        padding-top: 60px;
+    to{
+        transform: scale(1);
     }
-    .modal-content{
-        background-color: #d6d6d6;
-        margin: 5% auto 15% auto;
-        border: 1px solid #888;
-        width: 50%;
-    }
-    .close{
-        position: absolute;
-        right: 25%;
-        top: 0;
-        color: #000;
-        font-size: 35px;
-        font-weight: bold;
-    }
-    .close:hover,
-    .close:focus{
-        color:red;
-        cursor:pointer;
-    }
-    .animate{
-        -webkit-animation: animatezoom 0.6s;
-        animation: animatezoom 0.6s;
-    }
-    @-webkit-keyframes animatezoom{
-        from{
-            -webkit-transform: scale(0);
-        }
-        to{
-            -webkit-transform: scale(1);
-        }
-    }
-    @keyframes animatezoom{
-        from{
-            transform: scale(0);
-        }
-        to{
-            transform: scale(1);
-        }
-    }
-    .inputcontainer{
-    padding: 16px;
-    }
+}
+.inputcontainer{
+padding: 20px;
+}
