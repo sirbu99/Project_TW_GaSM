@@ -1,24 +1,15 @@
 <!DOCTYPE html>
 <html>
-
 <head>
 	<!-- make page responsive-->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="style.css">
 	<link rel="stylesheet" href="loginStyle.css">
-	<title>Recileaza</title>
-
+	<title>TW</title>
 </head>
 
 <body>
-
-	<header>
-		<div class="welcome-message">
-			<h1>Recicleaza!</h1>
-		</div>
-	</header>
-
-	<!--Menu-->
+<!--Menu-->
 	<nav class="navbar">
 		<ul class="menu-options">
 			<li class="option"><a href="#Profil" class="navbarlink">Profilul tau</a></li>
@@ -30,70 +21,7 @@
 			<button onclick="document.getElementById('id02').style.display='block'" style="width:auto; " class = "navbutton">Register</button>
 		</ul>
 	</nav>
-
-	<div id="id03" class="modal">
-		<form class="modal-content animate">
-			<div class="container">
-				<form action="ceva.php"></form>
-				<!-- alege o forma de problema -->
-					<label for="typeIssue">Alege tipul de problema pe care o ai:</label> <br>
-  					<select id="issues" name="issues">
-    					<option value="deseuri">Prea multe deseuri!</option>
-    					<option value="nereciclare">Nu s-a reciclat corespunzator!</option>
-					</select> <br><br>
-				<!-- alege strada unde ai vazut asta -->
-					<label for="place">Alege blocul langa care ai sesizat problema:</label> <br>
-				    <select id="place" name="place">
-						<option>Bulevard Iorga Nicolae</option>	
-						<option>Bulevard Mangeron</option>
-						<option>Dimitrie, prof. dr. doc.</option>
-						<option>Bulevard Metalurgiei</option>
-						<option>Bulevard Poitiers</option>
-						<option>Bulevard Primaverii	</option>
-						<option>Bulevard Rosetti C. A.</option>
-						<option>Bulevard Socola</option>
-						<option>Bulevard Stefan cel Mare si Sfant</option>
-						<option>Bulevard Tutora</option>
-						<option>Bulevard Dacia</option>	
-						<option>Bulevard Dimitrie</option>
-						<option>Cantemir</option>	
-						<option>Bulevard Independentei</option>
-						<option>Piata Garii	</option>
-						<option>Piata Halei	</option>
-						<option>Piata Natiunii</option>
-						<option>Piata Stefan cel Mare si Sfant</option>
-						<option>Piata Unirii</option>
-						<option>Piata Voievozilor</option>
-						<option>Platou Abator</option>
-						<option>Sosea Albinet</option>
-						<option>Sosea Arcu</option>
-						<option>Sosea Barnova</option>
-						<option>Sosea Bucium</option>	
-						<option>Sosea Carlig</option>
-						<option>Strada Buridava	
-						<option>Strada Busuioc</option>	
-						<option>Strada Butnari</option>
-						<option>Strada Buzescu</option>	
-						<option>Strada Buznea</option>	
-						<option>Strada Calafat</option>
-						<option>Strada Calarasi</option>
-						<option>Strada Calugareni</option>	
-						<option>Strada Canta</option>
-						<option>Stradela Manta Rosie</option>	
-						<option>Stradela Mironescu I. I.</option>	
-						<option>Stradela Mizil</option>
-						<option>Stradela Moara de Vant</option>	
-						<option>Stradela Nicorita</option>	
-						<option>Stradela Pacureti</option>
-					</select> <br><br>
-				  <input type="submit">
-				</form>
-					<div>
-						<button type="button" onclick="document.getElementById('id03').style.display='none'"  class="button-cancel">Cancel</button>
-					</div>
-			</div>
-		</form>
-	</div>
+<!-- FORM REGISTER -->
 	<div id="id02" class="modal">
 		<form class="modal-content animate">
 			<div class="container">
@@ -106,14 +34,12 @@
 				<label for="rpassword"><b>Retype Password</b></label>
 				<input name="rpassword" type="password" placeholder="Enter Password Again" required>
 				<button type="submit" class = "navbutton">SignUp</button>
-
-			</div>
-			<div class="container">
 				<button type="button" onclick="document.getElementById('id02').style.display='none'"
-					class="cancel">Cancel</button>
+					class="button-cancel">Cancel</button>
 			</div>
 		</form>
 	</div>
+<!-- FORM LOG IN -->
 	<div id="id01" class="modal">
 		<form class="modal-content animate">
 			<div class="container">
@@ -122,20 +48,13 @@
 				<label for="password"><b>Password</b></label>
 				<input name="password" type="password" placeholder="Enter Password" required>
 				<button type="submit" class = "navbutton">Login</button>
-
-			</div>
-			<div class="container">
-				<button type="button" onclick="document.getElementById('id01').style.display='none'"
-					class="cancel">Cancel</button>
+				<button type="button" onclick="document.getElementById('id01').style.display='none'"class="button-cancel">Cancel</button>
 				<span class="fpswd"><a href="#">Forgot password?</a></span>
-
-
 			</div>
 		</form>
 	</div>
-	<!--Page1-->
+<!-- PROFILE -->
 	<section id="Profil">
-
 		<div class="card">
 			<img src="avatar.png" alt="Default" style="width:100%">
 			<h1>Generic Name</h1>
@@ -145,16 +64,14 @@
 			<p><button class = "navbutton">See Profile</button></p>
 		  </div>
 	</section>
-
-	<!--Page2-->
+<!-- WHY TO RECYCLE -->
 	<section id="Reciclare">
 		<div class="text">
 			<h2>Bine ai venit pe pagina noastra!</h2>
 			<p>Multumim ca sustii si incurajezi reciclarea! Aceasta este singura solutie pentru a ne salva planeta!</p>
 		</div>
 	</section>
-
-	<!--Page3-->
+<!-- YOUR SITUATION -->
 	<section id="Situatia">
 		<div class="text">
 			<h2>Felicitari! / Se poate si mai bine! </h2>
@@ -179,21 +96,79 @@
 				['Hârtie', 300],
 				['Deșeu Menajer', 500],
 			]);
-
 			var options = { 'title': 'Collected Garbage', 'width': 550, 'height': 400 };
-
 			var chart = new google.visualization.PieChart(document.getElementById('piechart'));
 			chart.draw(data, options);
 		}
 	</script>
 	</section>
-	
+<!-- ISSUE	-->
+<div id="id03" class="modal">
+	<form class="modal-content animate">
+		<div class="container">
+			<form action="ceva.php"></form>
+			<!-- choose a type of problem -->
+				<label for="typeIssue">Alege tipul de problema pe care o ai:</label> <br>
+					<select id="issues" name="issues">
+						<option value="deseuri">Prea multe deseuri!</option>
+						<option value="nereciclare">Nu s-a reciclat corespunzator!</option>
+				</select> <br><br>
+			<!-- choose tha street -->
+				<label for="place">Alege blocul langa care ai sesizat problema:</label> <br>
+					<select id="place" name="place">
+					<option>Bulevard Iorga Nicolae</option>	
+					<option>Bulevard Mangeron</option>
+					<option>Dimitrie, prof. dr. doc.</option>
+					<option>Bulevard Metalurgiei</option>
+					<option>Bulevard Poitiers</option>
+					<option>Bulevard Primaverii	</option>
+					<option>Bulevard Rosetti C. A.</option>
+					<option>Bulevard Socola</option>
+					<option>Bulevard Stefan cel Mare si Sfant</option>
+					<option>Bulevard Tutora</option>
+					<option>Bulevard Dacia</option>	
+					<option>Bulevard Dimitrie</option>
+					<option>Cantemir</option>	
+					<option>Bulevard Independentei</option>
+					<option>Piata Garii	</option>
+					<option>Piata Halei	</option>
+					<option>Piata Natiunii</option>
+					<option>Piata Stefan cel Mare si Sfant</option>
+					<option>Piata Unirii</option>
+					<option>Piata Voievozilor</option>
+					<option>Platou Abator</option>
+					<option>Sosea Albinet</option>
+					<option>Sosea Arcu</option>
+					<option>Sosea Barnova</option>
+					<option>Sosea Bucium</option>	
+					<option>Sosea Carlig</option>
+					<option>Strada Buridava	
+					<option>Strada Busuioc</option>	
+					<option>Strada Butnari</option>
+					<option>Strada Buzescu</option>	
+					<option>Strada Buznea</option>	
+					<option>Strada Calafat</option>
+					<option>Strada Calarasi</option>
+					<option>Strada Calugareni</option>	
+					<option>Strada Canta</option>
+					<option>Stradela Manta Rosie</option>	
+					<option>Stradela Mironescu I. I.</option>	
+					<option>Stradela Mizil</option>
+					<option>Stradela Moara de Vant</option>	
+					<option>Stradela Nicorita</option>	
+					<option>Stradela Pacureti</option>
+				</select> <br><br>
+				<input type="submit">
+				<button type="button" onclick="document.getElementById('id03').style.display='none'"  class="button-cancel">Cancel</button>
+			</form>
+		</div>
+	</form>
+</div>
+<!-- FOOTER -->
 	<footer>
 		<div class="authors">
 			Iuliana Holban & Simona Sîrbu & Constantin Suruniuc
 		</div>
 	</footer>
-
 </body>
-
 </html>

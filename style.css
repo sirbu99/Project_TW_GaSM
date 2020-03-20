@@ -1,40 +1,22 @@
 * {
   box-sizing: border-box;
+  text-align: center;
 }
 body{
   font-family:Verdana;
   color:black;
   margin:0;
 }
-
-body::-webkit-scrollbar{
-  width: 0.25rem;
-}
-
-body::-webkit-scrollbar-track{
-  background-color: darkgray;
-}
-
-body::-webkit-scrollbar-thumb{
-  background-color: chartreuse;
-}
-
-.navbar{
-  z-index: 10;
-}
-
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   max-width: 300px;
   margin: 2rem;
   text-align: center;
 }
-
 .usertitle {
   color: grey;
   font-size: 1.5rem;
 }
-
 .menu-options, .option {
   list-style-type: none;
   display: flex;
@@ -49,12 +31,10 @@ body::-webkit-scrollbar-thumb{
   color:black;
   z-index: 1;
 }
-
 .option{
   float: left;
   transition: 200ms;
 }
-
 .navbarlink{
   display: block;
   color: white;
@@ -63,12 +43,10 @@ body::-webkit-scrollbar-thumb{
   text-decoration: none;
   cursor: pointer;
 }
-
 .option:hover{
   transform: scale(1.1);
   transition: 200ms;
 }
-
 .menu-options{
   list-style-type: none;
   margin: 0;
@@ -89,40 +67,22 @@ section {
 .text{
   display: block;
 }
-
 nav{
   position: sticky;
-  top:0.1em;
+  top:0em;
   width: 100%;
-
 }
-.authors{
-  width: 100vw;
-  background-color:green;
-  text-align:center;
-  padding:2%;
-}
-#Situatia{
-  background-image: url(./images/copac.jpeg);
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-  color:white;
-
-}
-#Situaita, #Problema, #Reciclare, #Profil {
+#Situatia, #Problema, #Reciclare, #Profil {
   height:auto;
   background-image: url(./images/copac.jpeg);
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
   color:white;
-  } 
-
-@media only screen and (max-width:620px) {
-  /* For mobile phones: */
-  .menu-options .option{
-    display: flex;
-    flex-direction: column;
-  }
+} 
+.authors{
+  background-color:green;
+  color:white;
+  text-align:center;
+  padding: 3px;
 }
