@@ -7,43 +7,36 @@
 	<link rel="stylesheet" href="style.css">
 	<link rel="stylesheet" href="loginStyle.css">
 	<title>Recileaza</title>
-
 </head>
 
 <body>
-
-	<header>
-		<div class="welcome-message">
-			<h1>Recicleaza!</h1>
-		</div>
-	</header>
-
 	<!--Menu-->
 	<nav class="navbar">
 		<ul class="menu-options">
 			<li class="option"><a href="#Profil" class="navbarlink">Profilul tau</a></li>
-			<li class="option"><a href="#Reciclare" class="navbarlink">De ce sa
-					reciclam?</a></li>
+			<li class="option"><a href="#Reciclare" class="navbarlink">De ce sa reciclam?</a></li>
 			<li class="option"><a href="#Situatia" class="navbarlink">Situatia din zona ta</a></li>
-			<li class="option"><a class="navbarlink"
-					onclick="document.getElementById('id03').style.display='block'">Anunta o problema</a></li>
-			<button onclick="document.getElementById('id01').style.display='block'" style="width:auto; " class = "navbutton">Login</button>
-			<button onclick="document.getElementById('id02').style.display='block'"
-				style="width:auto; " class = "navbutton">Register</button>
+			<li class="option"><a class="navbarlink" onclick="document.getElementById('id03').style.display='block'">Anunta o problema</a></li>
+			<button onclick="document.getElementById('id01').style.display='block'" style="width:auto; " class="navbutton">Login</button>
+			<button onclick="document.getElementById('id02').style.display='block'" style="width:auto; " class="navbutton">Register</button>
 		</ul>
 	</nav>
 
-	<div id="id03" class="modal">
+	<div id="id01" class="modal">
 		<form class="modal-content animate">
 			<div class="container">
-				<p><b>Add form for issue reporting</b></p>
-			</div>
-			<div class="container">
-				<button type="button" onclick="document.getElementById('id03').style.display='none'"
+				<label for="username"><b>Username</b></label>
+				<input type="text" name="username" placeholder="Enter Username" required>
+				<label for="password"><b>Password</b></label>
+				<input name="password" type="password" placeholder="Enter Password" required>
+				<button type="submit" class="navbutton">Login</button>
+				<button type="button" onclick="document.getElementById('id01').style.display='none'"
 					class="cancel">Cancel</button>
+				<span class="fpswd"><a href="#">Forgot password?</a></span>
 			</div>
 		</form>
 	</div>
+
 	<div id="id02" class="modal">
 		<form class="modal-content animate">
 			<div class="container">
@@ -55,45 +48,346 @@
 				<input name="password" type="password" placeholder="Enter Password" required>
 				<label for="rpassword"><b>Retype Password</b></label>
 				<input name="rpassword" type="password" placeholder="Enter Password Again" required>
-				<button type="submit" class = "navbutton">SignUp</button>
-
-			</div>
-			<div class="container">
-				<button type="button" onclick="document.getElementById('id02').style.display='none'"
-					class="cancel">Cancel</button>
+				<button type="submit" class="navbutton">SignUp</button>
+				<button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancel">Cancel</button>
 			</div>
 		</form>
 	</div>
-	<div id="id01" class="modal">
+
+	<div id="id03" class="modal">
 		<form class="modal-content animate">
 			<div class="container">
-				<label for="username"><b>Username</b></label>
-				<input type="text" name="username" placeholder="Enter Username" required>
-				<label for="password"><b>Password</b></label>
-				<input name="password" type="password" placeholder="Enter Password" required>
-				<button type="submit" class = "navbutton">Login</button>
-
-			</div>
-			<div class="container">
-				<button type="button" onclick="document.getElementById('id01').style.display='none'"
-					class="cancel">Cancel</button>
-				<span class="fpswd"><a href="#">Forgot password?</a></span>
-
-
+				<label for="formIssue">Te rugam sa alegi tipul de problema pe care ai intalnit-o!</label><br><br>
+				<select id="issue" name="issue">
+					<option>O cantitate prea mare de deseuri</option>
+					<option>Nu s-a reciclat corespunzator</option>
+				</select><br><br>
+				<label for="street">Te rugam sa alegi strada unde este problema</label><br><br>
+				<select id="street" name="street">
+						<option>Alee Alecsandri Vasile</option>
+						<option>Alee Alexa Gheorghe, prof. dr. ing.</option>
+						<option>Alee Alexa Gheorghe, prof. dr. ing.</option>
+						<option>Alee Atanasiu Dimitrie, prof. dr. ing.</option>
+						<option>Alee Basarabi</option>
+						<option>Alee Basota </option>
+						<option>Alee Bucium</option>
+						<option>Alee Cimitirul Evreiesc</option>
+						<option>Alee Columnei</option>
+						<option>Alee Copou</option>
+						<option>Alee Decebal</option>
+						<option>Alee Dumbrava Rosie</option>
+						<option>Alee Ghica Grigore Voda</option>
+						<option>Alee Gradinari</option>
+						<option>Alee Micle Veronica</option>
+						<option>Alee Mircea cel Batran</option>
+						<option>Alee Musatini</option>
+						<option>Alee Neculai Tudor</option>
+						<option>Alee Nicolina</option>
+						<option>Alee Oltea Doamna</option>
+						<option>Alee Pacurari</option>
+						<option>Alee Parcului</option>
+						<option>Alee Petrescu Vasile, prof. dr. doc.</option>
+						<option>Alee Plaiesilor</option>
+						<option>Alee Plopii fara Sot</option>
+						<option>Alee Poni Petru</option>
+						<option>Alee Procopiu Stefan</option>
+						<option>Alee Rozelor</option>
+						<option>Alee Sadoveanu Mihail</option>
+						<option>Alee Simionescu I. I.</option>
+						<option>Alee Spital Pascanu</option>
+						<option>Alee Strugurilor</option>
+						<option>Alee Sucidava</option>
+						<option>Alee Trandafirilor</option>
+						<option>Alee Uzinei Alee Vitejilor</option>
+						<option>Bulevard Alexandru cel Bun</option>
+						<option>Bulevard Carol</option>
+						<option>Bulevard Chimiei</option>
+						<option>Bulevard Dacia</option>
+						<option>Bulevard Dimitrie Cantemir</option>
+						<option>Bulevard Independentei</option>
+						<option>Bulevard Iorga Nicolae</option>
+						<option>Bulevard Mangeron Dimitrie, prof. dr. doc.</option>
+						<option>Bulevard Metalurgiei</option>
+						<option>Bulevard Poitiers</option>
+						<option>Bulevard Primaverii Bulevard Rosetti C. A.</option>
+						<option>Bulevard Socola</option>
+						<option>Bulevard Stefan cel Mare si Sfant</option>
+						<option>Bulevard Tutora</option>
+						<option>Bulevard Vladimirescu Tudor</option>
+						<option>Cale Chisinaului</option>
+						<option>Cale Galata</option>
+						<option>Fundac 40 Sfinti</option>
+						<option>Fundac Armeana</option>
+						<option>Fundac Aurora</option>
+						<option>Fundac Balusescu</option>
+						<option>Fundac Boiangiu</option>
+						<option>Fundac Bucium</option>
+						<option>Fundac Bucovinei</option>
+						<option>Fundac Calarasi</option>
+						<option>Fundac Caramidari</option>
+						<option>Fundac Catargi Lascar</option>
+						<option>Fundac Cocoarei</option>
+						<option>Fundac Codrescu Teodor</option>
+						<option>Piata Garii</option>
+						<option>Piata Halei Piata Natiunii</option>
+						<option>Piata Stefan cel Mare si Sfant</option>
+						<option>Piata Unirii</option>
+						<option>Piata Voievozilor</option>
+						<option>Platou Abator</option>
+						<option>Sosea Albinet</option>
+						<option>Sosea Arcu</option>
+						<option>Sosea Barnova</option>
+						<option>Sosea Bucium</option>
+						<option>Sosea Carlig</option>
+						<option>Sosea Galata</option>
+						<option>Sosea Iasi-Ciurea</option>
+						<option>Sosea Iasi-Tomesti</option>
+						<option>Sosea Manta Rosie</option>
+						<option>Sosea Moara de Foc</option>
+						<option>Sosea Nationala</option>
+						<option>Sosea Neculai Tudor</option>
+						<option>Sosea Nicolina</option>
+						<option>Sosea Pacurari</option>
+						<option>Sosea Rediu </option>
+						<option>Sosea Sararie</option>
+						<option>Sosea Stefan cel Mare si Sfant</option>
+						<option>Sosea Voinesti</option>
+						<option>Splai Bahlui Mal Drept</option>
+						<option>Splai Bahlui Mal Stang</option>
+						<option>Strada 14 Decembrie 1989</option>
+						<option>Strada Abrahamfi</option>
+						<option>Strada Adunati</option>
+						<option>Strada Aeroportului</option>
+						<option>Strada Alba</option>
+						<option>Strada Alba Iulia</option>
+						<option>Strada Albinelor</option>
+						<option>Strada Albinet</option>
+						<option>Strada Alecsandri Vasile</option>
+						<option>Strada Alexandrescu Emil</option>
+						<option>Strada Alexandru Lapusneanu</option>
+						<option>Strada Alistar</option>
+						<option>Strada Alunis</option>
+						<option>Strada Amurgului</option>
+						<option>Strada Beldiceanu Nicolae</option>
+						<option>Strada Belvedere</option>
+						<option>Strada Berindei Ioan, arh.</option>
+						<option>Strada Berthelot, g-ral</option>
+						<option>Strada Bistrita Strada Bogdan Voda</option>
+						<option>Strada Boiangiu Strada Borcea</option>
+						<option>Strada Botez Octav</option>
+						<option>Strada Bradetului</option>
+						<option>Strada Bradului </option>
+						<option>Strada Brandusa</option>
+						<option>Strada Brates</option>
+						<option>Strada Bratianu I.C.</option>
+						<option>Strada Bratului</option>
+						<option>Strada Breazu</option>
+						<option>Strada Brudea</option>
+						<option>Strada Bucium</option>
+						<option>Strada Bucovinei</option>
+						<option>Strada Bucur</option>
+						<option>Strada Bujor Paul</option>
+						<option>Strada Bularga</option>
+						<option>Strada Buna Vestire</option>
+						<option>Strada Burada Teodor</option>
+						<option>Strada Buridava</option>
+						<option>Strada Busuioc</option>
+						<option>Strada Butnari</option>
+						<option>Strada Buzescu</option>
+						<option>Strada Buznea</option>
+						<option>Strada Calafat</option>
+						<option>Strada Calarasi </option>
+						<option>Strada Calugareni</option>
+						<option>Strada Canta</option>
+						<option>Strada Cantacuzino Dumitrascu</option>
+						<option>Strada Cantacuzino G.M., arh.</option>
+						<option>Strada Caprelor</option>
+						<option>Strada Capsunilo</option>
+						<option>Strada Caragiale I. L.</option>
+						<option>Strada Caraiman</option>
+						<option>Strada Caraman Petru</option>
+						<option>Strada Caramidari</option>
+						<option>Strada Caranda, lt.</option>
+						<option>Strada Carlig</option>
+						<option>Strada Carpati</option>
+						<option>Strada Casin</option>
+						<option>Strada Fagului</option>
+						<option>Strada Fantanilor</option>
+						<option>Strada Fatu Anastasie</option>
+						<option>Strada Fericirii</option>
+						<option>Strada Fierbinte</option>
+						<option>Strada Flammarion Camile</option>
+						<option>Strada Florea</option>
+						<option>Strada Florilor</option>
+						<option>Strada Fluturilor</option>
+						<option>Strada Folescu Marchian</option>
+						<option>Strada Fragilor</option>
+						<option>Strada Franta</option>
+						<option>Strada Fratilor</option>
+						<option>Strada Friederick</option>
+						<option>Strada Frumoasa</option>
+						<option>Strada Frunzei</option>
+						<option>Strada Fulger</option>
+						<option>Strada Functionarilor</option>
+						<option>Strada Galateanu</option>
+						<option>Strada Galbeni</option>
+						<option>Strada Gandu</option>
+						<option>Strada Gane Nicolae Strada Garii</option>
+						<option>Strada Ghibanescu Gheorghe</option>
+						<option>Strada Ghica Grigore Voda</option>
+						<option>Strada Ghioceilor</option>
+						<option>Strada Gloriei</option>
+						<option>Strada Golia</option>
+						<option>Strada Gospodari</option>
+						<option>Strada Grabovenschi</option>
+						<option>Strada Gradinari</option>
+						<option>Strada Graniceri</option>
+						<option>Strada Greerul</option>
+						<option>Strada Maiorescu Titu</option>
+						<option>Strada Malu Strada Manastirii</option>
+						<option>Strada Manolescu</option>
+						<option>Strada Manta Rosie</option>
+						<option>Strada Maracineanu Valter</option>
+						<option>Strada Marasesti</option>
+						<option>Strada Marasti</option>
+						<option>Strada Marginei</option>
+						<option>Strada Marta</option>
+						<option>Strada Masinii</option>
+						<option>Strada Mayer Octav</option>
+						<option>Strada Meteor</option>
+						<option>Strada Micsunelelor Strada Mihai Radu</option>
+						<option>Strada Mihai Voda Viteazul</option>
+						<option>Strada Milcov</option>
+						<option>Strada Millo Matei</option>
+						<option>Strada Minervei</option>
+						<option>Strada Mioritei</option>
+						<option>Strada Mircea cel Batran</option>
+						<option>Strada Miron Costin</option>
+						<option>Strada Mironescu I. I.</option>
+						<option>Strada Miroslava</option>
+						<option>Strada Misai</option>
+						<option>Strada Mistretului</option>
+						<option>Strada Mitropoliei</option>
+						<option>Strada Mitropolit Veniamin Costache</option>
+						<option>Strada Mizil</option>
+						<option>Strada Moara de Vant</option>
+						<option>Strada Mocanului</option>
+						<option>Strada Moldovei Strada Morilor</option>
+						<option>Strada Mosu</option>
+						<option>Strada Motilor</option>
+						<option>Strada Movila Pacureti</option>
+						<option>Strada Movilei</option>
+						<option>Strada Munteni</option>
+						<option>Strada Muntenimii</option>
+						<option>Strada Porumbului</option>
+						<option>Strada Potcoavei</option>
+						<option>Strada Protopopescu, cpt.</option>
+						<option>Strada Rachiti</option>
+						<option>Strada Racovita Emil</option>
+						<option>Strada Radu Voda</option>
+						<option>Strada Rafael</option>
+						<option>Strada Ralet Dimitrie</option>
+						<option>Strada Ramadan Constantin</option>
+						<option>Strada Rampei</option>
+						<option>Strada Randunica</option>
+						<option>Strada Rapa Galbena</option>
+						<option>Strada Rapei</option>
+						<option>Strada Rascanu Teodor</option>
+						<option>Strada Razboieni</option>
+						<option>Strada Razoarelor</option>
+						<option>Strada Rece Strada Rediu</option>
+						<option>Strada Roadelor</option>
+						<option>Strada Roata Ion</option>
+						<option>Strada Rojnita</option>
+						<option>Strada Roman Voda</option>
+						<option>Strada Romana</option>
+						<option>Strada Roscani</option>
+						<option>Strada Rosiori</option>
+						<option>Strada Rovine</option>
+						<option>Strada Rufeni</option>
+						<option>Strada Russo Alecu</option>
+						<option>Strada Sadoveanu Mihail</option>
+						<option>Strada Salciilor</option>
+						<option>Strada Sambetei</option>
+						<option>Strada Sapte Oameni</option>
+						<option>Strada Sararie</option>
+						<option>Strada Sarmisegetuza</option>
+						<option>Strada Saulescu Gheorghe</option>
+						<option>Strada Savescu Toma</option>
+						<option>Strada Savini, Dr.</option>
+						<option>Strada Scaricica</option>
+						<option>Strada Scoalei</option>
+						<option>Strada Viticultori</option>
+						<option>Strada Vladiceni</option>
+						<option>Strada Vladimirescu Tudor</option>
+						<option>Strada Vlahuta Alexandru</option>
+						<option>Strada Vlaicu Aurel</option>
+						<option>Strada Voinicilor</option>
+						<option>Strada Vovideniei</option>
+						<option>Strada Vulpe</option>
+						<option>Strada Vulturilor</option>
+						<option>Strada Xenopol A.</option>
+						<option>Strada Zarafi</option>
+						<option>Strada Zborului</option>
+						<option>Strada Zidari</option>
+						<option>Strada Zimbrului</option>
+						<option>Strada Zlataust</option>
+						<option>Strada Zmeu</option>
+						<option>Strada Zorilor</option>
+						<option>Strada Zugravi</option>
+						<option>Stradela Adunati</option>
+						<option>Stradela Armeana</option>
+						<option>Stradela Baltii</option>
+						<option>Stradela Barboi</option>
+						<option>Stradela Barbu Lautaru</option>
+						<option>Stradela Berindei Ioan, arh.</option>
+						<option>Stradela Bucsinescu</option>
+						<option>Stradela Canta</option>
+						<option>Stradela Caprelor</option>
+						<option>Stradela Caramidari </option>
+						<option>Stradela Cazangiilor</option>
+						<option>Stradela Cetatuia</option>
+						<option>Stradela Cicoarei</option>
+						<option>Stradela Ciric</option>
+						<option>Stradela Clopotari</option>
+						<option>Stradela Copou</option>
+						<option>Stradela Dealul Bucium</option>
+						<option>Stradela Elena Doamna</option>
+						<option>Trecere Cazimir Otilia</option>
+						<option>Trecere Ciobanului</option>
+						<option>Trecere Corbului</option>
+						<option>Trecere Davidel</option>
+						<option>Trecere Doamnei</option>
+						<option>Trecere Duzilor</option>
+						<option>Trecere Fantanilor</option>
+						<option>Trecere Hotin</option>
+						<option>Trecere Leului</option>
+						<option>Trecere Mincu Ion, arh.</option>
+						<option>Trecere Nucului </option>
+						<option>Trecere Oitelor</option>
+						<option>Trecere Paun</option>
+						<option>Trecere Podgoriilor</option>
+						<option>Trecere Pricop</option>
+						<option>Trecere Transeului</option>
+						<option>Trecere Trei Ierarhi</option>
+						<option>Trecere Visan</option>
+						<option>Varianta Uzinei</option>
+					</select><br><br>
+					<input type="submit" value="Submit">
+					<button type="button" onclick="document.getElementById('id03').style.display='none'"class="cancel">Cancel</button>
 			</div>
 		</form>
 	</div>
 	<!--Page1-->
 	<section id="Profil">
-
 		<div class="card">
 			<img src="avatar.png" alt="Default" style="width:100%">
 			<h1>Generic Name</h1>
 			<p class="usertitle">Citizen</p>
 			<p>Region</p>
 			<p>Some info about the dude</p>
-			<p><button class = "navbutton">See Profile</button></p>
-		  </div>
+			<p><button class="navbutton">See Profile</button></p>
+		</div>
 	</section>
 
 	<!--Page2-->
@@ -102,7 +396,6 @@
 			<h2>Bine ai venit pe pagina noastra!</h2>
 			<p>Multumim ca sustii si incurajezi reciclarea! Aceasta este singura solutie pentru a ne salva planeta!</p>
 		</div>
-
 	</section>
 
 	<!--Page3-->
@@ -112,7 +405,6 @@
 			<p>In zona ta se recicleaza in procent de 87%, felicitari!</p>
 		</div>
 		<div id="piechart">
-
 		</div>
 	</section>
 
