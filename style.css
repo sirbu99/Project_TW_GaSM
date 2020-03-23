@@ -7,6 +7,16 @@ body{
   color:black;
   margin:0;
 }
+nav{
+  position: sticky;
+  top:0em;
+  width: 100%;
+  z-index: 1;
+}
+section {
+  padding-top: 5em;
+  overflow: hidden;
+}
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   max-width: 300px;
@@ -24,7 +34,7 @@ body{
   justify-content: space-around;
   height: auto;
   margin: 8px;
-  background-color:green;
+  background-color: #63a91f;
   width:100%;
   padding: 5px;
   overflow: hidden;
@@ -34,6 +44,7 @@ body{
 .option{
   float: left;
   transition: 200ms;
+  margin:0.5% 1%;
 }
 .navbarlink{
   display: block;
@@ -46,42 +57,60 @@ body{
 .option:hover{
   transform: scale(1.1);
   transition: 200ms;
+
 }
 .menu-options{
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: rgb(11, 192, 20);
+  background-color: #2d6b22;
+
+
 }
 .welcome-message{
   background-color:green;
   padding:5px;
   text-align:center;
 }
-section {
-  height: 100vh;
-  padding-top: 5em;
-  overflow: hidden;
-}
-.text{
+.title{
   display: block;
 }
-nav{
-  position: sticky;
-  top:0em;
-  width: 100%;
+.garbage-info {
+  display:flex;
+  flex-direction: row;
+  justify-content: space-around;
+  height: auto;
+  flex-wrap: wrap;
+  
+}
+.garbage-type{
+  width: 30%;
+  position: relative;
+  color:green;
+  background-color:white;
+  opacity:0.8;
+  color:black;
+  padding: 1%;
+  margin: 1%;  
+  border-radius:10%;
+}
+.garbage-type:hover
+{
+  transform: scale(1.1);
+  transition: 500ms;
+  background-color:#b0d3bf;
 }
 #Situatia, #Problema, #Reciclare, #Profil {
-  height:auto;
-  background-image: url(./images/copac.jpeg);
+  min-height:100vh;
+  background-image: url(./images/grass.jpg);
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
   color:white;
 } 
 .authors{
-  background-color:green;
+  background-color: #2d6b22;
   color:white;
   text-align:center;
   padding: 3px;
