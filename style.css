@@ -3,7 +3,7 @@
   text-align: center;
 }
 body{
-  font-family:Verdana;
+  font-family:Segoe UI;
   color:black;
   margin:0;
 }
@@ -50,7 +50,8 @@ section {
   width: 100%;
   transition: 200ms;
   margin:0.5% 1%;
-  align-items: center;
+  border-radius:1rem;
+  text-shadow: 2px 2px #455460;
 }
 .navbarlink{
   display: block;
@@ -112,7 +113,22 @@ section {
   transition: 500ms;
   background-color:#b0d3bf;
 }
-#Situatia, #Problema, #Reciclare, #Profil {
+.info-content{
+  display: flex;
+  justify-content: space-around;
+}
+.info-image{
+  height: auto;
+  width: 100%;
+}
+.info{
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding: 2%;
+  margin: 2%;
+}
+#Situatia, #Problema,#Useful-info, #Reciclare, #Profil {
   min-height:100vh;
   background-image: url(./images/grass.jpg);
   background-repeat: no-repeat;
