@@ -12,48 +12,18 @@
 <!--Menu-->
 	<nav class="navbar">
 		<ul class="menu-options">
-			<li class="option"><a href="#Profil" class="navbarlink">Profilul tau</a></li>
-			<li class="option"><a href="#Reciclare" class="navbarlink">De ce sa reciclam?</a></li>
-			<li class="option"><a href="#Situatia" class="navbarlink">Situatia din zona ta</a></li>
-			<li class="option"><a class="navbarlink"
-					onclick="document.getElementById('id03').style.display='block'">Anunta o problema</a></li>
-			<button onclick="document.getElementById('id01').style.display='block'" style="width:auto; " class = "navbutton">Login</button>
-			<button onclick="document.getElementById('id02').style.display='block'" style="width:auto; " class = "navbutton">Register</button>
+			<button class="dropbtn navbutton" onclick="hide('drop1')">Options</button>
+
+			<li class="option"><a href="#Profil" class="navbarlink"><i class="fas fa-recycle"></i> Profilul tau</a></li>
+			<li class="option"><a href="#Reciclare" class="navbarlink"><i class="fas fa-recycle"></i> Cum sa
+					reciclam?</a></li>
+			<li class="option"><a href="#Situatia" class="navbarlink"><i class="fas fa-recycle"></i> Situatia din zona
+					ta</a></li>
+			<li class="option"><a class="navbarlink" onclick="document.getElementById('id03').style.display='block'"><i
+						class="fas fa-recycle"></i> Anunta o problema</a></li>
 		</ul>
 	</nav>
-<!-- FORM REGISTER -->
-	<div id="id02" class="modal">
-		<form class="modal-content animate">
-			<div class="container">
-				<label for="username"><b>Username</b></label>
-				<input type="text" name="username" placeholder="Enter Username" required>
-				<label for="email"><b>Email</b></label>
-				<input type="email" name="email" placeholder="Enter Email" required>
-				<label for="password"><b>Password</b></label>
-				<input name="password" type="password" placeholder="Enter Password" required>
-				<label for="rpassword"><b>Retype Password</b></label>
-				<input name="rpassword" type="password" placeholder="Enter Password Again" required>
-				<button type="submit" class = "navbutton">SignUp</button>
-				<button type="button" onclick="document.getElementById('id02').style.display='none'"
-					class="button-cancel">Cancel</button>
-			</div>
-		</form>
-	</div>
-<!-- FORM LOG IN -->
-	<div id="id01" class="modal">
-		<form class="modal-content animate">
-			<div class="container">
-				<label for="username"><b>Username</b></label>
-				<input type="text" name="username" placeholder="Enter Username" required>
-				<label for="password"><b>Password</b></label>
-				<input name="password" type="password" placeholder="Enter Password" required>
-				<button type="submit" class = "navbutton">Login</button>
-				<button type="button" onclick="document.getElementById('id01').style.display='none'"class="button-cancel">Cancel</button>
-				<span class="fpswd"><a href="#">Forgot password?</a></span>
-			</div>
-		</form>
-	</div>
-<!-- PROFILE -->
+	<!-- PROFILE -->
 	<section id="Profil">
 		<div class="card">
 			<img src="avatar.png" alt="Default" style="width:100%">
