@@ -1,0 +1,222 @@
+* {
+  box-sizing: border-box;
+  text-align: center;
+}
+body{
+  font-family:Segoe UI;
+  color:black;
+  margin:0;
+}
+.navbar{
+
+  position: sticky;
+  top:0em;
+  width: 100%;
+  z-index: 1;
+}
+section {
+  padding-top: 5em;
+  overflow: hidden;
+}
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: 2rem;
+  text-align: center;
+  background-color: rgb(114, 114, 114);
+  border-radius: 4px;
+}
+.usertitle {
+  color: rgb(87, 190, 113);
+  font-size: 1.5rem;
+}
+.menu-options, .option {
+  list-style-type: none;
+  display: flex;
+  
+  align-items: center;
+  justify-content: space-around;
+
+  margin: 8px;
+  background-color: #63a91f;
+
+  padding: 5px;
+  overflow: hidden;
+  color:black;
+  z-index: 1;
+}
+.option{
+  float: left;
+  width: 100%;
+  transition: 200ms;
+  margin:0.5% 1%;
+  border-radius:1rem;
+  text-shadow: 2px 2px #455460;
+}
+.navbarlink{
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 1vw;
+}
+
+
+.option:hover{
+  transform: scale(1.1);
+  transition: 200ms;
+
+}
+.menu-options{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #2d6b22;
+
+
+}
+.welcome-message{
+  background-color:green;
+  padding:5px;
+  text-align:center;
+}
+.title{
+  display: block;
+}
+.garbage-info {
+  display:flex;
+  flex-direction: row;
+  justify-content: space-around;
+  height: auto;
+  flex-wrap: wrap;
+  
+}
+.garbage-type{
+  width: 30%;
+  position: relative;
+  color:green;
+  background-color:white;
+  opacity:0.8;
+  color:black;
+  padding: 1%;
+  margin: 1%;  
+  border-radius:10%;
+  transition: 500ms;
+  
+}
+.garbage-type:hover
+{
+  transform: scale(1.1);
+  transition: 500ms;
+  background-color:#b0d3bf;
+}
+.info-content{
+  display: flex;
+  justify-content: space-around;
+}
+.info-image{
+  height: auto;
+  width: 100%;
+}
+.info{
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding: 2%;
+  margin: 2%;
+}
+#Situatia, #Problema,#Useful-info, #Reciclare, #Profil {
+  min-height:100vh;
+  background-image: url("./../images/grass.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  color:white;
+} 
+.authors{
+  background-color: #2d6b22;
+  color:white;
+  text-align:center;
+  padding: 3px;
+}
+.chart{
+  background-color: rgb(114, 114, 114);
+  border-radius: 4px;
+  width: 35%;
+  height: 35%;
+  margin: auto;
+}
+
+.navbutton{
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.show{
+  display: block;
+}
+
+/* small screens */
+@media only screen and (max-width: 600px){
+  .menu-options{
+    flex-direction: row;
+    width: 100vw;
+    height: 4rem;
+  }
+  .navbutton{
+    width: 5rem;
+  }
+  .dropbtn{
+    display: inline;
+  }
+  .option{
+    display: none;
+  }
+  .dropdownlist{
+    width: 10rem;
+    display: none;
+    position: absolute;
+    background-color: rgb(87, 190, 113);
+    font-family: inherit;
+    margin: 0;
+    margin-top: auto;
+    padding: 14px 16px;
+    z-index: 3;
+  }
+  .droplink{
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 2vw;
+  }
+}
+/* large screens */
+@media only screen and (min-width: 600px){
+  .menu-options{
+    flex-direction: row;
+    width: 100vw;
+    height: 4rem;
+  }
+  .navbutton{
+    width: 100%;
+  }
+  .dropbtn{
+    display: none;
+    
+    margin-right: auto;
+  }
+  .dropdownlist{
+    display: none;
+  }
+}

@@ -1,0 +1,62 @@
+* {
+  box-sizing: border-box;
+}
+body{
+  background-image: url("../images/wallpaper.jpg");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+/*div is for container*/
+div {
+  background-color: white;
+  border:none;
+  border-radius: 10px;
+  background-color: white;
+  padding: 30px;
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.logo{
+  width: 30%;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+.popup{
+  display: none;
+}
+button[type=button]{
+  background-color: white;
+  width: 100%;
+  color: black;
+  padding: 10px 35px;
+  border: 1px solid green;
+  border-radius: 4px;
+}
+button[type=button]:hover{
+  background-color: green;
+  color:white;
+}
+input[type=text], input[type=password]{
+  width: 100%;
+  padding: 9px;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 1px solid grey;
+}
+button[type=submit] {
+  width: 100%;
+  background-color: rgba(9, 206, 9, 0.979);
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+button[type=submit]:hover {
+  background-color: rgb(11, 83, 11);
+}
