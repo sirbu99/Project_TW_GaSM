@@ -42,7 +42,7 @@ select{
     background-color: #f1f1f1;
 }
 /* stilizare buton submit pentru formular report */
-input[type=submit], .navbutton{
+input[type=submit]{
     width: 100%;
     background-color: #4CAF50;
     color: white;
