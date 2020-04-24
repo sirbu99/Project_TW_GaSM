@@ -16,7 +16,7 @@ def index():
         username = data.get('username')
         email = data.get('email')
         result = c.execute("select count(*) from users where email = ?", [email])
-        if len(result.fetchall()) == 0:
+        if len(result.fetchone()[0]) == 0:
             c.execute("insert into users(username, password, email) values(?, ?, ?)",
                       (username, password, email))
 
