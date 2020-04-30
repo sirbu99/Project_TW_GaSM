@@ -125,7 +125,6 @@ section {
 }
 .garbage-info .garbage-type button:hover{
   color: #b0d3bf;
-  font-style: bold;
   transform: scale(1.1);
   transition:200ms ease;
 }
@@ -165,7 +164,6 @@ section {
   background-attachment: fixed;
   background-size: cover;
   color:white;
-  transition:
 } 
 .authors{
   background-color: #2d6b22;
