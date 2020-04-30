@@ -6,5 +6,5 @@ dashboardbp = Blueprint('dashboardbp', __name__)
 
 
 def dashboard():
-    return render_template('index.html')
+    return render_template('info.html')
     pass
