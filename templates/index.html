@@ -360,9 +360,8 @@
 </div>
 <!--Report-->
     <div id="id04" class="modal">
-        <form class="modal-content animate">
+        <form class="modal-content animate" action="/report" method="post">
             <div class="container">
-                <form action="ceva.php"></form>
                 <!-- choose tha street -->
                 <label for="place" class="reportForm">Alege zona pentru care vrei sa faci raportul:</label> <br>
                 <select id="place" name="place">
@@ -416,6 +415,8 @@
                 <input type="number" name="glass">
                 <label for="mixedGarbage" class="reportForm">Cantitatea de deseuri menajere:</label>
                 <input type="number" name="mixedGarbage">
+                <label for="metal" class="reportForm">Cantitatea de metal:</label>
+                <input type="number" name="metal">
                 <input type="submit">
                 <button type="button" onclick="document.getElementById('id04').style.display='none'" class="button-cancel">Cancel
                 </button>

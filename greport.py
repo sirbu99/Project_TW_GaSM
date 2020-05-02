@@ -29,18 +29,33 @@ def report():
         conn = sqlite3.connect('website.db')
         c = conn.cursor()
         data = request.form
-        result = c.execute('select * from recycle_locations where name = ?', [data.get('name')])
+        result = c.execute('select * from recycle_locations where name = ?', [data.get('place')])
         value = result.fetchone()[0]
         if value != 0:
             now = datetime.today().strftime('%Y-%m-%d %H:%M:%S')
             c.execute(
                 'insert into garbage(location_id, plastic, paper, metal, waste, glass, date) values (?, ?, ?, ?, ?, '
                 '?, ?)',
-                (value, data.get('plastic'), data.get('paper'), data.get('metal'), data.get('waste'),
+                (value, data.get('plastic'), data.get('paper'), data.get('metal'), data.get('mixedGarbage'),
                  data.get('glass'), now))
             conn.commit()
             conn.close()
-        return redirect(url_for('index')), 200
+        return redirect('/index')
+    except Exception as e:
+        print(e)
+        return redirect(url_for('index'))
+
+
+@greportbp.route('/locationdata', methods=['POST', 'GET'])
+def getlocations():
+    try:
+        conn = sqlite3.connect('website.db')
+        c = conn.cursor()
+        result = c.execute("select name from recycle_locations")
+        output = []
+        for info in result.fetchall():
+            output.append({'name': info[0]})
+        return json.jsonify(output)
     except Exception as e:
         print(e)
         return redirect(url_for('index')), 500
