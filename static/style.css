@@ -24,7 +24,7 @@ section {
 }
 
 .navbarlink{
-  display: block;
+  display:block;
   color: white;
   text-align: center;
   padding: 14px 16px;
@@ -32,41 +32,42 @@ section {
   cursor: pointer;
   font-size: 1vw;
 }
-.navbutton{
+.authentificationBtn, .navbutton{
   background-color: #4CAF50;
   color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
+  padding: 14px 16px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  background-color: #4CAF50;
+}
+.authentificationBtn{
+  width: 100%;
+}
+.navbutton{
+  margin: 10px;
+  color: black;
+  font-size: 90%;
+  border-radius: 1rem;
+  background-color: #F2B33D;
+  text-shadow: 0.3px 0.3px #455460;
 }
 
 .menu-options, .option {
-  list-style-type: none;
   display: flex;
   align-items: center;
   justify-content: space-around;
-  margin: 8px;
-  background-color: #4CAF50;
-  padding: 5px;
+  list-style-type: none;
   overflow: hidden;
-  color:black;
   z-index: 1;
 }
-.menu-options{
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #2d6b22;
-}
+
 .option{
-  float: left;
   height: 80%;
+  background-color: #4CAF50;
   width: 100%;
-  transition: 200ms;
-  margin:0.5% 1%;
+  margin: 1% 0.5%;
+  padding: 5px;
   border-radius:1rem;
   text-shadow: 2px 2px #455460;
 }
@@ -75,7 +76,33 @@ section {
   transition: 200ms;
 
 }
-
+.menu-options{
+  margin: 0;
+  padding: 0;
+  color: white;
+  background-color: #2d6b22;
+}
+.menu-container{
+  display: flex;
+  align-items: center;
+  background-color: #2d6b22;
+}
+.menu-container button{
+  width: 100px;
+}
+.reportForm{
+  display: block;
+  font-size: large;
+}
+.container input{
+  width: 100%;
+  background-color: white;
+  opacity: 0.8;
+  font-size: large;
+}
+.container button{
+  font-size: large;
+}
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   max-width: 300px;
@@ -92,7 +119,7 @@ section {
 .garbage-info{
   display: flex;
   justify-content: center;
-} 
+}
 
 .garbage-info .content:hover
 {
@@ -118,6 +145,7 @@ section {
   font-size: large;
 }
 #maiMult{
+
   text-decoration: none;
   color: white;
 }
@@ -137,7 +165,7 @@ section {
   opacity:0.8;
   padding: 1%;
   color: black;
-  margin: 1%;  
+  margin: 1%;
   border-radius: 15px;
 }
 
@@ -164,7 +192,7 @@ section {
   background-attachment: fixed;
   background-size: cover;
   color:white;
-} 
+}
 .authors{
   background-color: #2d6b22;
   color:white;
@@ -186,13 +214,14 @@ section {
 
 /* small screens */
 @media only screen and (max-width: 600px){
-  .menu-options{
-    flex-direction: row;
-    width: 100vw;
+  .menu-container{
+    display: flex;
+    justify-content: space-around;
     height: 4rem;
+    width: 100vw;
   }
   .navbutton{
-    width: 5rem;
+    width: 3rem;
   }
   .dropbtn{
     display: inline;
@@ -223,7 +252,7 @@ section {
   .garbage-info .garbage-type button{
     font-size: small;
   }
-  
+
 }
 
 
