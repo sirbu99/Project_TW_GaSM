@@ -1,22 +1,22 @@
-from flask import Flask, render_template, redirect, url_for
+from api import API
+from middleware import Middleware
 
-from dashboard import dashboardbp
-from greport import greportbp
-from login import loginbp
-from register import registebp
-app = Flask(__name__)
-app.register_blueprint(registebp)
-app.register_blueprint(loginbp)
-app.register_blueprint(greportbp)
-app.register_blueprint(dashboardbp)
-app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
+app = API()
+
+
+class DefaultMiddleware(Middleware):
+    def process_request(self, req):
+        print("Processing request", req.url)
+
+    def process_response(self, req, res):
+        print("Processing response", req.url)
+
+
+app.add_middleware(DefaultMiddleware)
+
+
 @app.route('/index')
-def index():
-    return render_template('index.html')
-@app.route('/')
-def main():
-    return redirect(url_for('index'))
+def index(request, response):
+    response.body = app.template('index.html')
 
 
-if __name__ == '__main__':
-    app.run()

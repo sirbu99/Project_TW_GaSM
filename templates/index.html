@@ -4,14 +4,14 @@
 <head>
 	<!-- make page responsive-->
 	<meta name = "viewport" content = "width=device-width, initial-scale=1.0">
-	<link rel = "stylesheet" href = "{{ url_for('static', filename='style.css') }}">
-	<link rel = "stylesheet" href = "{{ url_for('static', filename='loginStyle.css') }}">
+	<link rel = "stylesheet" href = "/static/style.css">
+	<link rel = "stylesheet" href = "/static/loginStyle.css">
 	<title>TW</title>
 	<script src = "https://kit.fontawesome.com/342e71a7d6.js" crossorigin = "anonymous"></script>
 	<script type = "text/javascript" src = "https://www.gstatic.com/charts/loader.js"></script>
-	<script type = "text/javascript" src = "{{ url_for('static', filename='js/piechart.js') }}"></script>
-	<script type = "text/javascript" src = "{{ url_for('static', filename='js/misc.js') }}"></script>
-	<script type = "text/javascript" src = "{{ url_for('static', filename='js/recycle_info.js') }}"></script>
+	<script type = "text/javascript" src = "/static/js/piechart.js"></script>
+	<script type = "text/javascript" src = "/static/js/misc.js"></script>
+	<script type = "text/javascript" src = "/static/js/recycle_info.js"></script>
 </head>
 
 <body>
@@ -91,7 +91,7 @@
 <!-- PROFILE -->
 <section id = "Profil">
 	<div class = "card">
-		<img src = "{{ url_for('static', filename='images/avatar.png') }}" alt = "Default"
+		<img src = "/static/images/avatar.png" alt = "Default"
 		     style = "width:100%; border-radius:4px">
 		<h1>Generic Name</h1>
 		<p class = "usertitle">Citizen</p>
@@ -267,19 +267,19 @@
 	</div>
 	<div class = "info-content">
 		<div class = "info">
-			<img src = "{{ url_for('static', filename='images/deseuri.jpg') }}" alt = "image" class = "info-image">
+			<img src = "/static/images/deseuri.jpg" alt = "image" class = "info-image">
 			<a href = "https://salubris.ro/servicii/colectarea-separata-a-deseurilor/" target = "_blank">Colectarea
 			                                                                                             separată
 			                                                                                             a
 			                                                                                             deșeurilor</a>
 		</div>
 		<div class = "info">
-			<img src = "{{ url_for('static', filename='images/deseuri.jpg') }}" alt = "image" class = "info-image">
+			<img src = "/static/images/deseuri.jpg" alt = "image" class = "info-image">
 			<a href = "https://salubris.ro/orasul-verde/impreuna-colectam-separat/activitati-de-promovare-a-colectarii-separate/"
 			   target = "_blank">Activități de promovare a colectării separate</a>
 		</div>
 		<div class = "info">
-			<img src = "{{ url_for('static', filename='images/deseuri.jpg') }}" alt = "image" class = "info-image">
+			<img src = "/static/images/deseuri.jpg" alt = "image" class = "info-image">
 			<a href = "https://salubris.ro/orasul-verde/impactul-colectarii-separate/" target = "_blank">Impactul
 			                                                                                             colectării
 			                                                                                             separate</a>
