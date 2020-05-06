@@ -24,7 +24,7 @@
     flex-direction: column;
     justify-content: space-around;
 }
-input[type=text], input[type=password]{
+input[type=text], input[type=password], input[type=email]{
     border: none;
     border-radius: 20px;
     background-color: rgba(0, 0, 0, 0.212);
@@ -49,6 +49,12 @@ input[type=text], input[type=password]{
     background-position: left 12px top 49%;
     background-size: 15px 15px;
 }
+.icon-map{
+    background-image: url(../images/img-form/map.png);
+    background-repeat: no-repeat;
+    background-position: left 12px top 49%;
+    background-size: 17px 17px;
+}
 .flex-logo{
     display: flex;
     align-items: center;
@@ -59,4 +65,17 @@ input[type=text], input[type=password]{
 }
 .logo-register{
     width: 50px;
+}
+.account{
+    display:inline;
+}
+.chooseStreet{
+    border: none;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.212);
+    padding-left: 31px;
+    height: 30px;  
+}
+.chooseStreet:focus{
+    outline: none;
 }
