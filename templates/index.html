@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <title>Login</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/cssLogin/style-container.css">
-    <link rel="stylesheet" href="../static/cssLogin/style-buttons.css">
-    <link rel="stylesheet" href="../static/cssLogin/style-forms-items.css">
-    <link rel="stylesheet" href="../static/cssLogin/style-mobile.css">
+    <link rel="stylesheet" href="/static/cssLogin/style-container.css">
+    <link rel="stylesheet" href="/static/cssLogin/style-buttons.css">
+    <link rel="stylesheet" href="/static/cssLogin/style-forms-items.css">
+    <link rel="stylesheet" href="/static/cssLogin/style-mobile.css">
 </head>
 
 <body>
@@ -24,11 +24,11 @@
             </div>
 
             <!-- login -->
-            <form id="login" class="grid-container">
+            <form id="login" class="grid-container" action="/login" method="POST">
                 <div class="left-side">
                     <!-- left side -->
                     <div class="flex-logo">
-                        <img src="../static/images/recicleaza1.jpg" alt="LOGO" class="logo-login">
+                        <img src="/static/images/recicleaza1.jpg" alt="LOGO" class="logo-login">
                     </div>
                 </div>
                 <div class="right-side">
@@ -38,7 +38,7 @@
                 </div>
                 <div class="down-side">
                     <!-- down side -->
-                    <button type="submit" class="submit-button" formaction="./user-page.html">Submit</button>
+                    <button type="submit" class="submit-button">Submit</button>
                     <div>
                         <a href="">Forgot password?</a>
                     </div>
@@ -46,7 +46,7 @@
             </form>
 
             <!-- register -->
-            <form id="register" class="grid-container" style="display:none;">
+            <form id="register" class="grid-container" style="display:none;" action="/register" method="POST">
                 <div class="left-side">
                     <!-- left side -->
                     <div class="flex-logo">
@@ -79,7 +79,7 @@ one special character and at least 8  characters" class="icon-pass" required>
                 </div>
                 <div class="down-side">
                     <!-- down side -->
-                    <button type="submit" class="submit-button" formaction="./user-page.html">Submit</button>
+                    <button type="submit" class="submit-button" >Submit</button>
                 </div>
             </form>
         </div>
