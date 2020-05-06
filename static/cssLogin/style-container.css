@@ -1,5 +1,9 @@
 body{
     padding: 0px;
+    background-image: url("../images/grass.jpg");
+    height: 150%;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .main-display{
     width: 100%;
@@ -14,9 +18,10 @@ body{
     border: none;
     border-radius: 30px;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+    background-color: white;
 }
 .grid-container{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    height: 200px;
+    height: 220px;
 }
