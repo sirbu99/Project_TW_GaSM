@@ -1,5 +1,6 @@
 import inspect
 import os
+
 from webob import Request, Response
 from parse import parse
 from jinja2 import Environment, FileSystemLoader
@@ -9,21 +10,23 @@ from middleware import Middleware
 
 class API:
     def __init__(self, templates_dir='templates', static_dir='static'):
-        self.routes = {}
-        self.templates_env = Environment(loader=FileSystemLoader(os.path.abspath(templates_dir)))
-        self.whitenoise = WhiteNoise(self.wsgi_app, root=static_dir)
-        self.middleware = Middleware(self)
+        self.routes = {}  # the container for the routes
+        self.templates_env = Environment(loader=FileSystemLoader(os.path.abspath(templates_dir)))  # get the templates
+        self.whitenoise = WhiteNoise(self.wsgi_app,
+                                     root=static_dir)  # this a wrapper used for using the static elements
+        self.middleware = Middleware(self)  # wrapper for implementing middleware functionality
 
     def __call__(self, environ, start_response):
         path_info = environ["PATH_INFO"]
 
         if path_info.startswith("/static"):
-            environ["PATH_INFO"] = path_info[len("/static"):]
+            environ["PATH_INFO"] = path_info[
+                                   len("/static"):]  # if the path starts with /static wrap the app with whitenoise
             return self.whitenoise(environ, start_response)
-        return self.middleware(environ, start_response)
+        return self.middleware(environ, start_response)  # else wrap it with middleware
 
     def add_middleware(self, middleware_cls):
-        self.middleware.add(middleware_cls)
+        self.middleware.add(middleware_cls)  # add another layer of middleware
 
     def template(self, template_name, context=None):
         if context is None:
@@ -35,6 +38,7 @@ class API:
         response.status_code = 404
         response.text = "404 - Page not found"
 
+    # add route
     def route(self, path):
         if path in self.routes:
             raise AssertionError('Route already exists!')
@@ -58,12 +62,14 @@ class API:
             parse_result = parse(path, request_path)
             if parse_result is not None:
                 return handler, parse_result.named
+        return None, {}
 
     def handle_request(self, request):
         user_agent = request.environ.get("HTTP_USER_AGENT", "No User Agent Found")
 
         response = Response()
         # check path and get handler
+
         handler, kwargs = self.find_handler(request_path=request.path)
 
         if handler is not None:
