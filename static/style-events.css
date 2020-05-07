@@ -1,0 +1,67 @@
+.title-event{
+    padding: 30px;
+    color: aliceblue;
+    text-shadow: 0px 1px;
+    font-size:2vw;
+}
+.card-container {
+    overflow-x: scroll;
+    display: flex;
+    padding: 15px;
+    padding-top:30px;
+}
+.card {
+    min-width: 300px;
+    height: 350px;
+    border-radius: 16px;
+    background-color: whitesmoke;
+    box-shadow: -1rem 0 3rem #000;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    transition: 0.2s;
+}
+.date {
+    color: #8a8a8a;
+}
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 5px;
+}
+.tags>*{
+    font-size: 9px;
+    font-weight: 700;
+    padding: 4px 10px;
+    background-color: #dad6d6;
+    border-radius: 15px;
+}
+
+.card .category-title {
+    font-size: 14px;
+    color: #8a8a8a;
+    margin-bottom: 5px;
+}
+
+.card .article-title {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.card .article-header {
+    margin-bottom: auto;
+}
+
+.card .author {
+    margin-top: 20px;
+}
+
+.card:not(:first-child) {
+    margin-left: -130px;
+}
+.card:hover {
+    transform: translateY(-20px);
+}
+.card:hover~.card{
+    transform: translateX(130px);
+}

@@ -1,4 +1,4 @@
-.left-side{
+.left-side {
     grid-column-start: 1;
     grid-column-end: 2;
     display: flex;
@@ -7,7 +7,8 @@
     margin-left: 20px;
     margin-right: 20px;
 }
-.right-side{
+
+.right-side {
     grid-column-start: 2;
     grid-column-end: 3;
     display: flex;
@@ -16,7 +17,8 @@
     margin-left: 20px;
     margin-right: 20px;
 }
-.down-side{
+
+.down-side {
     grid-column-start: 1;
     grid-column-end: 3;
     display: flex;
@@ -24,58 +26,77 @@
     flex-direction: column;
     justify-content: space-around;
 }
-input[type=text], input[type=password], input[type=email]{
+
+input[type=text],
+input[type=password],
+input[type=email] {
     border: none;
     border-radius: 20px;
     background-color: rgba(0, 0, 0, 0.212);
     padding-left: 35px;
     height: 30px;
 }
-.icon-user{
+
+input[type=text]:focus,
+input[type=password]:focus,
+input[type=email]:focus {
+    outline: none;
+}
+
+.icon-user {
     background-image: url(../images/img-form/user.png);
     background-repeat: no-repeat;
     background-position: left 12px top 49%;
     background-size: 15px 15px;
 }
-.icon-pass{
+
+.icon-pass {
     background-image: url(../images/img-form/lock.png);
     background-repeat: no-repeat;
     background-position: left 12px top 49%;
     background-size: 15px 15px;
 }
-.icon-email{
+
+.icon-email {
     background-image: url(../images/img-form/email.png);
     background-repeat: no-repeat;
     background-position: left 12px top 49%;
     background-size: 15px 15px;
 }
-.icon-map{
+
+.icon-map {
     background-image: url(../images/img-form/map.png);
     background-repeat: no-repeat;
     background-position: left 12px top 49%;
     background-size: 17px 17px;
 }
-.flex-logo{
+
+.flex-logo {
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.logo-login{
+
+.logo-login {
     width: 160px;
 }
-.logo-register{
+
+.logo-register {
     width: 50px;
 }
-.account{
-    display:inline;
+
+.account {
+    display: inline;
 }
-.chooseStreet{
+
+.chooseStreet {
     border: none;
     border-radius: 20px;
     background-color: rgba(0, 0, 0, 0.212);
     padding-left: 31px;
-    height: 30px;  
+    height: 30px;
 }
-.chooseStreet:focus{
+
+.chooseStreet:focus {
     outline: none;
 }

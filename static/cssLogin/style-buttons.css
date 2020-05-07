@@ -1,4 +1,4 @@
-.switch-buttons{
+.switch-buttons {
     display: flex;
     flex-direction: row;
     flex-basis: 35px;
@@ -12,38 +12,47 @@
     background-color: white;
     color: black;
 }
-.switch-buttons > * {
+
+.switch-buttons>* {
     flex-grow: 1;
     background-color: white;
     color: black;
 }
-.switch-button-login{
+
+.switch-button-login {
     border: none;
     border-top-left-radius: 25px;
     border-bottom-left-radius: 5px;
     cursor: pointer;
 }
-.switch-button-register{
+
+.switch-button-register {
     border: none;
     border-top-right-radius: 25px;
     border-bottom-right-radius: 5px;
     cursor: pointer;
 }
-.switch-button-green{
+
+.switch-button-green {
     background-color: forestgreen;
-    color:white;
+    color: white;
 }
-.switch-button-green:hover{
+
+.switch-button-green:hover {
     background-color: limegreen;
 }
-.switch-button-white{
+
+.switch-button-white {
     background-color: white;
-    color:black;
+    color: black;
 }
-.switch-button-login:focus, .switch-button-register:focus{
+
+.switch-button-login:focus,
+.switch-button-register:focus {
     outline: none;
 }
-.submit-button{
+
+.submit-button {
     border: none;
     border-radius: 15px;
     background-color: green;
@@ -52,6 +61,7 @@
     width: 100px;
     cursor: pointer;
 }
-.submit-button:hover{
+
+.submit-button:hover {
     background-color: limegreen;
 }
