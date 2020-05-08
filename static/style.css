@@ -31,11 +31,10 @@ section {
     padding: 14px 16px;
     text-decoration: none;
     cursor: pointer;
-    font-size: 1vw;
+    font-size: 15px;
 }
 
-.authentificationBtn,
-.navbutton {
+.authentificationBtn{
     background-color: #4CAF50;
     color: white;
     padding: 14px 16px;
@@ -50,15 +49,13 @@ section {
 }
 
 .navbutton {
-    margin: 10px;
-    color: black;
-    font-size: 90%;
-    border-radius: 1rem;
-    background-color: #F2B33D;
-    text-shadow: 0.3px 0.3px #455460;
+    display: none;
+}
+.navbutton:focus{
+    outline:none;
 }
 
-.menu-options, .option {
+.menu-options{
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -71,14 +68,13 @@ section {
 }
 
 .option {
-    height: 80%;
+    /* height: 80%; */
     background-color: #b0d3bf;
     opacity: 0.8;
     width: 100%;
     margin: 1% 0.5%;
     padding: 5px;
-    border-radius: 1rem;
-    text-shadow: 1px 1px #343c42;
+    border-radius: 20px;
 }
 
 .option:hover {
@@ -86,7 +82,7 @@ section {
     transition: 200ms;
     background-color: rgb(9, 117, 12);
     color: white;
-    opacity: 10;
+    opacity: 1;
 }
 
 .menu-options {
@@ -261,13 +257,7 @@ section {
     width: 600px;
     border-radius: 10px;
 }
-.navbutton {
-    width: 100%;
-}
-.dropbtn {
-    display: none;
-    margin-right: auto;
-}
+
 .dropdownlist {
     display: none;
 }
@@ -276,6 +266,11 @@ section {
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+.dropdown{
+    position: relative;
+    display: inline-block;
 }
 
 /* small screens */
@@ -300,12 +295,15 @@ section {
         width: 10rem;
         display: none;
         position: absolute;
-        background-color: rgb(87, 190, 113);
+        background-color: #4CAF50;
         font-family: inherit;
         margin: 0;
         margin-top: auto;
         padding: 14px 16px;
         z-index: 3;
+        border: none;
+        border-radius: 15px;
+        opacity: 0.9;
     }
     .droplink {
         display: block;
@@ -314,9 +312,21 @@ section {
         padding: 14px 16px;
         text-decoration: none;
         cursor: pointer;
-        font-size: 2vw;
+        font-size: 15px;
     }
     .garbage-info .garbage-type button {
         font-size: small;
+    }
+    .navbutton{
+        display: block;
+        margin-left: 25px;
+        font-size: 15px;
+        background-color: #4CAF50;
+        color: white;
+        opacity: 0.9;
+        padding: 14px 16px;
+        border: none;
+        border-radius: 15px;
+        cursor: pointer;
     }
 }

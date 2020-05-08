@@ -23,8 +23,17 @@
     <!--Menu-->
     <nav class="navbar" id="Bar">
         <div class="menu-container">
-            <!-- Butonum Menu Options pentru ecrane mici-->
-            <button class="dropbtn navbutton" onclick="hide('drop1')">Menu</button>
+            <div class="dropdown">
+                <!-- Butonum Menu Options pentru ecrane mici-->
+                <button class="navbutton" onclick="hide('drop1')">Menu</button>
+                <!-- Lista dropDown cu optiunile din meniu pentru ecrane mici-->
+                <div class="dropdownlist" id="drop1" style="display:none;">
+                    <a href="#Evenimente" class="droplink"><i class="fas fa-recycle"></i>Evenimente</a>
+                    <a href="#Reciclare" class="droplink"><i class="fas fa-recycle"></i> Cum sa reciclam?</a>
+                    <a href="#Situatia" class="droplink"><i class="fas fa-recycle"></i> Situatia din zona ta</a>
+                    <a href="#Informatie" class="droplink"><i class="fas fa-recycle"></i> Informații adiționale</a>
+                </div>
+            </div>
             <ul class="menu-options">
                 <!-- Butoanele din meniul principal-->
                 <li class="option"><a href="#Evenimente" class="navbarlink"><i class="fas fa-recycle"></i>
@@ -44,13 +53,7 @@
                 <li class="option"><a class="navbarlink" onclick="document.getElementById('id04').style.display='block'"><i class="fas fa-recycle"></i>
                         Formular</a></li>
             </ul>
-            <!-- Lista dropDown cu optiunile din meniu pentru ecrane mici-->
-            <div class="dropdownlist" id="drop1">
-                <a href="#Evenimente" class="droplink"><i class="fas fa-recycle"></i>Evenimente</a>
-                <a href="#Reciclare" class="droplink"><i class="fas fa-recycle"></i> Cum sa reciclam?</a>
-                <a href="#Situatia" class="droplink"><i class="fas fa-recycle"></i> Situatia din zona ta</a>
-                <a href="#Informatie" class="droplink"><i class="fas fa-recycle"></i> Informații adiționale</a>
-            </div>
+            
         </div>
     </nav>
     <!-- PROFILE -->
