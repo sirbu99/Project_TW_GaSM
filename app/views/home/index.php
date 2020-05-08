@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <title>Login</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/static/cssLogin/style-container.css">
-    <link rel="stylesheet" href="/static/cssLogin/style-buttons.css">
-    <link rel="stylesheet" href="/static/cssLogin/style-forms-items.css">
-    <link rel="stylesheet" href="/static/cssLogin/style-mobile.css">
+    <link rel="stylesheet" href="/app/public/static/cssLogin/style-container.css">
+    <link rel="stylesheet" href="/app/public/static/cssLogin/style-buttons.css">
+    <link rel="stylesheet" href="/app/public/static/cssLogin/style-forms-items.css">
+    <link rel="stylesheet" href="/app/public/static/cssLogin/style-mobile.css">
 </head>
 
 <body>
@@ -24,11 +24,11 @@
             </div>
 
             <!-- login -->
-            <form id="login" class="grid-container" action="/login" method="POST">
+            <form id="login" class="grid-container" action="./login" method="POST">
                 <div class="left-side">
                     <!-- left side -->
                     <div class="flex-logo">
-                        <img src="/static/images/recicleaza1.jpg" alt="LOGO" class="logo-login">
+                        <img src="/app/public/static/images/recicleaza1.jpg" alt="LOGO" class="logo-login">
                     </div>
                 </div>
                 <div class="right-side">
@@ -46,11 +46,11 @@
             </form>
 
             <!-- register -->
-            <form id="register" class="grid-container" style="display:none;" action="/register" method="POST">
+            <form id="register" class="grid-container" style="display:none;" action="./register" method="POST">
                 <div class="left-side">
                     <!-- left side -->
                     <div class="flex-logo">
-                        <img src="../static/images/recicleaza1.jpg" alt="LOGO" class="logo-register">
+                        <img src="/app/public/static/images/recicleaza1.jpg" alt="LOGO" class="logo-register">
                     </div>
                     <input type="text" id="fname" name="firstname" placeholder="First Name" class="icon-user" required>
                     <input type="text" id="lname" name="lastname" placeholder="Last Name" class="icon-user" required>
