@@ -6,12 +6,12 @@ class Home extends Controller
     {
         $user = $this->model('User');
         $user->name = $name;
-        echo $user->name;
 
-        $this->view('home/index', ['name' => $user->name]);
+        $this->view('home/index', []);
     }
 
-    public function register(){
+    public function register()
+    {
         $conn = new mysqli('localhost', 'interf', 'weakpassword', 'data');
         if ($conn->connect_error) {
             die('Could not connect: ' . $conn->connect_error);
@@ -19,7 +19,7 @@ class Home extends Controller
 
         $query = "INSERT INTO users values(null, ?, ?, ?, ?, ?, ?)";
         $statement = $conn->prepare($query);
-        if(!$statement){
+        if (!$statement) {
             die('Error at statement' . var_dump($conn->error_list));
         }
         $statement->bind_param('ssssdd', $firstname, $lastname, $email, $password, $location, $admin);
@@ -30,6 +30,7 @@ class Home extends Controller
         $location = 1;
         $admin = 1;
         $statement->execute();
+        $this->view('home/index', []);
     }
 
     public function login()
@@ -41,7 +42,7 @@ class Home extends Controller
 
         $query = "SELECT password FROM users where email = ?";
         $statement = $conn->prepare($query);
-        if(!$statement){
+        if (!$statement) {
             die('Error at statement' . var_dump($conn->error_list));
         }
         $statement->bind_param('s', $email);
@@ -52,13 +53,13 @@ class Home extends Controller
         if ($result->num_rows > 0) {
             // output data of each row
             $row = $result->fetch_row();
-                if(password_verify($password, $row[0])) {
-                    $_SESSION['LOGGED_IN'] = true;
-                    $this->view('home/user-page', []);
-                }
+            if (password_verify($password, $row[0])) {
+                $_SESSION['LOGGED_IN'] = true;
+                $this->view('home/user-page', []);
+            }
 
         } else {
-            echo $_SESSION['LOGGED_IN'] = false;
+            $_SESSION['LOGGED_IN'] = false;
         }
         $conn->close();
     }

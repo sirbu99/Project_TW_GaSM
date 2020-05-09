@@ -24,7 +24,7 @@
             </div>
 
             <!-- login -->
-            <form id="login" class="grid-container" action="./login" method="POST">
+            <form id="login" class="grid-container" action="home/login" method="POST">
                 <div class="left-side">
                     <!-- left side -->
                     <div class="flex-logo">
@@ -46,7 +46,7 @@
             </form>
 
             <!-- register -->
-            <form id="register" class="grid-container" style="display:none;" action="./register" method="POST">
+            <form id="register" class="grid-container" style="display:none;" action="home/register" method="POST">
                 <div class="left-side">
                     <!-- left side -->
                     <div class="flex-logo">
