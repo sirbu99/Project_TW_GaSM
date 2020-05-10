@@ -1,5 +1,6 @@
 <?php
 
+
 class Home extends Controller
 {
     public function index($name = '')
@@ -36,7 +37,7 @@ class Home extends Controller
 
     public function register()
     {
-        $conn = new mysqli('localhost', 'interf', 'weakpassword', 'data');
+        $conn = new mysqli($this->dbData['host'], $this->dbData['user'], $this->dbData['pass'], $this->dbData['database']);
         if ($conn->connect_error) {
             die('Could not connect: ' . $conn->connect_error);
         }
@@ -54,17 +55,20 @@ class Home extends Controller
         $location = 1;
         $admin = $_POST['accountType'];
         $statement->execute();
-        $this->view('home/index', []);
+//        $this->view('home/index', []);
+
+        header("Location: " . BASE_URL . "/home");
+        exit;
     }
 
     public function login()
     {
-        $conn = new mysqli('localhost', 'interf', 'weakpassword', 'data');
+        $conn = new mysqli($this->dbData['host'], $this->dbData['user'], $this->dbData['pass'], $this->dbData['database']);
         if ($conn->connect_error) {
             die('Could not connect: ' . $conn->connect_error);
         }
 
-        $query = "SELECT password FROM users where email = ?";
+        $query = "SELECT password, is_admin FROM users where email = ?";
         $statement = $conn->prepare($query);
         if (!$statement) {
             die('Error at statement' . var_dump($conn->error_list));
@@ -76,16 +80,24 @@ class Home extends Controller
         $result = $statement->get_result();
         if ($result->num_rows > 0) {
             // output data of each row
-            $row = $result->fetch_row();
-            if (password_verify($password, $row[0])) {
+            $row = $result->fetch_assoc();
+            if (password_verify($password, $row['password'])) {
                 $_SESSION['LOGGED_IN'] = true;
-                $this->view('home/user-page', []);
+                $_SESSION['IS_ADMIN'] = $row['is_admin'];
+//                $this->view('home/user-page', []);
+                header("Location: " . BASE_URL . "/home/userpage");
+                exit;
             }
 
         } else {
             $_SESSION['LOGGED_IN'] = false;
         }
         $conn->close();
+    }
+
+    public function userPage()
+    {
+        $this->view('home/user-page', []);
     }
 
 

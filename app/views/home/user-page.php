@@ -23,6 +23,7 @@
     <!--Menu-->
     <nav class="navbar" id="Bar">
         <div class="menu-container">
+            <?php if ($_SESSION['is_admin'] ?? false) { ?>
             <div class="dropdown">
                 <!-- Butonum Menu Options pentru ecrane mici-->
                 <button class="navbutton" onclick="hide('drop1')">Menu</button>
@@ -34,6 +35,7 @@
                     <a href="#Informatie" class="droplink"><i class="fas fa-recycle"></i> Informații adiționale</a>
                 </div>
             </div>
+            <?php } ?>
             <ul class="menu-options">
                 <!-- Butoanele din meniul principal-->
                 <li class="option"><a href="#Evenimente" class="navbarlink"><i class="fas fa-recycle"></i>
