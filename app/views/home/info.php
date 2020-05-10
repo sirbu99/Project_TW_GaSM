@@ -17,6 +17,7 @@
         <button onclick="showInfo('sticla')">Sticlă</button>
         <button onclick="showInfo('lemn')">Lemn</button>
         <button onclick="showInfo('textile')">Textile</button>
+        <button onclick="document.location.href='userPage'">Înapoi la Pagina Principală</button>
     </div>
     <div class="recycleContent">
         <div class="recycleElement hartie_carton">

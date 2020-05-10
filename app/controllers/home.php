@@ -76,5 +76,10 @@ class Home extends Controller
         $this->view('home/user-page', []);
     }
 
+    public function info()
+    {
+        $this->view('home/info', []);
+    }
+
 
 }
