@@ -8,9 +8,12 @@ html {
 
 body {
     font-family: Segoe UI;
-    color: black;
     margin: 0;
     text-align: center;
+    background-image: url(./images/grass.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
 }
 
 section {
@@ -22,26 +25,23 @@ section {
     top: 0em;
     width: 100%;
     z-index: 1;
+
 }
 
 .navbarlink {
     display: block;
-    color: black;
-    text-align: center;
-    padding: 14px 16px;
+    color: white;
     text-decoration: none;
     cursor: pointer;
-    font-size: 15px;
 }
 
-.authentificationBtn{
+.authentificationBtn {
     background-color: #4CAF50;
     color: white;
     padding: 14px 16px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    background-color: #4CAF50;
 }
 
 .authentificationBtn {
@@ -51,11 +51,13 @@ section {
 .navbutton {
     display: none;
 }
-.navbutton:focus{
-    outline:none;
+
+.navbutton:focus {
+    outline: none;
 }
 
-.menu-options{
+
+.menu-options {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -63,32 +65,25 @@ section {
     list-style-type: none;
     overflow: hidden;
     z-index: 1;
+    background-color: #00693e;
     width: 100vw;
     height: 4rem;
+    margin: 0;
+    padding: 0;
 }
 
 .option {
-    /* height: 80%; */
-    background-color: #b0d3bf;
-    opacity: 0.8;
-    width: 100%;
-    margin: 1% 0.5%;
-    padding: 5px;
-    border-radius: 20px;
+    font-size: 120%;
+    font-weight: initial;
 }
 
 .option:hover {
     transform: scale(1.1);
     transition: 200ms;
-    background-color: rgb(9, 117, 12);
     color: white;
     opacity: 1;
 }
 
-.menu-options {
-    margin: 0;
-    padding: 0;
-}
 
 .menu-container {
     display: flex;
@@ -206,24 +201,13 @@ section {
     margin: 2%;
 }
 
-#Situatia,
-#Informatie,
-#Reciclare,
-#Evenimente {
+#Situatia, #Informatie, #Reciclare, #Evenimente {
     padding-top: 50px;
     padding-bottom: 50px;
-    background-image: url(./images/grass.jpg);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
+    color: black;
 }
 
-#Bar {
-    background-image: url(./images/grass.jpg);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-}
+
 
 .authors {
     background-color: #2d6b22;
@@ -245,13 +229,15 @@ section {
 .show {
     display: block;
 }
-.map-container{
+
+.map-container {
     height: 750px;
     width: 100%;
     display: flex;
     justify-content: center;
     padding: 70px;
 }
+
 #map {
     height: 600px;
     width: 600px;
@@ -262,13 +248,13 @@ section {
     display: none;
 }
 
-.situation-elements{
+.situation-elements {
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-.dropdown{
+.dropdown {
     position: relative;
     display: inline-block;
 }
@@ -279,32 +265,42 @@ section {
     .menu-container {
         display: flex;
         justify-content: space-around;
+        background-color: #00693e;
         height: 4rem;
         width: 100vw;
     }
+
     .navbutton {
+        display: block;
+        background-color: #00693e;
+        font-size: 100%;
+        color: white;
         width: 3rem;
+        border: none;
+        cursor: pointer;
     }
+
     .dropbtn {
         display: inline;
+        background-color: #00693e;
     }
+
     .option {
         display: none;
     }
+
     .dropdownlist {
         width: 10rem;
         display: none;
         position: absolute;
-        background-color: #4CAF50;
+        background-color: #00693e;
         font-family: inherit;
-        margin: 0;
-        margin-top: auto;
-        padding: 14px 16px;
+        color: white;
+        margin: auto 0 0;
         z-index: 3;
         border: none;
-        border-radius: 15px;
-        opacity: 0.9;
     }
+
     .droplink {
         display: block;
         color: white;
@@ -314,19 +310,10 @@ section {
         cursor: pointer;
         font-size: 15px;
     }
+
     .garbage-info .garbage-type button {
         font-size: small;
     }
-    .navbutton{
-        display: block;
-        margin-left: 25px;
-        font-size: 15px;
-        background-color: #4CAF50;
-        color: white;
-        opacity: 0.9;
-        padding: 14px 16px;
-        border: none;
-        border-radius: 15px;
-        cursor: pointer;
-    }
+
+
 }

@@ -23,7 +23,7 @@
     <!--Menu-->
     <nav class="navbar" id="Bar">
         <div class="menu-container">
-            <?php if ($_SESSION['is_admin'] ?? false) { ?>
+
             <div class="dropdown">
                 <!-- Butonum Menu Options pentru ecrane mici-->
                 <button class="navbutton" onclick="hide('drop1')">Menu</button>
@@ -35,7 +35,7 @@
                     <a href="#Informatie" class="droplink"><i class="fas fa-recycle"></i> Informații adiționale</a>
                 </div>
             </div>
-            <?php } ?>
+
             <ul class="menu-options">
                 <!-- Butoanele din meniul principal-->
                 <li class="option"><a href="#Evenimente" class="navbarlink"><i class="fas fa-recycle"></i>
@@ -50,10 +50,20 @@
                 <li class="option"><a href="#Situatia" class="navbarlink"><i class="fas fa-recycle"></i> Situatia
                         din zona
                         ta</a></li>
+
+
+                <?php if ($_SESSION['IS_ADMIN'] ?? false) { ?>
+                    <li class="option"><a class="navbarlink" onclick="document.getElementById('id04').style.display='block'"><i class="fas fa-recycle"></i>
+                    Formular</a></li>
+                <?php } ?>
+
+
+                <?php if (!($_SESSION['IS_ADMIN'] ?? false)) { ?>
                 <li class="option"><a class="navbarlink" onclick="document.getElementById('id03').style.display='block'"><i class="fas fa-recycle"></i>
                         Anunta o problema</a></li>
-                <li class="option"><a class="navbarlink" onclick="document.getElementById('id04').style.display='block'"><i class="fas fa-recycle"></i>
-                        Formular</a></li>
+                <?php } ?>
+
+
             </ul>
             
         </div>
@@ -132,7 +142,8 @@
                 <button onclick="revealInfo('plastic')"><i class="fas fa-shopping-bag"></i> Plastic</button>
                 <button onclick="revealInfo('metal')"><i class="fas fa-tools"></i> Metal</button>
                 <button onclick="revealInfo('sticla')"><i class="fas fa-wine-bottle"></i> Sticlă</button>
-                <button onclick="location.href ='/info'"><i class="fas fa-info-circle"></i> Mai mult</button>
+                <button onclick="document.location.href='info'"><i class="fas fa-info-circle"></i> Mai mult</button>
+
             </div>
 
             <div class="content">

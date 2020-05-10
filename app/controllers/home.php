@@ -97,5 +97,10 @@ class Home extends Controller
         $this->view('home/info', []);
     }
 
+    public function info()
+    {
+        $this->view('home/info', []);
+    }
+
 
 }
