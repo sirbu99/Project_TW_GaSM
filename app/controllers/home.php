@@ -3,32 +3,31 @@
 
 class Home extends Controller
 {
+    private function getlocations(){
+        $conn = Database::instance()->getconnection();
+        $query = "SELECT name FROM locations";
+        $statement = $conn->prepare($query);
+        if (!$statement) {
+            die('Error at statement' . var_dump($conn->error_list));
+        }
+        $statement->execute();
+        $result = $statement->get_result();
+        $locations = [];
+        if ($result->num_rows > 0) {
+            // output data of each row
+            while ($row = $result->fetch_row()) {
+                $locations[] = $row[0];
+            }
+
+        }
+        return $locations;
+    }
     public function loginpage($name = '')
     {
         $user = $this->model('User');
         $user->name = $name;
         if(!isset($_SESSION['LOGGED_IN']) && $_SESSION['LOGGED_IN'] == true) {
-            $conn = new mysqli('localhost', 'interf', 'weakpassword', 'data');
-            if ($conn->connect_error) {
-                die('Could not connect: ' . $conn->connect_error);
-            }
-
-            $query = "SELECT name FROM locations";
-            $statement = $conn->prepare($query);
-            if (!$statement) {
-                die('Error at statement' . var_dump($conn->error_list));
-            }
-            $statement->execute();
-            $result = $statement->get_result();
-            $locations = [];
-            if ($result->num_rows > 0) {
-                // output data of each row
-                while ($row = $result->fetch_row()) {
-                    $locations[] = $row[0];
-                }
-
-            }
-            $conn->close();
+            $locations = $this->getlocations();
 
             $this->view('home/index', ['locations' => $locations]);
         }else{
@@ -38,10 +37,7 @@ class Home extends Controller
 
     public function register()
     {
-        $conn = new mysqli($this->dbData['host'], $this->dbData['user'], $this->dbData['pass'], $this->dbData['database']);
-        if ($conn->connect_error) {
-            die('Could not connect: ' . $conn->connect_error);
-        }
+        $conn = Database::instance()->getconnection();
 
         $query = "INSERT INTO users values(null, ?, ?, ?, ?, ?, ?)";
         $statement = $conn->prepare($query);
@@ -63,10 +59,7 @@ class Home extends Controller
 
     public function login()
     {
-        $conn = new mysqli($this->dbData['host'], $this->dbData['user'], $this->dbData['pass'], $this->dbData['database']);
-        if ($conn->connect_error) {
-            die('Could not connect: ' . $conn->connect_error);
-        }
+        $conn = Database::instance()->getconnection();
 
         $query = "SELECT password, is_admin FROM users where email = ?";
         $statement = $conn->prepare($query);
@@ -91,12 +84,17 @@ class Home extends Controller
             }
 
         }
-        $conn->close();
     }
 
     public function userPage()
     {
-        $this->view('home/userpage', []);
+        $locations = $this->getlocations();
+
+        $this->view('home/userpage', ['locations' => $locations]);
+    }
+
+    public function info(){
+        $this->view('home/info', []);
     }
 
 

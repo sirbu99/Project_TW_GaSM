@@ -248,47 +248,11 @@
                 <!-- choose the street -->
                 <select id="place" name="place">
                     <option value="" disabled selected>Alege strada unde ai sesizat problema</option>
-                    <option>Bulevard Iorga Nicolae</option>
-                    <option>Bulevard Mangeron</option>
-                    <option>Dimitrie, prof. dr. doc.</option>
-                    <option>Bulevard Metalurgiei</option>
-                    <option>Bulevard Poitiers</option>
-                    <option>Bulevard Primaverii</option>
-                    <option>Bulevard Rosetti C. A.</option>
-                    <option>Bulevard Socola</option>
-                    <option>Bulevard Stefan cel Mare si Sfant</option>
-                    <option>Bulevard Tutora</option>
-                    <option>Bulevard Dacia</option>
-                    <option>Bulevard Dimitrie</option>
-                    <option>Cantemir</option>
-                    <option>Bulevard Independentei</option>
-                    <option>Piata Garii</option>
-                    <option>Piata Halei</option>
-                    <option>Piata Natiunii</option>
-                    <option>Piata Stefan cel Mare si Sfant</option>
-                    <option>Piata Unirii</option>
-                    <option>Piata Voievozilor</option>
-                    <option>Platou Abator</option>
-                    <option>Sosea Albinet</option>
-                    <option>Sosea Arcu</option>
-                    <option>Sosea Barnova</option>
-                    <option>Sosea Bucium</option>
-                    <option>Sosea Carlig</option>
-                    <option>Strada Buridava</option>
-                    <option>Strada Busuioc</option>
-                    <option>Strada Butnari</option>
-                    <option>Strada Buzescu</option>
-                    <option>Strada Buznea</option>
-                    <option>Strada Calafat</option>
-                    <option>Strada Calarasi</option>
-                    <option>Strada Calugareni</option>
-                    <option>Strada Canta</option>
-                    <option>Stradela Manta Rosie</option>
-                    <option>Stradela Mironescu I. I.</option>
-                    <option>Stradela Mizil</option>
-                    <option>Stradela Moara de Vant</option>
-                    <option>Stradela Nicorita</option>
-                    <option>Stradela Pacureti</option>
+                    <?php
+                        foreach ($data['locations'] as $loc){
+                            echo '<option>' . $loc . '</option>';
+                        }
+                    ?>
                 </select>
             </div>
             <div>
@@ -303,59 +267,23 @@
     </div>
     <!--Report-->
     <div id="id04" class="modal">
-        <form action="/report" method="post">
+        <form >
             <div class="content-raport-employee">
                 <!-- choose tha street -->
                 <select id="place" name="place">
                     <option value="" disabled selected>Alege zona pentru care vrei sa faci raportarea</option>
-                    <option>Bulevard Iorga Nicolae</option>
-                    <option>Bulevard Mangeron</option>
-                    <option>Dimitrie, prof. dr. doc.</option>
-                    <option>Bulevard Metalurgiei</option>
-                    <option>Bulevard Poitiers</option>
-                    <option>Bulevard Primaverii</option>
-                    <option>Bulevard Rosetti C. A.</option>
-                    <option>Bulevard Socola</option>
-                    <option>Bulevard Stefan cel Mare si Sfant</option>
-                    <option>Bulevard Tutora</option>
-                    <option>Bulevard Dacia</option>
-                    <option>Bulevard Dimitrie</option>
-                    <option>Cantemir</option>
-                    <option>Bulevard Independentei</option>
-                    <option>Piata Garii</option>
-                    <option>Piata Halei</option>
-                    <option>Piata Natiunii</option>
-                    <option>Piata Stefan cel Mare si Sfant</option>
-                    <option>Piata Unirii</option>
-                    <option>Piata Voievozilor</option>
-                    <option>Platou Abator</option>
-                    <option>Sosea Albinet</option>
-                    <option>Sosea Arcu</option>
-                    <option>Sosea Barnova</option>
-                    <option>Sosea Bucium</option>
-                    <option>Sosea Carlig</option>
-                    <option>Strada Buridava</option>
-                    <option>Strada Busuioc</option>
-                    <option>Strada Butnari</option>
-                    <option>Strada Buzescu</option>
-                    <option>Strada Buznea</option>
-                    <option>Strada Calafat</option>
-                    <option>Strada Calarasi</option>
-                    <option>Strada Calugareni</option>
-                    <option>Strada Canta</option>
-                    <option>Stradela Manta Rosie</option>
-                    <option>Stradela Mironescu I. I.</option>
-                    <option>Stradela Mizil</option>
-                    <option>Stradela Moara de Vant</option>
-                    <option>Stradela Nicorita</option>
-                    <option>Stradela Pacureti</option>
+                    <?php
+                    foreach ($data['locations'] as $loc){
+                        echo '<option>' . $loc . '</option>';
+                    }
+                    ?>
                 </select>
                 <input type="number" name="paper" placeholder="Cantitatea de hartie">
                 <input type="number" name="plastic" placeholder="Cantitatea de plastic">
                 <input type="number" name="glass" placeholder="Cantitatea de sticla">
                 <input type="number" name="mixedGarbage" placeholder="Cantitatea de deseuri menajere">
                 <input type="number" name="metal" placeholder="Cantitatea de metal">
-                <button type="submit">Submit</button>
+                <button type="submit" formaction="<?= BASE_URL . "/api/insertdata" ?>" formmethod="post">Submit</button>
                 <button type="cancel" onclick="document.getElementById('id04').style.display='none'">
                 Cancel</button>
             </div>
