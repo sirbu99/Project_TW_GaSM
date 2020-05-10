@@ -24,7 +24,13 @@ class App
         }
         $this->controller = new $this->controller;
         $this->params = $url ? array_values($url) : [];
-        call_user_func_array([$this->controller, $this->method], $this->params);
+
+        if ( AuthMiddleware::run($this->controller,  $this->method) ) {
+            call_user_func_array([$this->controller, $this->method], $this->params);
+        } else {
+            header("Location: " . BASE_URL . "/home");
+            exit;
+        }
 
     }
 
