@@ -7,7 +7,31 @@ class Home extends Controller
         $user = $this->model('User');
         $user->name = $name;
 
-        $this->view('home/index', []);
+        $conn = new mysqli('localhost', 'interf', 'weakpassword', 'data');
+        if ($conn->connect_error) {
+            die('Could not connect: ' . $conn->connect_error);
+        }
+
+        $query = "SELECT name FROM locations";
+        $statement = $conn->prepare($query);
+        if (!$statement) {
+            die('Error at statement' . var_dump($conn->error_list));
+        }
+        $statement->execute();
+        $result = $statement->get_result();
+        $locations = [];
+        if ($result->num_rows > 0) {
+            // output data of each row
+            while($row = $result->fetch_row()){
+                $locations[] = $row[0];
+            }
+
+        } else {
+            $_SESSION['LOGGED_IN'] = false;
+        }
+        $conn->close();
+
+        $this->view('home/index', ['locations' => $locations]);
     }
 
     public function register()
@@ -28,7 +52,7 @@ class Home extends Controller
         $email = $_POST['email'];
         $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
         $location = 1;
-        $admin = 1;
+        $admin = $_POST['accountType'];
         $statement->execute();
         $this->view('home/index', []);
     }

@@ -55,9 +55,9 @@
                     <input type="text" id="fname" name="firstname" placeholder="First Name" class="icon-user" required>
                     <input type="text" id="lname" name="lastname" placeholder="Last Name" class="icon-user" required>
                     <div class="account">
-                        <input type="radio" id="user" name="accountType" value="user" required>
+                        <input type="radio" id="user" name="accountType" value="0" required>
                         <label for="user">User</label>
-                        <input type="radio" id="employee" name="accountType" value="employee" required>
+                        <input type="radio" id="employee" name="accountType" value="1" required>
                         <label for="employee">Employee</label>
                     </div>
                     
@@ -72,9 +72,11 @@ one special character and at least 8  characters" class="icon-pass" required>
                         required>
                     <select id="street" class="chooseStreet icon-map">
                         <option value="" disabled selected>Choose your street</option>
-                        <option>Street1</option>
-                        <option>Street2</option>
-                        <option>Street3</option>
+                        <?php
+                            foreach ($data['locations'] as $loc){
+                                echo '<option>' . $loc . '</option>';
+                            }
+                        ?>
                     </select>
                 </div>
                 <div class="down-side">
