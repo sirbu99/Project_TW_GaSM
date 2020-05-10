@@ -3,36 +3,37 @@
 
 class Home extends Controller
 {
-    public function index($name = '')
+    public function loginpage($name = '')
     {
         $user = $this->model('User');
         $user->name = $name;
-
-        $conn = new mysqli('localhost', 'interf', 'weakpassword', 'data');
-        if ($conn->connect_error) {
-            die('Could not connect: ' . $conn->connect_error);
-        }
-
-        $query = "SELECT name FROM locations";
-        $statement = $conn->prepare($query);
-        if (!$statement) {
-            die('Error at statement' . var_dump($conn->error_list));
-        }
-        $statement->execute();
-        $result = $statement->get_result();
-        $locations = [];
-        if ($result->num_rows > 0) {
-            // output data of each row
-            while($row = $result->fetch_row()){
-                $locations[] = $row[0];
+        if(!isset($_SESSION['LOGGED_IN']) && $_SESSION['LOGGED_IN'] == true) {
+            $conn = new mysqli('localhost', 'interf', 'weakpassword', 'data');
+            if ($conn->connect_error) {
+                die('Could not connect: ' . $conn->connect_error);
             }
 
-        } else {
-            $_SESSION['LOGGED_IN'] = false;
-        }
-        $conn->close();
+            $query = "SELECT name FROM locations";
+            $statement = $conn->prepare($query);
+            if (!$statement) {
+                die('Error at statement' . var_dump($conn->error_list));
+            }
+            $statement->execute();
+            $result = $statement->get_result();
+            $locations = [];
+            if ($result->num_rows > 0) {
+                // output data of each row
+                while ($row = $result->fetch_row()) {
+                    $locations[] = $row[0];
+                }
 
-        $this->view('home/index', ['locations' => $locations]);
+            }
+            $conn->close();
+
+            $this->view('home/index', ['locations' => $locations]);
+        }else{
+            $this->redirect('/home/userpage');
+        }
     }
 
     public function register()
@@ -56,8 +57,7 @@ class Home extends Controller
         $admin = $_POST['accountType'];
         $statement->execute();
 //        $this->view('home/index', []);
-
-        header("Location: " . BASE_URL . "/home");
+        $this->redirect('/home');
         exit;
     }
 
@@ -84,20 +84,19 @@ class Home extends Controller
             if (password_verify($password, $row['password'])) {
                 $_SESSION['LOGGED_IN'] = true;
                 $_SESSION['IS_ADMIN'] = $row['is_admin'];
-//                $this->view('home/user-page', []);
-                header("Location: " . BASE_URL . "/home/userpage");
+//                $this->view('home/userpage', []);
+               // header("Location: " . BASE_URL . "/home/userpage");
+                $this->redirect('/home/userpage');
                 exit;
             }
 
-        } else {
-            $_SESSION['LOGGED_IN'] = false;
         }
         $conn->close();
     }
 
     public function userPage()
     {
-        $this->view('home/user-page', []);
+        $this->view('home/userpage', []);
     }
 
 

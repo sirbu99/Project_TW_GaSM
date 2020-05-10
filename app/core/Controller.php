@@ -18,4 +18,9 @@ class Controller
     public function view($view, $data = []){
         require_once '../app/views/'. $view . '.php';
     }
+
+    public function redirect($path = ''){
+        header("Location: " . BASE_URL . $path);
+    }
+
 }
