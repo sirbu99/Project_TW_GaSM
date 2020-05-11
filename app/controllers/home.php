@@ -3,7 +3,8 @@
 
 class Home extends Controller
 {
-    private function getlocations(){
+    private function getlocations()
+    {
         $conn = Database::instance()->getconnection();
         $query = "SELECT name FROM locations";
         $statement = $conn->prepare($query);
@@ -22,15 +23,15 @@ class Home extends Controller
         }
         return $locations;
     }
+
     public function loginpage($name = '')
     {
         $user = $this->model('User');
         $user->name = $name;
-        if(!isset($_SESSION['LOGGED_IN']) && $_SESSION['LOGGED_IN'] == true) {
+        if (!isset($_SESSION['LOGGED_IN']) || $_SESSION['LOGGED_IN'] == false) {
             $locations = $this->getlocations();
-
             $this->view('home/index', ['locations' => $locations]);
-        }else{
+        } else {
             $this->redirect('/home/userpage');
         }
     }
@@ -59,6 +60,7 @@ class Home extends Controller
 
     public function login()
     {
+
         $conn = Database::instance()->getconnection();
 
         $query = "SELECT password, is_admin FROM users where email = ?";
@@ -78,7 +80,7 @@ class Home extends Controller
                 $_SESSION['LOGGED_IN'] = true;
                 $_SESSION['IS_ADMIN'] = $row['is_admin'];
 //                $this->view('home/userpage', []);
-               // header("Location: " . BASE_URL . "/home/userpage");
+                // header("Location: " . BASE_URL . "/home/userpage");
                 $this->redirect('/home/userpage');
                 exit;
             }
@@ -91,10 +93,6 @@ class Home extends Controller
         $locations = $this->getlocations();
 
         $this->view('home/userpage', ['locations' => $locations]);
-    }
-
-    public function info(){
-        $this->view('home/info', []);
     }
 
     public function info()

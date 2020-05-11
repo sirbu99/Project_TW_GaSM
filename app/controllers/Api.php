@@ -1,9 +1,10 @@
 <?php
 
 
-class Api
+class Api extends Controller
 {
     public function insertdata(){
+
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             echo 'here';
             $conn = Database::instance()->getconnection();
@@ -22,7 +23,8 @@ class Api
             $glass = $_POST['glass'];
             $statement->execute();
             http_response_code(200);
-            echo json_encode(array("message" => "Data has been added"));
+            echo 'done';
+            exit;
 
         }
         else
