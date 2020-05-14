@@ -6,6 +6,7 @@ class App
     protected $method = 'loginpage';
     protected $params = [];
 
+
     public function __construct()
     {
         session_start();
@@ -23,13 +24,20 @@ class App
                 unset($url[1]);
             }
         }
+        $tempcont = $this->controller;
         $this->controller = new $this->controller;
         $this->params = $url ? array_values($url) : [];
 
         if ( AuthMiddleware::run($this->controller,  $this->method) ) {
             call_user_func_array([$this->controller, $this->method], $this->params);
         } else {
-            header("Location: " . BASE_URL . "/home");
+            http_response_code(403);
+            if($tempcont == 'home'){
+                header("Location: " . BASE_URL . "/home/loginpage");
+            }else{
+                require_once ERROR_PATH . '403_error.php';
+            }
+
             exit;
         }
 

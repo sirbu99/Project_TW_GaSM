@@ -292,10 +292,11 @@
                 <input type="number" name="paper" placeholder="Cantitatea de hartie">
                 <input type="number" name="plastic" placeholder="Cantitatea de plastic">
                 <input type="number" name="glass" placeholder="Cantitatea de sticla">
-                <input type="number" name="mixedGarbage" placeholder="Cantitatea de deseuri menajere">
+                <input type="number" name="waste" placeholder="Cantitatea de deseuri menajere">
                 <input type="number" name="metal" placeholder="Cantitatea de metal">
+                <input type="number" name="mixedGarbage" placeholder="Deseuri mixte/nesortate">
                 <button type="submit" formaction="<?= BASE_URL . "/api/insertdata" ?>" formmethod="post">Submit</button>
-                <button type="cancel" onclick="document.getElementById('id04').style.display='none'">
+                <button type="button" class="cancelbutton" onclick="document.getElementById('id04').style.display='none'">
                 Cancel</button>
             </div>
         </form>

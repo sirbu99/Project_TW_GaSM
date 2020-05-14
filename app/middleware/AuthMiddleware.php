@@ -5,16 +5,15 @@ class AuthMiddleware
 {
 
     const EXCLUDED_PAGES = [
-        'home:index',
+        'home:loginpage',
         'home:login',
         'home:register',
-        'api:insertdata'
     ];
 
     public static function run($controller, $method)
     {
-        $isLoogedIn = $_SESSION['LOGGED_IN'] ?? false;
+        $isLoggedIn = $_SESSION['LOGGED_IN'] ?? false;
         $myRoute = strtolower(get_class($controller) . ":" . $method);
-        return  $isLoogedIn || in_array($myRoute, self::EXCLUDED_PAGES);
+        return  $isLoggedIn || in_array($myRoute, self::EXCLUDED_PAGES);
     }
 }

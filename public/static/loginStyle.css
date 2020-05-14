@@ -79,7 +79,7 @@ button[type=submit] {
 
 /*stilizare button cancel din formular report*/
 
-button[type="cancel"] {
+button[class="cancelbutton"] {
     width: 100%;
     background-color: rgb(214, 19, 19);
     color: white;
