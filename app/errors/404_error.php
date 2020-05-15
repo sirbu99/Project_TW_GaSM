@@ -3,10 +3,10 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>400 Error</title>
+    <title>404 Error</title>
 
 </head>
 
 <body>
-    <b><p>400 BAD REQUEST</p></b>
+    <b><p>404 PAGE NOT FOUND</p></b>
 </body>

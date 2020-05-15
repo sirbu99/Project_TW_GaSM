@@ -39,13 +39,13 @@ class Api extends Controller
         $data = [];
         $conn = Database::instance()->getconnection();
         if ($date == '') {
-            $query = 'select name, address, report_date, paper, plastic, metal, glass, waste, mixed from materials m join locations l on m.location_id = l.id';
+            $query = 'select name, address, report_date, paper, plastic, metal, glass, waste, mixed from materials m join locations l on m.location_id = l.id where location_id = ' . $_SESSION['LOCATION_ID'];
             $statement = $conn->prepare($query);
             if (!$statement) {
                 die('Error at statement' . var_dump($conn->error_list));
             }
         } else {
-            $query = 'select name, address, report_date, paper, plastic, metal, glass, waste, mixed from materials m join locations l on m.location_id = l.id where report_date = ?';
+            $query = 'select name, address, report_date, paper, plastic, metal, glass, waste, mixed from materials m join locations l on m.location_id = l.id where report_date = ? and location_id =' . $_SESSION['LOCATION_ID'];
             $statement = $conn->prepare($query);
             if (!$statement) {
                 die('Error at statement' . var_dump($conn->error_list));
@@ -85,7 +85,7 @@ class Api extends Controller
             switch ($params ?? 'json') {
                 default:
                     header('Content-Type: application/json');
-                    echo json_encode($this->processdata($_POST['date'] ?? ''));
+                    echo json_encode($this->processdata($_GET['date'] ?? ''));
                     break;
                 case 'csv':
                     echo 'csv';

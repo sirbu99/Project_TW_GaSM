@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <title>Login</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/app/public/static/cssLogin/style-container.css">
-    <link rel="stylesheet" href="/app/public/static/cssLogin/style-buttons.css">
-    <link rel="stylesheet" href="/app/public/static/cssLogin/style-forms-items.css">
-    <link rel="stylesheet" href="/app/public/static/cssLogin/style-mobile.css">
+    <link rel="stylesheet" href="/public/static/cssLogin/style-container.css">
+    <link rel="stylesheet" href="/public/static/cssLogin/style-buttons.css">
+    <link rel="stylesheet" href="/public/static/cssLogin/style-forms-items.css">
+    <link rel="stylesheet" href="/public/static/cssLogin/style-mobile.css">
 </head>
 
 <body>
@@ -28,7 +28,7 @@
                 <div class="left-side">
                     <!-- left side -->
                     <div class="flex-logo">
-                        <img src="/app/public/static/images/recicleaza1.jpg" alt="LOGO" class="logo-login">
+                        <img src="/public/static/images/recicleaza1.jpg" alt="LOGO" class="logo-login">
                     </div>
                 </div>
                 <div class="right-side">
@@ -50,7 +50,7 @@
                 <div class="left-side">
                     <!-- left side -->
                     <div class="flex-logo">
-                        <img src="/app/public/static/images/recicleaza1.jpg" alt="LOGO" class="logo-register">
+                        <img src="/public/static/images/recicleaza1.jpg" alt="LOGO" class="logo-register">
                     </div>
                     <input type="text" id="fname" name="firstname" placeholder="First Name" class="icon-user" required>
                     <input type="text" id="lname" name="lastname" placeholder="Last Name" class="icon-user" required>

@@ -23,6 +23,14 @@ class Home extends Controller
         }
         return $locations;
     }
+    public function test(){
+        var_dump($_GET);
+    }
+    public function page_404()
+    {
+        http_response_code(404);
+        require_once ERROR_PATH . '404_error.php';
+    }
 
     public function loginpage($name = '')
     {
@@ -39,7 +47,7 @@ class Home extends Controller
 
     public function register()
     {
-        if($_SERVER['REQUEST_METHOD'] == 'POST') {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $conn = Database::instance()->getconnection();
             $query = "INSERT INTO users values(null, ?, ?, ?, ?, ?, ?)";
             $statement = $conn->prepare($query);
@@ -56,12 +64,18 @@ class Home extends Controller
             $statement->execute();
             $this->redirect('/home');
             exit;
-        }else{
+        } else {
             http_response_code(405);
             require_once ERROR_PATH . '405_error.php';
         }
     }
-
+    public function logoff(){
+        unset($_SESSION['LOGGED_IN']);
+        unset($_SESSION['IS_ADMIN']);
+        unset($_SESSION['ID']);
+        unset($_SESSION['LOCATION_ID']);
+        $this->redirect('/home/loginpage');
+    }
     public function login()
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -73,7 +87,7 @@ class Home extends Controller
                 die('Error at statement' . var_dump($conn->error_list));
             }
             $statement->bind_param('s', $email);
-            if(!isset($_POST['email']) || !isset($_POST['password'])){
+            if (!isset($_POST['email']) || !isset($_POST['password'])) {
                 http_response_code(400);
                 require_once ERROR_PATH . '400_error.php';
                 exit;
@@ -90,8 +104,11 @@ class Home extends Controller
                     $_SESSION['IS_ADMIN'] = $row['is_admin'];
                     $_SESSION['ID'] = $row['id'];
                     $_SESSION['LOCATION_ID'] = $row['location_id'];
+                    http_response_code(200);
                     $this->redirect('/home/userpage');
                     exit;
+                } else{
+                    http_response_code(401);
                 }
 
             }
