@@ -8,6 +8,7 @@ class AuthMiddleware
         'home:loginpage',
         'home:login',
         'home:register',
+        'home:page_404',
     ];
 
     public static function run($controller, $method)

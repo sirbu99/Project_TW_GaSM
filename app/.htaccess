@@ -1,0 +1,3 @@
+Options -Indexes
+
+FallbackResource app/public/index.php

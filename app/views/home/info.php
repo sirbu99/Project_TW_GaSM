@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Informatii Utile</title>
-    <script type="text/javascript" src="/app/public/static/js/recycle_info.js"></script>
-    <link rel="stylesheet" href="/app/public/static/infoStyle.css">
+    <script type="text/javascript" src="/public/static/js/recycle_info.js"></script>
+    <link rel="stylesheet" href="/public/static/infoStyle.css">
 </head>
 <body>
 <section class="recycleInformation">
@@ -455,7 +455,7 @@
                             <li>Utilizează baterii</li>
                             <li>Necesită încărcare</li>
                             <li>Are o imagine cu o pubelă pe roți tăiată cu o cruce <img
-                                    src="/app/public/static/images/DEEE.jpg"></li>
+                                    src="/public/static/images/DEEE.jpg"></li>
                         </ul>
                     </li>
                     <li>Becurile și tuburile de neon pot fi predate centrelor sau punctelor de colectare specializate în
@@ -493,7 +493,7 @@
                             <li>Utilizează baterii</li>
                             <li>Necesită încărcare</li>
                             <li>Are o imagine cu o pubelă pe roți tăiată cu un „X <img
-                                    src="/app/public/static/images/DEEE.jpg"></li>
+                                    src="/public/static/images/DEEE.jpg"></li>
                         </ul>
                     </li>
                     <li>În cazul în care nu există opțiunea predării aparatului vechi la livrarea celui nou, DEEE-urile
@@ -550,7 +550,7 @@
                             <li>Utilizează baterii</li>
                             <li>Necesită încărcare</li>
                             <li>Are o imagine cu o pubelă pe roți tăiată cu un “X” <img
-                                    src="/app/public/static/images/DEEE.jpg"></li>
+                                    src="/public/static/images/DEEE.jpg"></li>
                         </ul>
                     </li>
                     <li>De multe ori, magazinele care vând produse electrocasnice colectează produsul vechi la livrarea

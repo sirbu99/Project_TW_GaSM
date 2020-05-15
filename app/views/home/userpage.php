@@ -4,15 +4,15 @@
 <head>
     <!-- make page responsive-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/app/public/static/style.css">
-    <link rel="stylesheet" href="/app/public/static/loginStyle.css">
-    <link rel="stylesheet" href="/app/public/static/style-events.css">
+    <link rel="stylesheet" href="/public/static/style.css">
+    <link rel="stylesheet" href="/public/static/loginStyle.css">
+    <link rel="stylesheet" href="/public/static/style-events.css">
     <title>User Page</title>
     <script src="https://kit.fontawesome.com/342e71a7d6.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript" src="/app/public/static/js/piechart.js"></script>
-    <script type="text/javascript" src="/app/public/static/js/misc.js"></script>
-    <script type="text/javascript" src="/app/public/static/js/recycle_info.js"></script>
+    <script type="text/javascript" src="/public/static/js/piechart.js"></script>
+    <script type="text/javascript" src="/public/static/js/misc.js"></script>
+    <script type="text/javascript" src="/public/static/js/recycle_info.js"></script>
     <!-- for mapbox -->
     <script src='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css' rel='stylesheet' />
@@ -71,7 +71,7 @@
     <!-- PROFILE -->
     <!-- <section id="Profil">
     <div class="card">
-        <img src="/app/public/static/images/avatar.png" alt="Default"
+        <img src="/public/static/images/avatar.png" alt="Default"
              style="width:100%; border-radius:4px">
         <h1>Generic Name</h1>
         <p class="usertitle">Citizen</p>
@@ -217,18 +217,18 @@
         </div>
         <div class="info-content">
             <div class="info">
-                <img src="/app/public/static/images/deseuri.jpg" alt="image" class="info-image">
+                <img src="/public/static/images/deseuri.jpg" alt="image" class="info-image">
                 <a href="https://salubris.ro/servicii/colectarea-separata-a-deseurilor/" target="_blank">Colectarea
                     separată
                     a
                     deșeurilor</a>
             </div>
             <div class="info">
-                <img src="/app/public/static/images/deseuri.jpg" alt="image" class="info-image">
+                <img src="/public/static/images/deseuri.jpg" alt="image" class="info-image">
                 <a href="https://salubris.ro/orasul-verde/impreuna-colectam-separat/activitati-de-promovare-a-colectarii-separate/" target="_blank">Activități de promovare a colectării separate</a>
             </div>
             <div class="info">
-                <img src="/app/public/static/images/deseuri.jpg" alt="image" class="info-image">
+                <img src="/public/static/images/deseuri.jpg" alt="image" class="info-image">
                 <a href="https://salubris.ro/orasul-verde/impactul-colectarii-separate/" target="_blank">Impactul
                     colectării
                     separate</a>
