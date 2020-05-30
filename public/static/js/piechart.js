@@ -4,7 +4,7 @@ google.charts.setOnLoadCallback(drawChart);
 
 // Draw the chart and set the chart values
 function drawChart() {
-    fetch('/public/api/getdata/json')
+    fetch('/api/getdata/json')
         .then(response => response.json())
         .then(function (data) {
             var info = google.visualization.arrayToDataTable([

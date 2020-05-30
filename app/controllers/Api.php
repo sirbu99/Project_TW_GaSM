@@ -7,8 +7,9 @@ class Api extends Controller
 
     public function insertdata()
     {
-
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            var_dump($_POST);
+            file_put_contents('../app/logs/error.log', $_POST);
             $conn = Database::instance()->getconnection();
             $query = 'insert into materials values (null,?, ?, ?, ?, ?, ?, ?, ?)';
             $statement = $conn->prepare($query);
@@ -16,7 +17,7 @@ class Api extends Controller
                 die('Error at statement' . var_dump($conn->error_list));
             }
             $statement->bind_param('dsdddddd', $location, $date, $paper, $metal, $waste, $glass, $plastic, $mixed);
-            $location = 1;
+            $location = $this->getlocid($_POST['location']);
             $date = date('Y-m-d H:i:s');
             $paper = $_POST['paper'];
             $metal = $_POST['metal'];
@@ -34,24 +35,65 @@ class Api extends Controller
         }
     }
 
-    private function processdata($date = '')
+    private function bindparams($query, $params)
+    {
+        $conn = Database::instance()->getconnection();
+        $statement = $conn->prepare($query);
+        if (!$statement) {
+            die('Error at statement' . var_dump($conn->error_list));
+        }
+        if (!empty($params))
+            call_user_func_array(array($statement, "bind_param"), $params);
+        return $statement;
+
+    }
+
+    private function getlocid($location){
+        $conn = Database::instance()->getconnection();
+        $location = strtolower($location);
+        $query = "select id from locations where lower(name) = ?";
+        $statement = $conn->prepare($query);
+        $statement->bind_param('s', $location);
+        $statement->execute();
+        if (!$statement) {
+
+            die('Error at statement' . var_dump($conn->error_list));
+        }
+        return $statement->get_result()->fetch_row()[0];
+    }
+    private function processdata()
     {
         $data = [];
-        $conn = Database::instance()->getconnection();
-        if ($date == '') {
-            $query = 'select name, address, report_date, paper, plastic, metal, glass, waste, mixed from materials m join locations l on m.location_id = l.id where location_id = ' . $_SESSION['LOCATION_ID'];
-            $statement = $conn->prepare($query);
-            if (!$statement) {
-                die('Error at statement' . var_dump($conn->error_list));
-            }
-        } else {
-            $query = 'select name, address, report_date, paper, plastic, metal, glass, waste, mixed from materials m join locations l on m.location_id = l.id where report_date = ? and location_id =' . $_SESSION['LOCATION_ID'];
-            $statement = $conn->prepare($query);
-            if (!$statement) {
-                die('Error at statement' . var_dump($conn->error_list));
-            }
-            $statement->bind_param('s', $date);
+        // $conn = Database::instance()->getconnection();
+        $params = [];
+        $id = -1;
+        if (isset($_GET['location'])) {
+            $id = $this->getlocid($_GET['location']);
         }
+        $query = 'select name, address, report_date, paper, plastic, metal, glass, waste, mixed from materials m join locations l on m.location_id = l.id';
+        if (isset($_GET['location']) && isset($_GET['date'])) {
+            $query = $query . ' where ';
+            $query = $query . 'report_date = ? ';
+            $query = $query . 'and location_id = ?';
+            $date = $_GET['date'];
+            $params[] = 'sd';
+            $params[] = &$date;
+            $params[] = &$id;
+        } elseif (isset($_GET['location'])) {
+            $query = $query . ' where ';
+            $query = $query . 'location_id = ?';
+            $location = $_GET['location'];
+            $params[] = 'd';
+            $params[] = &$id;
+        } elseif (isset($_GET['date'])) {
+            $query = $query . ' where ';
+            $query = $query . 'report_date = ?';
+            $date = $_GET['date'];
+            $params[] = 's';
+            $params[] = &$date;
+        }
+        $statement = $this->bindparams($query, $params);
+
         $statement->execute();
         $result = $statement->get_result();
         while ($row = $result->fetch_row()) {
@@ -62,8 +104,9 @@ class Api extends Controller
 
     }
 
-    public function report(){
-        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+    public function report()
+    {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $db = Database::instance()->getconnection();
             $query = 'insert into reports values(null, ?, ?, ?, ?)';
             $statement = $db->prepare($query);
@@ -74,34 +117,34 @@ class Api extends Controller
             $date = date('Y-m-d H:i:s');
             $statement->execute();
 
-        }else{
+        } else {
             http_response_code(405);
-            require_once  ERROR_PATH . '405_error.php';
+            require_once ERROR_PATH . '405_error.php';
         }
     }
 
     public function getdata($params = [])
     {
-            switch ($params ?? 'json') {
-                default:
-                    header('Content-Type: application/json');
-                    echo json_encode($this->processdata($_GET['date'] ?? ''));
-                    break;
-                case 'csv':
-                    echo 'csv';
-                    $output = fopen("php://output",'w') or die("Can't open php://output");
-                    header("Content-Type:application/csv");
-                    header("Content-Disposition:attachment;filename=data.csv");
-                    fputcsv($output, array('name','address','date', 'paper', 'plastic', 'metal', 'glass', 'waste'));
-                    $data = $this->processdata($_POST['date'] ?? '');
-                    foreach($data as $dat) {
-                        fputcsv($output, $dat);
-                    }
+        switch ($params ?? 'json') {
+            default:
+                header('Content-Type: application/json');
+                echo json_encode($this->processdata($_GET['date'] ?? ''));
+                break;
+            case 'csv':
+                echo 'csv';
+                $output = fopen("php://output", 'w') or die("Can't open php://output");
+                header("Content-Type:application/csv");
+                header("Content-Disposition:attachment;filename=data.csv");
+                fputcsv($output, array('name', 'address', 'date', 'paper', 'plastic', 'metal', 'glass', 'waste'));
+                $data = $this->processdata($_POST['date'] ?? '');
+                foreach ($data as $dat) {
+                    fputcsv($output, $dat);
+                }
 
-                    break;
-                case 'pdf':
-                    echo 'pdf';
-                    break;
-            }
+                break;
+            case 'pdf':
+                echo 'pdf';
+                break;
         }
+    }
 }

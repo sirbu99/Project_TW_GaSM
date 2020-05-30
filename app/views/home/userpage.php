@@ -65,7 +65,7 @@
 
 
             </ul>
-            
+
         </div>
     </nav>
     <!-- PROFILE -->
@@ -278,10 +278,10 @@
     </div>
     <!--Report-->
     <div id="id04" class="modal">
-        <form >
+        <form id="materials" onsubmit="matForm()">
             <div class="content-raport-employee">
                 <!-- choose tha street -->
-                <select id="place" name="place">
+                <select id="place" name="location">
                     <option value="" disabled selected>Alege zona pentru care vrei sa faci raportarea</option>
                     <?php
                     foreach ($data['locations'] as $loc){
@@ -295,7 +295,7 @@
                 <input type="number" name="waste" placeholder="Cantitatea de deseuri menajere">
                 <input type="number" name="metal" placeholder="Cantitatea de metal">
                 <input type="number" name="mixedGarbage" placeholder="Deseuri mixte/nesortate">
-                <button type="submit" formaction="<?= BASE_URL . "/api/insertdata" ?>" formmethod="post">Submit</button>
+                <button type="submit" class="submitbutton" formaction="javascript:;">Submit</button>
                 <button type="button" class="cancelbutton" onclick="document.getElementById('id04').style.display='none'">
                 Cancel</button>
             </div>
@@ -316,7 +316,7 @@ style: 'mapbox://styles/mapbox/streets-v11',
 center: [27.58, 47.17], // starting position
 zoom: 9 // starting zoom
 });
- 
+
 // Add zoom and rotation controls to the map.
 map.addControl(new mapboxgl.NavigationControl());
 

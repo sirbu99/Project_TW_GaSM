@@ -16,13 +16,15 @@ class App
             unset($url[0]);
         }
         require_once '../app/controllers/' . $this->controller . '.php';
-
         if (isset($url[1])) {
             if (method_exists($this->controller, $url[1])) {
                 $this->method = $url[1];
                 unset($url[1]);
+            } else {
+                $this->controller = 'home';
+                $this->method = 'page_404';
             }
-        }else{
+        } else {
             $this->method = 'loginpage';
         }
 
@@ -49,8 +51,9 @@ class App
     public function parseUrl()
     {
         $url = $_SERVER['REQUEST_URI'];
-        $url = ltrim($url, '/');
-        return $url = explode('/', filter_var(rtrim($url, '/'), FILTER_SANITIZE_URL));
+        $url = strtok(ltrim($url, '/'), '?');
+
+        return explode('/', filter_var(rtrim($url, '/'), FILTER_SANITIZE_URL));
 
     }
 }

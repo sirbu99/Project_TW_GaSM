@@ -9,6 +9,7 @@ class AuthMiddleware
         'home:login',
         'home:register',
         'home:page_404',
+        'api:insertdata',
     ];
 
     public static function run($controller, $method)

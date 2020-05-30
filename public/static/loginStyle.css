@@ -66,7 +66,7 @@ select:focus, input[type="number"]:focus{
 
 /* stilizare buton submit pentru formular report */
 
-button[type=submit] {
+button[class="submitbutton"] {
     width: 100%;
     background-color: rgb(25, 184, 25);
     color: white;
