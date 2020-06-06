@@ -18,10 +18,34 @@ serialize = function(obj) {
     return str.join("&");
 }
 
+async function repForm(){
+    let lat = tempe.latlng.lat.toPrecision(4).valueOf();
+    let lng = tempe.latlng.lng.toPrecision(4).valueOf();
+    let form = document.getElementById('rform');
+    let data = {
+        latitude: lat,
+        longitude: lng,
+        text: form.elements['reporttext'].value,
+        issue: form.elements['issues'].value,
+    }
+    const response = await fetch('/api/report', {
+        method: 'POST',
+        mode: 'cors',
+        cache: 'no-cache',
+        credentials: 'same-origin',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        redirect: 'follow',
+        referrerPolicy: 'no-referrer',
+        body: serialize(data)
+    });
+}
+
 async function matForm(){
 
-    var form = document.getElementById('materials')
-    var data = {
+    let form = document.getElementById('materials')
+    let data = {
         paper: form.elements['paper'].value,
         metal: form.elements['metal'].value,
         location: form.elements['location'].value,
@@ -29,6 +53,7 @@ async function matForm(){
         plastic: form.elements['plastic'].value,
         waste: form.elements['waste'].value,
         mixedGarbage: form.elements['mixedGarbage'].value,
+        type: form.elements['type'].value,
     }
     const response = await fetch('/api/insertdata', {
         method: 'POST', // *GET, POST, PUT, DELETE, etc.

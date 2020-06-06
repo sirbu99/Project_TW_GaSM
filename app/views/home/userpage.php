@@ -10,10 +10,10 @@
     <title>User Page</title>
     <script src="https://kit.fontawesome.com/342e71a7d6.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="/public/static/js/map.js"></script>
     <script type="text/javascript" src="/public/static/js/piechart.js"></script>
     <script type="text/javascript" src="/public/static/js/misc.js"></script>
     <script type="text/javascript" src="/public/static/js/recycle_info.js"></script>
-    <script type="text/javascript" src="/public/static/js/map.js"></script>
     <!-- for mapbox -->
     <!--    <script src='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.js'></script>-->
     <!--    <link href='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css' rel='stylesheet' />-->
@@ -301,33 +301,25 @@
 </section>
 <!-- ISSUE	-->
 <div id="id03" class="modal">
-    <form class="modal-content animate">
+    <form id="rform" class="modal-content animate" onsubmit="repForm()">
         <div>
             <!-- choose a type of problem -->
             <select id="issues" name="issues">
                 <option value="" disabled selected>Alege tipul de problema pe care o ai</option>
-                <option value="deseuri">Prea multe deseuri!</option>
-                <option value="nereciclare">Nu s-a reciclat corespunzator!</option>
+                <option value="1">Deșeuri pe stradă</option>
+                <option value="2">Colectare a gunoiului necorespunzătoare</option>
             </select>
+            <label for="reporttext">Detalii:</label>
+            <textarea name="reporttext" rows="10" cols="30" placeholder="Detalii problemă"></textarea>
         </div>
         <div>
-            <!-- choose the street -->
-            <select id="place" name="place">
-                <option value="" disabled selected>Alege strada unde ai sesizat problema</option>
-                <?php
-                foreach ($data['locations'] as $loc) {
-                    echo '<option>' . $loc . '</option>';
-                }
-                ?>
-            </select>
-        </div>
-        <div>
-            <button type="submit" onclick="document.getElementById('id03').style.display='none'">
+            <button type="submit" class="submitbutton" onclick="document.getElementById('id03').style.display='none'"
+                    formaction="javascript:;">
                 Submit
             </button>
         </div>
         <div>
-            <button type="cancel" onclick="document.getElementById('id03').style.display='none'">
+            <button type="button" class="cancelbutton" onclick="document.getElementById('id03').style.display='none'">
                 Cancel
             </button>
         </div>
@@ -341,10 +333,17 @@
             <select id="place" name="location">
                 <option value="" disabled selected>Alege zona pentru care vrei sa faci raportarea</option>
                 <?php
-                foreach ($data['locations'] as $loc) {
-                    echo '<option>' . $loc . '</option>';
+                if (isset($data)) {
+                    foreach ($data['locations'] as $loc) {
+                        echo '<option>' . $loc . '</option>';
+                    }
                 }
                 ?>
+            </select>
+            <select id="mtype" name="type">
+                <option value="" disabled selected>Alege tipul de raport</option>
+                <option value="1">Materiale colectate</option>
+                <option value="2">Materiale reciclate</option>
             </select>
             <input type="number" name="paper" placeholder="Cantitatea de hartie">
             <input type="number" name="plastic" placeholder="Cantitatea de plastic">

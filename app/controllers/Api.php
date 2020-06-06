@@ -11,12 +11,12 @@ class Api extends Controller
             var_dump($_POST);
             file_put_contents('../app/logs/error.log', $_POST);
             $conn = Database::instance()->getconnection();
-            $query = 'insert into materials values (null,?, ?, ?, ?, ?, ?, ?, ?)';
+            $query = 'insert into materials values (null,?, ?, ?, ?, ?, ?, ?, ?, ?)';
             $statement = $conn->prepare($query);
             if (!$statement) {
                 die('Error at statement' . var_dump($conn->error_list));
             }
-            $statement->bind_param('dsdddddd', $location, $date, $paper, $metal, $waste, $glass, $plastic, $mixed);
+            $statement->bind_param('dsddddddd', $location, $date, $type, $paper, $metal, $waste, $glass, $plastic, $mixed);
             $location = $this->getlocid($_POST['location']);
             $date = date('Y-m-d H:i:s');
             $paper = $_POST['paper'];
@@ -25,6 +25,7 @@ class Api extends Controller
             $waste = $_POST['waste'];
             $glass = $_POST['glass'];
             $mixed = $_POST['mixedGarbage'];
+            $type = $_POST['type'];
             $statement->execute();
             http_response_code(200);
             exit;
@@ -35,7 +36,7 @@ class Api extends Controller
         }
     }
 
-    private function bindparams($query, $params)
+    static function bindparams($query, $params)
     {
         $conn = Database::instance()->getconnection();
         $statement = $conn->prepare($query);
@@ -48,7 +49,8 @@ class Api extends Controller
 
     }
 
-    private function getlocid($location){
+    private function getlocid($location)
+    {
         $conn = Database::instance()->getconnection();
         $location = strtolower($location);
         $query = "select id from locations where lower(name) = ?";
@@ -61,6 +63,7 @@ class Api extends Controller
         }
         return $statement->get_result()->fetch_row()[0];
     }
+
     private function processdata()
     {
         $data = [];
@@ -108,13 +111,16 @@ class Api extends Controller
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $db = Database::instance()->getconnection();
-            $query = 'insert into reports values(null, ?, ?, ?, ?)';
+            $query = 'insert into reports values(null, ?, ?, ?, ?, ?, ?)';
             $statement = $db->prepare($query);
-            $statement->bind_param('ddss', $location, $type, $text, $date);
-            $location = 1;
-            $type = 1;
+            $statement->bind_param('ddssdd', $location, $type, $text, $date, $lat, $long);
+            $location = $_SESSION['LOCATION_ID'];
+            $type = $_POST['issue'];
             $text = $_POST['text'];
+
             $date = date('Y-m-d H:i:s');
+            $lat = $_POST['latitude'];
+            $long = $_POST['longitude'];
             $statement->execute();
 
         } else {
@@ -128,7 +134,7 @@ class Api extends Controller
         switch ($params ?? 'json') {
             default:
                 header('Content-Type: application/json');
-                echo json_encode($this->processdata($_GET['date'] ?? ''));
+                echo json_encode($this->processdata());
                 break;
             case 'csv':
                 echo 'csv';
@@ -136,7 +142,7 @@ class Api extends Controller
                 header("Content-Type:application/csv");
                 header("Content-Disposition:attachment;filename=data.csv");
                 fputcsv($output, array('name', 'address', 'date', 'paper', 'plastic', 'metal', 'glass', 'waste'));
-                $data = $this->processdata($_POST['date'] ?? '');
+                $data = $this->processdata();
                 foreach ($data as $dat) {
                     fputcsv($output, $dat);
                 }
