@@ -65,3 +65,73 @@
 .card:hover~.card{
     transform: translateX(130px);
 }
+
+/* Full-width textarea */
+.form-container textarea {
+    height: 60px;
+    border: none;
+    border-radius: 20px;
+    background: #f1f1f1;
+    resize: none;
+    padding: 7px;
+}
+
+.comm{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+}
+  /* When the textarea gets focus, do something */
+.form-container textarea:focus {
+    background-color: #ddd;
+    outline: none;
+}
+  
+  /* Set a style for the submit/send button */
+.form-container .btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 13px 15px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    margin-bottom:10px;
+    opacity: 0.8;
+}
+
+  /* Add some hover effects to buttons */
+/* .btn:hover {
+    opacity: 1;
+} */
+
+.header-chat{
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
+
+.container-comm {
+    display: flex;
+    flex-direction: row;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+}
+
+.darker {
+  border-color: #ccc;
+  background-color: #ddd;
+}
+
+.container-comm::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.add-card{
+    width: 70px;
+    height: 70px;
+}
