@@ -129,20 +129,54 @@ class Api extends Controller
         }
     }
 
+    private function processrep(){
+        $county = 1;
+        $query = "select * from generated_reports";
+        $conn = Database::instance()->getconnection();
+        if(isset($_GET['county'])){
+            $county = $_GET['county'];
+            $query = $query . ' where county_id = ?';
+        }
+        $statement = $conn->prepare($query);
+        if (!$statement) {
+            die('Error at statement' . var_dump($conn->error_list));
+        }
+        if(isset($_GET['county'])){
+            $statement->bind_param('d', $_GET['county']);
+        }
+        $statement->execute();
+        $result = $statement->get_result();
+        $data = [];
+        while($row = $result->fetch_row()){
+            $data[] = array('county_id' => $row[1], 'date' => $row[2], 'added_paper' => $row[3], 'added_metal' => $row[4], 'added_glass' => $row[5], 'added_waste' => $row[6], 'added_plastic' => $row[7], 'added_mixed' => $row[8], 'recycled_paper' => $row[9], 'recycled_metal' => $row[10], 'recycled_glass' => $row[11], 'recycled_waste' => $row[12], 'recycled_plastic' => $row[13], 'processed_mixed' => $row[14], 'litter_complaints' => $row[15], 'collecting_complaints' => $row[16], 'net_materials' => $row[17]);
+        }
+        return $data;
+
+    }
+
     public function getdata($params = [])
     {
+        $method = 'processdata';
+        if(isset($_GET['report']))
+        switch ($_GET['report']){
+            case 'monthly':
+                $method = 'processrep';
+                break;
+            default:
+                $method = 'processdata';
+
+        }
         switch ($params ?? 'json') {
             default:
                 header('Content-Type: application/json');
-                echo json_encode($this->processdata());
+                echo json_encode(call_user_func(array($this, $method)));
                 break;
             case 'csv':
-                echo 'csv';
                 $output = fopen("php://output", 'w') or die("Can't open php://output");
                 header("Content-Type:application/csv");
                 header("Content-Disposition:attachment;filename=data.csv");
-                fputcsv($output, array('name', 'address', 'date', 'paper', 'plastic', 'metal', 'glass', 'waste'));
-                $data = $this->processdata();
+                $data = call_user_func(array($this, $method));
+                fputcsv($output, array_keys($data[0]));
                 foreach ($data as $dat) {
                     fputcsv($output, $dat);
                 }
