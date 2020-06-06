@@ -8,6 +8,7 @@ class AuthMiddleware
         'home:loginpage',
         'home:login',
         'home:register',
+        'home:statistics',
         'home:page_404',
         'api:insertdata',
     ];

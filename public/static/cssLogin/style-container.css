@@ -14,6 +14,7 @@ body{
     display: flex;
     flex-direction: column;
     width: 700px;
+    height: fit-content;
     min-width: 260px;
     border: none;
     border-radius: 30px;
@@ -24,4 +25,8 @@ body{
     display: grid;
     grid-template-columns: 1fr 1fr;
     height: 220px;
+}
+#error-message{
+    color: red;
+    font-weight: bold;
 }

@@ -159,10 +159,10 @@ section {
 }
 
 .garbage-info .garbage-type button:hover {
-    color: #b0d3bf;
-    font-weight: bold;
     transform: scale(1.1);
-    transition: 200ms ease;
+    background-color: #2d6b22;
+    opacity: initial;
+    transition: 200ms;
 }
 
 .plastic,

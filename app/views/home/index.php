@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="/public/static/cssLogin/style-buttons.css">
     <link rel="stylesheet" href="/public/static/cssLogin/style-forms-items.css">
     <link rel="stylesheet" href="/public/static/cssLogin/style-mobile.css">
+    <script type="text/javascript" src="/public/static/js/misc.js"></script>
+    <script type="text/javascript" src="/public/static/js/auth.js"></script>
 </head>
 
 <body>
@@ -35,10 +37,12 @@
                     <!-- right side -->
                     <input type="text" id="email" name="email" placeholder="Email adress" class="icon-email" required>
                     <input type="password" id="pass" name="password" placeholder="Password" class="icon-pass" required>
+                    <div id="error-message"></div>
                 </div>
+
                 <div class="down-side">
                     <!-- down side -->
-                    <button type="submit" class="submit-button">Submit</button>
+                    <button onclick="login(event)" type="submit" class="submit-button">Submit</button>
                     <div>
                         <a href="">Forgot password?</a>
                     </div>
