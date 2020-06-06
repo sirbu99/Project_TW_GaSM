@@ -107,11 +107,9 @@ class Home extends Controller
                     http_response_code(200);
                     $this->redirect('/home/userpage');
                     exit;
-                } else{
-                    http_response_code(401);
                 }
-
             }
+            http_response_code(401);
         } else {
             http_response_code(405);
             require_once ERROR_PATH . '405_error.php';
@@ -131,5 +129,15 @@ class Home extends Controller
         $this->view('home/info', []);
     }
 
+    public function stats()
+    {
+        $this->view('home/statistics', []);
+    }
+
+    public function logout()
+    {
+        session_destroy();
+        $this->redirect('/home');
+    }
 
 }

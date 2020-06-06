@@ -1,0 +1,52 @@
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Segoe UI;
+    margin: 0;
+    padding-top: 20px;
+    text-align: center;
+    background-image: url(./images/grass.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+section {
+    overflow: hidden;
+}
+.map-container {
+    height: 750px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 70px;
+}
+
+#map {
+    height: 600px;
+    width: 600px;
+    border-radius: 10px;
+    z-index: 0;
+}
+.statsButton{
+    border-radius: 10px;
+    background-color: black;
+    color: white;
+    padding: 5px;
+    font-weight: bold;
+    font-size: large;
+    margin: 5px;
+}
+
+.statsButton:hover{
+    background-color: #2d6b22;
+    transform: scale(1.1);
+    transition: 200ms;
+
+}

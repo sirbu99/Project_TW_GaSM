@@ -32,14 +32,18 @@
     <div class="menu-container">
 
         <div class="dropdown">
-            <!-- Butonum Menu Options pentru ecrane mici-->
+            <!-- Butonu Menu Options pentru ecrane mici-->
             <button class="navbutton" onclick="hide('drop1')">Menu</button>
             <!-- Lista dropDown cu optiunile din meniu pentru ecrane mici-->
             <div class="dropdownlist" id="drop1" style="display:none;">
                 <a href="#Evenimente" class="droplink"><i class="fas fa-recycle"></i>Evenimente</a>
-                <a href="#Reciclare" class="droplink"><i class="fas fa-recycle"></i> Cum sa reciclam?</a>
-                <a href="#Situatia" class="droplink"><i class="fas fa-recycle"></i> Situatia din zona ta</a>
+                <a href="#Reciclare" class="droplink"><i class="fas fa-recycle"></i> Cum să reciclăm?</a>
+                <a href="#Situatia" class="droplink"><i class="fas fa-recycle"></i> Raportează o problemă</a>
                 <a href="#Informatie" class="droplink"><i class="fas fa-recycle"></i> Informații adiționale</a>
+                <a href='stats' class="droplink"><i class="fas fa-recycle"></i> Statistici</a>
+                <?php if ($_SESSION['IS_ADMIN'] ?? false) { ?>
+                <a class="droplink" onclick="document.getElementById('id04').style.display='block'"><i class="fas fa-recycle"></i>Creează un raport</a>
+                <?php } ?>
             </div>
         </div>
 
@@ -48,33 +52,19 @@
             <li class="option"><a href="#Evenimente" class="navbarlink"><i class="fas fa-recycle"></i>
                     Evenimente</a>
             </li>
-            <li class="option"><a href="#Reciclare" class="navbarlink"><i class="fas fa-recycle"></i> Cum sa
-                    reciclam?</a>
+            <li class="option"><a href="#Reciclare" class="navbarlink"><i class="fas fa-recycle"></i> Cum să
+                    reciclăm?</a>
             </li>
             <li class="option"><a href="#Informatie" class="navbarlink"><i class="fas fa-recycle"></i>
                     Informații adiționale</a>
             </li>
-            <li class="option"><a href="#Situatia" class="navbarlink"><i class="fas fa-recycle"></i> Situatia
-                    din zona
-                    ta</a></li>
-
+            <li class="option"><a href="#Situatia" class="navbarlink"><i class="fas fa-recycle"></i> Raportează o problemă</a></li>
+            <li class="option"><a href='stats' class="navbarlink"><i class="fas fa-recycle"></i> Statistici</a></li>
+            <li class="option"><a href='logout' class="navbarlink"><i class="fas fa-recycle"></i> Logout</a></li>
 
             <?php if ($_SESSION['IS_ADMIN'] ?? false) { ?>
-                <li class="option"><a class="navbarlink"
-                                      onclick="document.getElementById('id04').style.display='block'"><i
-                                class="fas fa-recycle"></i>
-                        Formular</a></li>
+                <li class="option"><a class="navbarlink" onclick="document.getElementById('id04').style.display='block'"><i class="fas fa-recycle"></i>Creează un raport</a></li>
             <?php } ?>
-
-
-            <?php if (!($_SESSION['IS_ADMIN'] ?? false)) { ?>
-                <li class="option"><a class="navbarlink"
-                                      onclick="document.getElementById('id03').style.display='block'"><i
-                                class="fas fa-recycle"></i>
-                        Anunta o problema</a></li>
-            <?php } ?>
-
-
         </ul>
 
     </div>
