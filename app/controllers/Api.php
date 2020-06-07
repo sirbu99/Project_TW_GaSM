@@ -36,6 +36,33 @@ class Api extends Controller
         }
     }
 
+    public function insertevent()
+    {
+        if ($_SERVER['REQUEST_METHOD'] != 'POST') {
+            http_response_code(405);
+            require_once '../app/errors/405_error.php';
+            exit;
+        }
+        file_put_contents('../app/logs/error.log', $_POST);
+        $conn = Database::instance()->getconnection();
+        $query = 'insert into event (titlu,data,id_autor,detalii, tags, descriere) values (?, ?, ?, ?, ?, ?)';
+        $statement = $conn->prepare($query);
+        if (!$statement) {
+            die('Error at statement' . var_dump($conn->error_list));
+        }
+        $statement->bind_param('ssdsss', $title, $date,$author_id,$details, $tags, $description);
+        $date = $_POST["date"]; //validare si corectare format data
+        $title = $_POST["title"];
+        $author_id = intval($_SESSION["ID"] ?? 0);
+        $details = $_POST["details"];
+        $tags = $_POST["tags"];
+        $description = $_POST["description"];
+
+        $statement->execute();
+        http_response_code(200);
+
+    }
+
     static function bindparams($query, $params)
     {
         $conn = Database::instance()->getconnection();
@@ -187,4 +214,6 @@ class Api extends Controller
                 break;
         }
     }
+
+
 }

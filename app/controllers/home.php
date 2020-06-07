@@ -23,6 +23,28 @@ class Home extends Controller
         }
         return $locations;
     }
+
+    private function getData($table, $fields = '*')
+    {
+        $conn = Database::instance()->getconnection();
+        $query = "SELECT $fields FROM $table";
+        $statement = $conn->prepare($query);
+        if (!$statement) {
+            die('Error at statement' . var_dump($conn->error_list));
+        }
+        $statement->execute();
+        $result = $statement->get_result();
+        $locations = [];
+        if ($result->num_rows > 0) {
+            // output data of each row
+            while ($row = $result->fetch_assoc()) {
+                $locations[] = $row;
+            }
+
+        }
+        return $locations;
+    }
+
     public function test(){
         var_dump($_GET);
     }
@@ -120,8 +142,12 @@ class Home extends Controller
     public function userPage()
     {
         $locations = $this->getlocations();
+        $events = $this->getData('event');
 
-        $this->view('home/userpage', ['locations' => $locations]);
+        $this->view('home/userpage', [
+            'locations' => $locations,
+            'events' => $events,
+        ]);
     }
 
     public function info()

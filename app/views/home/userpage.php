@@ -14,6 +14,7 @@
     <script type="text/javascript" src="/public/static/js/misc.js"></script>
     <script type="text/javascript" src="/public/static/js/recycle_info.js"></script>
     <script type="text/javascript" src="/public/static/js/map.js"></script>
+    <script type="text/javascript" src="/public/static/js/event.js"></script>
     <!-- for mapbox -->
     <!--    <script src='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.js'></script>-->
     <!--    <link href='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css' rel='stylesheet' />-->
@@ -38,7 +39,7 @@
             <div class="dropdownlist" id="drop1" style="display:none;">
                 <a href="#Evenimente" class="droplink"><i class="fas fa-recycle"></i>Evenimente</a>
                 <a href="#Reciclare" class="droplink"><i class="fas fa-recycle"></i> Cum să reciclăm?</a>
-                <a href="#Situatia" class="droplink"><i class="fas fa-recycle"></i> Rasituaportează o problemă</a>
+                <a href="#Situatia" class="droplink"><i class="fas fa-recycle"></i> Raportează o problemă</a>
                 <a href="#Informatie" class="droplink"><i class="fas fa-recycle"></i> Informații adiționale</a>
                 <a href='stats' class="droplink"><i class="fas fa-recycle"></i> Statistici</a>
                 <?php if ($_SESSION['IS_ADMIN'] ?? false) { ?>
@@ -46,6 +47,7 @@
                 <?php } ?>
                 <a href='logout' class="droplink"><i class="fas fa-recycle"></i> Logout</a>
             </div>
+<!--            <button class="navbutton" onclick="document.location.href='logout'">Logout</button>-->
         </div>
 
         <ul class="menu-options">
@@ -89,122 +91,69 @@
 </section> -->
 
 <!-- Events -->
-<!-- card 1 -->
+<!-- card -->
 <section id="Evenimente">
     <div class="title-event"> Ajuta natura! Participa la evenimentele de ecologizare!</div>
     <div class="card-container">
-        <div class="card">
-            <header class="article-header">
-                <div>
-                    <div class="category-title">
-                        Article
-                        <span class="date">May 10, 2020</span>
+        <?php  if (isset($data)) {
+            foreach($data['events'] as $event) { ?>
+                <div class="card">
+                    <header class="article-header">
+                        <div class="event-date">
+                            <span class="date"><?=$event['data']?></span>
+                        </div>
+                        <h2 class="article-title">
+                            <?=$event['titlu']?>
+                        </h2>
+                    </header>
+                    <div>
+                        <?=$event['detalii']?>
                     </div>
-                </div>
-                <h2 class="article-title">
-                    Eveniment de strans gunoi
-                </h2>
-            </header>
-            <div>
-                Aici vreau sa adaug un loc in care utilizatorii pot lasa comentarii la event (comentariile vor fi
-                acceptate doar daca se vor loga si cardul va fi mai inalt)
-            </div>
-            <div class="author">
-                <div class="info-author">
-                    <div class="caption">Autor de event</div>
-                    <div class="name">Maria Popescu</div>
-                </div>
-            </div>
-            <div class="tags">
-                <div>Reciclare</div>
-                <div>Strans gunoi</div>
-                <div>Reciclare</div>
-                <div>Strans gunoi</div>
-                <div>Reciclare</div>
-            </div>
-        </div>
-        <!-- repeat the card here. -->
-        <!-- card 2 -->
-        <div class="card">
-            <header class="article-header">
-                <div>
-                    <div class="category-title">
-                        Article
-                        <span class="date">May 10, 2020</span>
+                    <div class="author">
+                        <div class="info-author">
+                            <div class="caption">Autor de event</div>
+                            <div class="name">Maria Popescu</div>
+                        </div>
                     </div>
-                </div>
-                <h2 class="article-title">
-                    Eveniment de strans gunoi
-                </h2>
-            </header>
-            <div class="header-chat">
-                <div class="container-comm">
-                    <img src="" alt="Avatar">
-                    <p>Hello. How are you today?</p>
-                </div>
-                  
-                <div class="container-comm darker">
-                    <img src="" alt="Avatar" class="right">
-                    <p>Hey! I'm fine. Thanks for asking!</p>
-                </div>
-            </div>
-            <form action="/action_page.php" class="form-container comm">
-                <textarea placeholder="Type message.." name="msg" required></textarea>
-                <button type="submit" class="btn">Send</button>
-              </form>
-            <div class="tags">
-                <div>Reciclare</div>
-                <div>Strans gunoi</div>
-                <div>Reciclare</div>
-            </div>
-        </div>
-        <!-- repeat the card here. -->
-        <!-- card 3 -->
-        <div class="card">
-            <header class="article-header">
-                <div>
-                    <div class="category-title">
-                        Article
-                        <span class="date">May 10, 2020</span>
+                    <div class="tags">
+                        <?php
+                        foreach(explode(",", $event['tags']) as $tag ) {
+                            if (!empty($tag)) {
+                                echo "<div>$tag</div>";
+                            }
+                        }
+                        ?>
                     </div>
-                </div>
-                <h2 class="article-title">
-                    Eveniment de strans gunoi
-                </h2>
-            </header>
-            <div class="header-chat">
-                <div class="container-comm">
-                    <img src="" alt="Avatar">
-                    <p>Hello. How are you today?</p>
-                </div>
-                  
-                <div class="container-comm darker">
-                    <img src="" alt="Avatar" class="right">
-                    <p>Hey! I'm fine. Thanks for asking!</p>
-                </div>
 
-                <div class="container-comm">
-                    <img src="" alt="Avatar">
-                    <p>Hello. How are you today?</p>
+                    <button class="see-more" onclick="showDetails()">Vezi mai mult</button>
                 </div>
-                  
-                <div class="container-comm darker">
-                    <img src="" alt="Avatar" class="right">
-                    <p>Hey! I'm fine. Thanks for asking!</p>
+            <?php }
+        } ?>
+        <!-- card for admin -->
+        <?php if ($_SESSION['IS_ADMIN'] ?? false) { ?>
+            <div class="card">
+                <header class="article-header">
+                    <div class="event-date">
+                        Data:
+                        <input type="date" id="event-date" required>
+                    </div>
+                    <h2 class="article-title">
+                        Scrie un titlu:
+                        <input type="text" id="text-article" required>
+                    </h2>
+                </header>
+                <textarea id="event-details" cols="20" rows="5" placeholder="Adauga O Descriere Scurta"></textarea>
+                <textarea id="event-description" cols="20" rows="5" placeholder="Scrie Toate Detaliile"></textarea>
+                <div class="tags">
+                    Adauga 3 tag-uri importante:
+                    <input type="text" class="tag-article" required>
+                    <input type="text" class="tag-article" required>
+                    <input type="text" class="tag-article" required>
                 </div>
-            </div>
-            <form action="/action_page.php" class="form-container comm">
-                <textarea placeholder="Type message.." name="msg" required></textarea>
-                <button type="submit" class="btn">Send</button>
-              </form>
-            <div class="tags">
-                <div>Reciclare</div>
-                <div>Strans gunoi</div>
-                <div>Reciclare</div>
-            </div>
-        </div>
-        <img src="plus.png" class="add-card">
-    </div>
+                <button type="submit" class="createEvent" onclick="saveEvent()">Creaza Eveniment!</button>
+          </div>
+        <?php } ?>
+
 </section>
 
 <!-- HOW TO RECYCLE -->
@@ -419,6 +368,38 @@
             </button>
         </div>
     </form>
+</div>
+<!--Card Information-->
+<div id="id05" class="modal">
+    <div class="card-info">
+                <header class="article-header">
+                    <div class="category-title">
+                        <span class="date"><?=$event['data']?></span>
+                    </div>
+                    <h2 class="article-title">
+                        <?=$event['titlu']?>
+                    </h2>
+                </header>
+                <div>
+                    <?=$event['descriere']?>
+                </div>
+                <div class="author">
+                    <div class="info-author">
+                        <div class="caption">Autor de event</div>
+                        <div class="name">Maria Popescu</div>
+                    </div>
+                </div>
+                <div class="tags">
+                    <?php
+                    foreach(explode(",", $event['tags']) as $tag ) {
+                        if (!empty($tag)) {
+                            echo "<div>$tag</div>";
+                        }
+                    }
+                    ?>
+                </div>
+        <button class="closeBtn" onclick="document.getElementById('id05').style.display='none'">Close</button>
+    </div>
 </div>
 <!-- FOOTER -->
 <footer>
