@@ -2,6 +2,10 @@
 google.charts.load('current', { 'packages': ['corechart'] });
 google.charts.setOnLoadCallback(drawChart);
 
+function recycleChart() {
+
+}
+
 // Draw the chart and set the chart values
 function drawChart() {
     fetch('/api/getdata/json')
