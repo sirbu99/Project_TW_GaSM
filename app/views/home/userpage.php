@@ -37,9 +37,14 @@
             <!-- Lista dropDown cu optiunile din meniu pentru ecrane mici-->
             <div class="dropdownlist" id="drop1" style="display:none;">
                 <a href="#Evenimente" class="droplink"><i class="fas fa-recycle"></i>Evenimente</a>
-                <a href="#Reciclare" class="droplink"><i class="fas fa-recycle"></i> Cum sa reciclam?</a>
-                <a href="#Situatia" class="droplink"><i class="fas fa-recycle"></i> Situatia din zona ta</a>
+                <a href="#Reciclare" class="droplink"><i class="fas fa-recycle"></i> Cum să reciclăm?</a>
+                <a href="#Situatia" class="droplink"><i class="fas fa-recycle"></i> Rasituaportează o problemă</a>
                 <a href="#Informatie" class="droplink"><i class="fas fa-recycle"></i> Informații adiționale</a>
+                <a href='stats' class="droplink"><i class="fas fa-recycle"></i> Statistici</a>
+                <?php if ($_SESSION['IS_ADMIN'] ?? false) { ?>
+                    <a class="droplink" onclick="document.getElementById('id04').style.display='block'"><i class="fas fa-recycle"></i>Creează un raport</a>
+                <?php } ?>
+                <a href='logout' class="droplink"><i class="fas fa-recycle"></i> Logout</a>
             </div>
         </div>
 
@@ -48,31 +53,20 @@
             <li class="option"><a href="#Evenimente" class="navbarlink"><i class="fas fa-recycle"></i>
                     Evenimente</a>
             </li>
-            <li class="option"><a href="#Reciclare" class="navbarlink"><i class="fas fa-recycle"></i> Cum sa
-                    reciclam?</a>
+            <li class="option"><a href="#Reciclare" class="navbarlink"><i class="fas fa-recycle"></i> Cum să
+                    reciclăm?</a>
             </li>
             <li class="option"><a href="#Informatie" class="navbarlink"><i class="fas fa-recycle"></i>
                     Informații adiționale</a>
             </li>
-            <li class="option"><a href="#Situatia" class="navbarlink"><i class="fas fa-recycle"></i> Situatia
-                    din zona
-                    ta</a></li>
+            <li class="option"><a href="#Situatia" class="navbarlink"><i class="fas fa-recycle"></i> Raportează o problemă</a></li>
+            <li class="option"><a href='stats' class="navbarlink"><i class="fas fa-recycle"></i> Statistici</a></li>
 
 
             <?php if ($_SESSION['IS_ADMIN'] ?? false) { ?>
-                <li class="option"><a class="navbarlink"
-                                      onclick="document.getElementById('id04').style.display='block'"><i
-                                class="fas fa-recycle"></i>
-                        Formular</a></li>
+                <li class="option"><a class="navbarlink" onclick="document.getElementById('id04').style.display='block'"><i class="fas fa-recycle"></i>Creează un raport</a></li>
             <?php } ?>
-
-
-            <?php if (!($_SESSION['IS_ADMIN'] ?? false)) { ?>
-                <li class="option"><a class="navbarlink"
-                                      onclick="document.getElementById('id03').style.display='block'"><i
-                                class="fas fa-recycle"></i>
-                        Anunta o problema</a></li>
-            <?php } ?>
+            <li class="option"><a href='logout' class="navbarlink"><i class="fas fa-recycle"></i> Logout</a></li>
 
 
         </ul>
@@ -383,7 +377,6 @@
 
 <section id="Situatia">
     <div class="situation-elements">
-        <div id="piechart" class="chart"></div>
         <div class="map-container">
             <div id="map"></div>
         </div>
@@ -391,33 +384,25 @@
 </section>
 <!-- ISSUE	-->
 <div id="id03" class="modal">
-    <form class="modal-content animate">
+    <form id="rform" class="modal-content animate" onsubmit="repForm()">
         <div>
             <!-- choose a type of problem -->
             <select id="issues" name="issues">
                 <option value="" disabled selected>Alege tipul de problema pe care o ai</option>
-                <option value="deseuri">Prea multe deseuri!</option>
-                <option value="nereciclare">Nu s-a reciclat corespunzator!</option>
+                <option value="1">Deșeuri pe stradă</option>
+                <option value="2">Colectare a gunoiului necorespunzătoare</option>
             </select>
+            <label for="reporttext">Detalii:</label>
+            <textarea name="reporttext" rows="5" cols="60" placeholder="Detalii problemă"></textarea>
         </div>
         <div>
-            <!-- choose the street -->
-            <select id="place" name="place">
-                <option value="" disabled selected>Alege strada unde ai sesizat problema</option>
-                <?php
-                foreach ($data['locations'] as $loc) {
-                    echo '<option>' . $loc . '</option>';
-                }
-                ?>
-            </select>
-        </div>
-        <div>
-            <button type="submit" onclick="document.getElementById('id03').style.display='none'">
+            <button type="submit" class="submitbutton" onclick="document.getElementById('id03').style.display='none'"
+                    formaction="javascript:;">
                 Submit
             </button>
         </div>
         <div>
-            <button type="cancel" onclick="document.getElementById('id03').style.display='none'">
+            <button type="button" class="cancelbutton" onclick="document.getElementById('id03').style.display='none'">
                 Cancel
             </button>
         </div>
@@ -431,10 +416,17 @@
             <select id="place" name="location">
                 <option value="" disabled selected>Alege zona pentru care vrei sa faci raportarea</option>
                 <?php
-                foreach ($data['locations'] as $loc) {
-                    echo '<option>' . $loc . '</option>';
+                if (isset($data)) {
+                    foreach ($data['locations'] as $loc) {
+                        echo '<option>' . $loc . '</option>';
+                    }
                 }
                 ?>
+            </select>
+            <select id="mtype" name="type">
+                <option value="" disabled selected>Alege tipul de raport</option>
+                <option value="1">Materiale colectate</option>
+                <option value="2">Materiale reciclate</option>
             </select>
             <input type="number" name="paper" placeholder="Cantitatea de hartie">
             <input type="number" name="plastic" placeholder="Cantitatea de plastic">

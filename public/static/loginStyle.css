@@ -11,11 +11,11 @@ span.fpswd {
 .modal {
     display: none;
     position: fixed;
+    height: fit-content;
     z-index: 20;
     left: 0px;
     top: 0px;
     width: 100%;
-    height: 100%;
     background-color: rgb(0, 0, 0);
     background-color: rgba(0, 0, 0, 0.4);
 }
@@ -25,7 +25,7 @@ span.fpswd {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    height: 300px;
+    height: fit-content;
     padding: 20px;
     border: none;
     border-radius: 25px;
@@ -69,6 +69,7 @@ select:focus, input[type="number"]:focus{
 
 button[class="submitbutton"] {
     width: 100%;
+    margin: 5px;
     background-color: rgb(25, 184, 25);
     color: white;
     padding: 14px 20px;
@@ -76,12 +77,16 @@ button[class="submitbutton"] {
     border-radius: 20px;
     cursor: pointer;
 }
-
+ .modal textarea{
+     border-radius: 5px;
+     margin-top: 5px;
+ }
 
 /*stilizare button cancel din formular report*/
 
 button[class="cancelbutton"] {
     width: 100%;
+    margin: 5px;
     background-color: rgb(214, 19, 19);
     color: white;
     padding: 14px 20px;
