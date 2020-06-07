@@ -10,10 +10,10 @@
     <title>User Page</title>
     <script src="https://kit.fontawesome.com/342e71a7d6.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript" src="/public/static/js/map.js"></script>
     <script type="text/javascript" src="/public/static/js/piechart.js"></script>
     <script type="text/javascript" src="/public/static/js/misc.js"></script>
     <script type="text/javascript" src="/public/static/js/recycle_info.js"></script>
+    <script type="text/javascript" src="/public/static/js/map.js"></script>
     <!-- for mapbox -->
     <!--    <script src='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.js'></script>-->
     <!--    <link href='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css' rel='stylesheet' />-->
@@ -32,18 +32,14 @@
     <div class="menu-container">
 
         <div class="dropdown">
-            <!-- Butonu Menu Options pentru ecrane mici-->
+            <!-- Butonum Menu Options pentru ecrane mici-->
             <button class="navbutton" onclick="hide('drop1')">Menu</button>
             <!-- Lista dropDown cu optiunile din meniu pentru ecrane mici-->
             <div class="dropdownlist" id="drop1" style="display:none;">
                 <a href="#Evenimente" class="droplink"><i class="fas fa-recycle"></i>Evenimente</a>
-                <a href="#Reciclare" class="droplink"><i class="fas fa-recycle"></i> Cum să reciclăm?</a>
-                <a href="#Situatia" class="droplink"><i class="fas fa-recycle"></i> Raportează o problemă</a>
+                <a href="#Reciclare" class="droplink"><i class="fas fa-recycle"></i> Cum sa reciclam?</a>
+                <a href="#Situatia" class="droplink"><i class="fas fa-recycle"></i> Situatia din zona ta</a>
                 <a href="#Informatie" class="droplink"><i class="fas fa-recycle"></i> Informații adiționale</a>
-                <a href='stats' class="droplink"><i class="fas fa-recycle"></i> Statistici</a>
-                <?php if ($_SESSION['IS_ADMIN'] ?? false) { ?>
-                <a class="droplink" onclick="document.getElementById('id04').style.display='block'"><i class="fas fa-recycle"></i>Creează un raport</a>
-                <?php } ?>
             </div>
         </div>
 
@@ -52,19 +48,33 @@
             <li class="option"><a href="#Evenimente" class="navbarlink"><i class="fas fa-recycle"></i>
                     Evenimente</a>
             </li>
-            <li class="option"><a href="#Reciclare" class="navbarlink"><i class="fas fa-recycle"></i> Cum să
-                    reciclăm?</a>
+            <li class="option"><a href="#Reciclare" class="navbarlink"><i class="fas fa-recycle"></i> Cum sa
+                    reciclam?</a>
             </li>
             <li class="option"><a href="#Informatie" class="navbarlink"><i class="fas fa-recycle"></i>
                     Informații adiționale</a>
             </li>
-            <li class="option"><a href="#Situatia" class="navbarlink"><i class="fas fa-recycle"></i> Raportează o problemă</a></li>
-            <li class="option"><a href='stats' class="navbarlink"><i class="fas fa-recycle"></i> Statistici</a></li>
-            <li class="option"><a href='logout' class="navbarlink"><i class="fas fa-recycle"></i> Logout</a></li>
+            <li class="option"><a href="#Situatia" class="navbarlink"><i class="fas fa-recycle"></i> Situatia
+                    din zona
+                    ta</a></li>
+
 
             <?php if ($_SESSION['IS_ADMIN'] ?? false) { ?>
-                <li class="option"><a class="navbarlink" onclick="document.getElementById('id04').style.display='block'"><i class="fas fa-recycle"></i>Creează un raport</a></li>
+                <li class="option"><a class="navbarlink"
+                                      onclick="document.getElementById('id04').style.display='block'"><i
+                                class="fas fa-recycle"></i>
+                        Formular</a></li>
             <?php } ?>
+
+
+            <?php if (!($_SESSION['IS_ADMIN'] ?? false)) { ?>
+                <li class="option"><a class="navbarlink"
+                                      onclick="document.getElementById('id03').style.display='block'"><i
+                                class="fas fa-recycle"></i>
+                        Anunta o problema</a></li>
+            <?php } ?>
+
+
         </ul>
 
     </div>
@@ -85,6 +95,7 @@
 </section> -->
 
 <!-- Events -->
+<!-- card 1 -->
 <section id="Evenimente">
     <div class="title-event"> Ajuta natura! Participa la evenimentele de ecologizare!</div>
     <div class="card-container">
@@ -116,21 +127,89 @@
                 <div>Reciclare</div>
                 <div>Strans gunoi</div>
                 <div>Reciclare</div>
-                <div>Strans gunoi</div>
             </div>
         </div>
         <!-- repeat the card here. -->
-        <div class="card"></div>
+        <!-- card 2 -->
+        <div class="card">
+            <header class="article-header">
+                <div>
+                    <div class="category-title">
+                        Article
+                        <span class="date">May 10, 2020</span>
+                    </div>
+                </div>
+                <h2 class="article-title">
+                    Eveniment de strans gunoi
+                </h2>
+            </header>
+            <div class="header-chat">
+                <div class="container-comm">
+                    <img src="" alt="Avatar">
+                    <p>Hello. How are you today?</p>
+                </div>
+                  
+                <div class="container-comm darker">
+                    <img src="" alt="Avatar" class="right">
+                    <p>Hey! I'm fine. Thanks for asking!</p>
+                </div>
+            </div>
+            <form action="/action_page.php" class="form-container comm">
+                <textarea placeholder="Type message.." name="msg" required></textarea>
+                <button type="submit" class="btn">Send</button>
+              </form>
+            <div class="tags">
+                <div>Reciclare</div>
+                <div>Strans gunoi</div>
+                <div>Reciclare</div>
+            </div>
+        </div>
         <!-- repeat the card here. -->
-        <div class="card"></div>
-        <!-- repeat the card here. -->
-        <div class="card"></div>
-        <!-- repeat the card here. -->
-        <div class="card"></div>
-        <!-- repeat the card here. -->
-        <div class="card"></div>
-        <!-- repeat the card here. -->
-        <div class="card"></div>
+        <!-- card 3 -->
+        <div class="card">
+            <header class="article-header">
+                <div>
+                    <div class="category-title">
+                        Article
+                        <span class="date">May 10, 2020</span>
+                    </div>
+                </div>
+                <h2 class="article-title">
+                    Eveniment de strans gunoi
+                </h2>
+            </header>
+            <div class="header-chat">
+                <div class="container-comm">
+                    <img src="" alt="Avatar">
+                    <p>Hello. How are you today?</p>
+                </div>
+                  
+                <div class="container-comm darker">
+                    <img src="" alt="Avatar" class="right">
+                    <p>Hey! I'm fine. Thanks for asking!</p>
+                </div>
+
+                <div class="container-comm">
+                    <img src="" alt="Avatar">
+                    <p>Hello. How are you today?</p>
+                </div>
+                  
+                <div class="container-comm darker">
+                    <img src="" alt="Avatar" class="right">
+                    <p>Hey! I'm fine. Thanks for asking!</p>
+                </div>
+            </div>
+            <form action="/action_page.php" class="form-container comm">
+                <textarea placeholder="Type message.." name="msg" required></textarea>
+                <button type="submit" class="btn">Send</button>
+              </form>
+            <div class="tags">
+                <div>Reciclare</div>
+                <div>Strans gunoi</div>
+                <div>Reciclare</div>
+            </div>
+        </div>
+        <img src="plus.png" class="add-card">
     </div>
 </section>
 
@@ -291,25 +370,33 @@
 </section>
 <!-- ISSUE	-->
 <div id="id03" class="modal">
-    <form id="rform" class="modal-content animate" onsubmit="repForm()">
+    <form class="modal-content animate">
         <div>
             <!-- choose a type of problem -->
             <select id="issues" name="issues">
                 <option value="" disabled selected>Alege tipul de problema pe care o ai</option>
-                <option value="1">Deșeuri pe stradă</option>
-                <option value="2">Colectare a gunoiului necorespunzătoare</option>
+                <option value="deseuri">Prea multe deseuri!</option>
+                <option value="nereciclare">Nu s-a reciclat corespunzator!</option>
             </select>
-            <label for="reporttext">Detalii:</label>
-            <textarea name="reporttext" rows="10" cols="30" placeholder="Detalii problemă"></textarea>
         </div>
         <div>
-            <button type="submit" class="submitbutton" onclick="document.getElementById('id03').style.display='none'"
-                    formaction="javascript:;">
+            <!-- choose the street -->
+            <select id="place" name="place">
+                <option value="" disabled selected>Alege strada unde ai sesizat problema</option>
+                <?php
+                foreach ($data['locations'] as $loc) {
+                    echo '<option>' . $loc . '</option>';
+                }
+                ?>
+            </select>
+        </div>
+        <div>
+            <button type="submit" onclick="document.getElementById('id03').style.display='none'">
                 Submit
             </button>
         </div>
         <div>
-            <button type="button" class="cancelbutton" onclick="document.getElementById('id03').style.display='none'">
+            <button type="cancel" onclick="document.getElementById('id03').style.display='none'">
                 Cancel
             </button>
         </div>
@@ -323,17 +410,10 @@
             <select id="place" name="location">
                 <option value="" disabled selected>Alege zona pentru care vrei sa faci raportarea</option>
                 <?php
-                if (isset($data)) {
-                    foreach ($data['locations'] as $loc) {
-                        echo '<option>' . $loc . '</option>';
-                    }
+                foreach ($data['locations'] as $loc) {
+                    echo '<option>' . $loc . '</option>';
                 }
                 ?>
-            </select>
-            <select id="mtype" name="type">
-                <option value="" disabled selected>Alege tipul de raport</option>
-                <option value="1">Materiale colectate</option>
-                <option value="2">Materiale reciclate</option>
             </select>
             <input type="number" name="paper" placeholder="Cantitatea de hartie">
             <input type="number" name="plastic" placeholder="Cantitatea de plastic">
