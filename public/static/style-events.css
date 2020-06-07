@@ -51,9 +51,6 @@
     font-weight: 700;
 }
 
-.card .article-header {
-    margin-bottom: auto;
-}
 
 .card .author {
     margin-top: 20px;
@@ -134,11 +131,6 @@
   display: table;
 }
 
-.add-card{
-    width: 70px;
-    height: 70px;
-    border-radius: 5px;
-}
 .createEvent{
     border: none;
     border-radius: 15px;
@@ -169,4 +161,15 @@
     background-color: red;
     color: white;
     border-style: none;
+}
+.event-details{
+    font-size: larger;
+    margin: auto;
+}
+.see-more{
+    border-radius: 10px;
+    background-color: #2d6b22;
+    color: white;
+    border-style: none;
+    padding: 5px;
 }

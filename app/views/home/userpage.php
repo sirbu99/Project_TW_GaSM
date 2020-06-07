@@ -106,14 +106,8 @@
                             <?=$event['titlu']?>
                         </h2>
                     </header>
-                    <div>
+                    <div class="event-details">
                         <?=$event['detalii']?>
-                    </div>
-                    <div class="author">
-                        <div class="info-author">
-                            <div class="caption">Autor de event</div>
-                            <div class="name">Maria Popescu</div>
-                        </div>
                     </div>
                     <div class="tags">
                         <?php
@@ -124,7 +118,6 @@
                         }
                         ?>
                     </div>
-
                     <button class="see-more" onclick="showDetails()">Vezi mai mult</button>
                 </div>
             <?php }
@@ -372,32 +365,32 @@
 <!--Card Information-->
 <div id="id05" class="modal">
     <div class="card-info">
-                <header class="article-header">
-                    <div class="category-title">
-                        <span class="date"><?=$event['data']?></span>
-                    </div>
-                    <h2 class="article-title">
-                        <?=$event['titlu']?>
-                    </h2>
-                </header>
-                <div>
-                    <?=$event['descriere']?>
-                </div>
-                <div class="author">
-                    <div class="info-author">
-                        <div class="caption">Autor de event</div>
-                        <div class="name">Maria Popescu</div>
-                    </div>
-                </div>
-                <div class="tags">
-                    <?php
-                    foreach(explode(",", $event['tags']) as $tag ) {
-                        if (!empty($tag)) {
-                            echo "<div>$tag</div>";
-                        }
-                    }
-                    ?>
-                </div>
+        <header class="article-header">
+            <div class="category-title">
+                <span class="date"><?=$event['data']?></span>
+            </div>
+            <h2 class="article-title">
+                <?=$event['titlu']?>
+            </h2>
+        </header>
+        <div>
+            <?=$event['descriere']?>
+        </div>
+<!--        <div class="author">-->
+<!--            <div class="info-author">-->
+<!--                <div class="caption">Autor de event</div>-->
+<!--                <div class="name">Maria Popescu</div>-->
+<!--            </div>-->
+<!--        </div>-->
+        <div class="tags">
+            <?php
+            foreach(explode(",", $event['tags']) as $tag ) {
+                if (!empty($tag)) {
+                    echo "<div>$tag</div>";
+                }
+            }
+            ?>
+        </div>
         <button class="closeBtn" onclick="document.getElementById('id05').style.display='none'">Close</button>
     </div>
 </div>
