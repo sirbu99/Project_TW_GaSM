@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/public/static/style.css">
     <link rel="stylesheet" href="/public/static/loginStyle.css">
-    <link rel="stylesheet" href="/public/static/style-events.css">
+    <link rel="stylesheet" href="./public/static/style-events.css">
     <title>User Page</title>
     <script src="https://kit.fontawesome.com/342e71a7d6.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -99,7 +99,7 @@
 <section id="Evenimente">
     <div class="title-event"> Ajuta natura! Participa la evenimentele de ecologizare!</div>
     <div class="card-container">
-        <div class="card">
+        <!-- <div class="card">
             <header class="article-header">
                 <div>
                     <div class="category-title">
@@ -128,10 +128,10 @@
                 <div>Strans gunoi</div>
                 <div>Reciclare</div>
             </div>
-        </div>
+        </div> -->
         <!-- repeat the card here. -->
         <!-- card 2 -->
-        <div class="card">
+        <!-- <div class="card">
             <header class="article-header">
                 <div>
                     <div class="category-title">
@@ -163,10 +163,10 @@
                 <div>Strans gunoi</div>
                 <div>Reciclare</div>
             </div>
-        </div>
+        </div> -->
         <!-- repeat the card here. -->
         <!-- card 3 -->
-        <div class="card">
+        <!-- <div class="card">
             <header class="article-header">
                 <div>
                     <div class="category-title">
@@ -208,11 +208,32 @@
                 <div>Strans gunoi</div>
                 <div>Reciclare</div>
             </div>
+        </div> -->
+        <!-- card for employee -->
+        <div class="card">
+            <header class="article-header">
+                <div class="category-title">
+                    Article
+                    <input type="date" id="event-date" required>
+                </div>
+                <h2 class="article-title">
+                    Write a title for article:
+                    <input type="text" id="text-article" required>
+                </h2>
+            </header>
+            <div class="tags">
+                Add 3 important tags for article:
+                <input type="text" id="tag-article" required>
+                <input type="text" id="tag-article" required>
+                <input type="text" id="tag-article" required>
+            </div>
+            <button type="submit" class="createEvent">Create Event!</button>
         </div>
-        <img src="plus.png" class="add-card">
+        <!-- final -->
+        <div id="add-card"></div>
+        <button type="button" class="add-card" onclick="newEvent()" id="bttn-new-card">New Card!</button>
     </div>
 </section>
-
 <!-- HOW TO RECYCLE -->
 <section id="Reciclare">
 
@@ -437,6 +458,12 @@
 
 <script>
     window.onload = initMap;
+    $(document).ready(function(){
+        $("#bttn-new-card").click(function(){
+        $("#add-card").append(document.getElementById("card"));
+  });
+
+});
 </script>
 
 <!--<script>-->
@@ -452,6 +479,7 @@
 <!--map.addControl(new mapboxgl.NavigationControl());-->
 <!---->
 <!--</script>-->
+
 
 </body>
 

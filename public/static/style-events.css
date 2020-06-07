@@ -135,3 +135,11 @@
     width: 70px;
     height: 70px;
 }
+
+.createEvent{
+    border: none;
+    border-radius: 15px;
+    background-color: red;
+    color: white;
+    width: 90px;
+}
