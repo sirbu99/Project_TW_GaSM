@@ -10,10 +10,10 @@
     <title>User Page</title>
     <script src="https://kit.fontawesome.com/342e71a7d6.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript" src="/public/static/js/map.js"></script>
     <script type="text/javascript" src="/public/static/js/piechart.js"></script>
     <script type="text/javascript" src="/public/static/js/misc.js"></script>
     <script type="text/javascript" src="/public/static/js/recycle_info.js"></script>
+    <script type="text/javascript" src="/public/static/js/map.js"></script>
     <!-- for mapbox -->
     <!--    <script src='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.js'></script>-->
     <!--    <link href='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css' rel='stylesheet' />-->
@@ -32,18 +32,19 @@
     <div class="menu-container">
 
         <div class="dropdown">
-            <!-- Butonu Menu Options pentru ecrane mici-->
+            <!-- Butonum Menu Options pentru ecrane mici-->
             <button class="navbutton" onclick="hide('drop1')">Menu</button>
             <!-- Lista dropDown cu optiunile din meniu pentru ecrane mici-->
             <div class="dropdownlist" id="drop1" style="display:none;">
                 <a href="#Evenimente" class="droplink"><i class="fas fa-recycle"></i>Evenimente</a>
                 <a href="#Reciclare" class="droplink"><i class="fas fa-recycle"></i> Cum să reciclăm?</a>
-                <a href="#Situatia" class="droplink"><i class="fas fa-recycle"></i> Raportează o problemă</a>
+                <a href="#Situatia" class="droplink"><i class="fas fa-recycle"></i> Rasituaportează o problemă</a>
                 <a href="#Informatie" class="droplink"><i class="fas fa-recycle"></i> Informații adiționale</a>
                 <a href='stats' class="droplink"><i class="fas fa-recycle"></i> Statistici</a>
                 <?php if ($_SESSION['IS_ADMIN'] ?? false) { ?>
-                <a class="droplink" onclick="document.getElementById('id04').style.display='block'"><i class="fas fa-recycle"></i>Creează un raport</a>
+                    <a class="droplink" onclick="document.getElementById('id04').style.display='block'"><i class="fas fa-recycle"></i>Creează un raport</a>
                 <?php } ?>
+                <a href='logout' class="droplink"><i class="fas fa-recycle"></i> Logout</a>
             </div>
         </div>
 
@@ -60,11 +61,14 @@
             </li>
             <li class="option"><a href="#Situatia" class="navbarlink"><i class="fas fa-recycle"></i> Raportează o problemă</a></li>
             <li class="option"><a href='stats' class="navbarlink"><i class="fas fa-recycle"></i> Statistici</a></li>
-            <li class="option"><a href='logout' class="navbarlink"><i class="fas fa-recycle"></i> Logout</a></li>
+
 
             <?php if ($_SESSION['IS_ADMIN'] ?? false) { ?>
                 <li class="option"><a class="navbarlink" onclick="document.getElementById('id04').style.display='block'"><i class="fas fa-recycle"></i>Creează un raport</a></li>
             <?php } ?>
+            <li class="option"><a href='logout' class="navbarlink"><i class="fas fa-recycle"></i> Logout</a></li>
+
+
         </ul>
 
     </div>
@@ -85,6 +89,7 @@
 </section> -->
 
 <!-- Events -->
+<!-- card 1 -->
 <section id="Evenimente">
     <div class="title-event"> Ajuta natura! Participa la evenimentele de ecologizare!</div>
     <div class="card-container">
@@ -116,21 +121,89 @@
                 <div>Reciclare</div>
                 <div>Strans gunoi</div>
                 <div>Reciclare</div>
-                <div>Strans gunoi</div>
             </div>
         </div>
         <!-- repeat the card here. -->
-        <div class="card"></div>
+        <!-- card 2 -->
+        <div class="card">
+            <header class="article-header">
+                <div>
+                    <div class="category-title">
+                        Article
+                        <span class="date">May 10, 2020</span>
+                    </div>
+                </div>
+                <h2 class="article-title">
+                    Eveniment de strans gunoi
+                </h2>
+            </header>
+            <div class="header-chat">
+                <div class="container-comm">
+                    <img src="" alt="Avatar">
+                    <p>Hello. How are you today?</p>
+                </div>
+                  
+                <div class="container-comm darker">
+                    <img src="" alt="Avatar" class="right">
+                    <p>Hey! I'm fine. Thanks for asking!</p>
+                </div>
+            </div>
+            <form action="/action_page.php" class="form-container comm">
+                <textarea placeholder="Type message.." name="msg" required></textarea>
+                <button type="submit" class="btn">Send</button>
+              </form>
+            <div class="tags">
+                <div>Reciclare</div>
+                <div>Strans gunoi</div>
+                <div>Reciclare</div>
+            </div>
+        </div>
         <!-- repeat the card here. -->
-        <div class="card"></div>
-        <!-- repeat the card here. -->
-        <div class="card"></div>
-        <!-- repeat the card here. -->
-        <div class="card"></div>
-        <!-- repeat the card here. -->
-        <div class="card"></div>
-        <!-- repeat the card here. -->
-        <div class="card"></div>
+        <!-- card 3 -->
+        <div class="card">
+            <header class="article-header">
+                <div>
+                    <div class="category-title">
+                        Article
+                        <span class="date">May 10, 2020</span>
+                    </div>
+                </div>
+                <h2 class="article-title">
+                    Eveniment de strans gunoi
+                </h2>
+            </header>
+            <div class="header-chat">
+                <div class="container-comm">
+                    <img src="" alt="Avatar">
+                    <p>Hello. How are you today?</p>
+                </div>
+                  
+                <div class="container-comm darker">
+                    <img src="" alt="Avatar" class="right">
+                    <p>Hey! I'm fine. Thanks for asking!</p>
+                </div>
+
+                <div class="container-comm">
+                    <img src="" alt="Avatar">
+                    <p>Hello. How are you today?</p>
+                </div>
+                  
+                <div class="container-comm darker">
+                    <img src="" alt="Avatar" class="right">
+                    <p>Hey! I'm fine. Thanks for asking!</p>
+                </div>
+            </div>
+            <form action="/action_page.php" class="form-container comm">
+                <textarea placeholder="Type message.." name="msg" required></textarea>
+                <button type="submit" class="btn">Send</button>
+              </form>
+            <div class="tags">
+                <div>Reciclare</div>
+                <div>Strans gunoi</div>
+                <div>Reciclare</div>
+            </div>
+        </div>
+        <img src="plus.png" class="add-card">
     </div>
 </section>
 
@@ -283,7 +356,6 @@
 
 <section id="Situatia">
     <div class="situation-elements">
-        <div id="piechart" class="chart"></div>
         <div class="map-container">
             <div id="map"></div>
         </div>
@@ -300,7 +372,7 @@
                 <option value="2">Colectare a gunoiului necorespunzătoare</option>
             </select>
             <label for="reporttext">Detalii:</label>
-            <textarea name="reporttext" rows="10" cols="30" placeholder="Detalii problemă"></textarea>
+            <textarea name="reporttext" rows="5" cols="60" placeholder="Detalii problemă"></textarea>
         </div>
         <div>
             <button type="submit" class="submitbutton" onclick="document.getElementById('id03').style.display='none'"
