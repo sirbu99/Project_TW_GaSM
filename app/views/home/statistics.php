@@ -4,8 +4,8 @@
     <!-- make page responsive-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Statistici</title>
-
     <link rel="stylesheet" href="/public/static/statisticsStyle.css">
+    <link rel="stylesheet" href="/public/static/style.css">
     <script src="https://kit.fontawesome.com/342e71a7d6.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript" src="/public/static/js/piechart.js"></script>
