@@ -66,6 +66,7 @@ class Api extends Controller
 
     private function processdata()
     {
+        $conn = Database::instance()->getconnection();
         $data = [];
         // $conn = Database::instance()->getconnection();
         $params = [];
@@ -73,29 +74,37 @@ class Api extends Controller
         if (isset($_GET['location'])) {
             $id = $this->getlocid($_GET['location']);
         }
+        $def = '';
         $query = 'select name, address, report_date, paper, plastic, metal, glass, waste, mixed from materials m join locations l on m.location_id = l.id';
         if (isset($_GET['location']) && isset($_GET['date'])) {
             $query = $query . ' where ';
             $query = $query . 'report_date = ? ';
             $query = $query . 'and location_id = ?';
             $date = $_GET['date'];
-            $params[] = 'sd';
-            $params[] = &$date;
-            $params[] = &$id;
+            $def = 'sd';
+            $params[] = $date;
+            $params[] = $id;
         } elseif (isset($_GET['location'])) {
             $query = $query . ' where ';
             $query = $query . 'location_id = ?';
             $location = $_GET['location'];
-            $params[] = 'd';
-            $params[] = &$id;
+            $def = 'd';
+            $params[] = $id;
         } elseif (isset($_GET['date'])) {
             $query = $query . ' where ';
             $query = $query . 'report_date = ?';
             $date = $_GET['date'];
-            $params[] = 's';
-            $params[] = &$date;
+            $def = 's';
+            $params[] = $date;
         }
-        $statement = $this->bindparams($query, $params);
+        $query = $query . ' order by m.id desc';
+        $statement = $conn->prepare($query);
+        if (!$statement) {
+            die('Error at statement' . var_dump($conn->error_list));
+        }
+        if($params)
+        $statement->bind_param($def, ...$params);
+        // $statement = $this->bindparams($query, $params);
 
         $statement->execute();
         $result = $statement->get_result();
@@ -129,25 +138,27 @@ class Api extends Controller
         }
     }
 
-    private function processrep(){
+    private function processrep()
+    {
         $county = 1;
         $query = "select * from generated_reports";
         $conn = Database::instance()->getconnection();
-        if(isset($_GET['county'])){
+        if (isset($_GET['county'])) {
             $county = $_GET['county'];
             $query = $query . ' where county_id = ?';
         }
+        $query = $query . ' order by id desc';
         $statement = $conn->prepare($query);
         if (!$statement) {
             die('Error at statement' . var_dump($conn->error_list));
         }
-        if(isset($_GET['county'])){
+        if (isset($_GET['county'])) {
             $statement->bind_param('d', $_GET['county']);
         }
         $statement->execute();
         $result = $statement->get_result();
         $data = [];
-        while($row = $result->fetch_row()){
+        while ($row = $result->fetch_row()) {
             $data[] = array('county_id' => $row[1], 'date' => $row[2], 'added_paper' => $row[3], 'added_metal' => $row[4], 'added_glass' => $row[5], 'added_waste' => $row[6], 'added_plastic' => $row[7], 'added_mixed' => $row[8], 'recycled_paper' => $row[9], 'recycled_metal' => $row[10], 'recycled_glass' => $row[11], 'recycled_waste' => $row[12], 'recycled_plastic' => $row[13], 'processed_mixed' => $row[14], 'litter_complaints' => $row[15], 'collecting_complaints' => $row[16], 'net_materials' => $row[17]);
         }
         return $data;
@@ -157,15 +168,15 @@ class Api extends Controller
     public function getdata($params = [])
     {
         $method = 'processdata';
-        if(isset($_GET['report']))
-        switch ($_GET['report']){
-            case 'monthly':
-                $method = 'processrep';
-                break;
-            default:
-                $method = 'processdata';
+        if (isset($_GET['report']))
+            switch ($_GET['report']) {
+                case 'monthly':
+                    $method = 'processrep';
+                    break;
+                default:
+                    $method = 'processdata';
 
-        }
+            }
         switch ($params ?? 'json') {
             default:
                 header('Content-Type: application/json');
@@ -186,5 +197,9 @@ class Api extends Controller
                 echo 'pdf';
                 break;
         }
+    }
+
+    public function getlocations(){
+        
     }
 }

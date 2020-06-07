@@ -357,7 +357,7 @@
 <section id="Situatia">
     <div class="situation-elements">
         <div class="map-container">
-            <div id="map"></div>
+            <div id="map" class="map-controller"></div>
         </div>
     </div>
 </section>

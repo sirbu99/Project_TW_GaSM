@@ -218,13 +218,16 @@ section {
 
 .chart {
     background-color: white;
-    opacity: 0.8;
+    opacity: 0.9;
     border: none;
     border-radius: 20px;
     width: 35%;
     height: 35%;
     margin: auto;
+    margin-bottom:10px;
 }
+
+
 
 .show {
     display: block;
@@ -238,7 +241,7 @@ section {
     padding: 70px;
 }
 
-#map {
+.map-controller {
     height: 600px;
     width: 600px;
     border-radius: 10px;
