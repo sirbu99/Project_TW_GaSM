@@ -1,5 +1,5 @@
 #Evenimente {
-    overflow-x: hidden;
+    overflow-x: auto;
 }
 .title-event{
     padding: 30px;
@@ -152,6 +152,7 @@
     margin: auto;
     border-radius: 20px;
     background-color: whitesmoke;
+    overflow: auto;
 }
 .closeBtn{
     border-radius: 10px;
@@ -172,4 +173,44 @@
     color: white;
     border-style: none;
     padding: 5px;
+}
+.deleteBtn, #commentBtn{
+    border-radius: 10px;
+    background-color: red;
+    color: white;
+    border-style: none;
+    margin: 5px 0px;
+    padding: 5px;
+    vertical-align: middle;
+
+}
+.commentInfo{
+    background-color: #dbf6ee;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    border-radius: 10px;
+    width: 90%;
+    padding: 5px;
+    margin:5px auto;
+
+}
+.commentAuthor{
+    color: #8a8a8a;
+}
+.commentDate{
+    color: #8a8a8a;
+
+}
+.comments textarea{
+    width: 83%;
+    margin: auto;
+}
+.tags{
+    margin: auto;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    background: #c2c9d2;
 }

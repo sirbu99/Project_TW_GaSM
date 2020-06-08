@@ -109,6 +109,7 @@
                     <div class="event-details">
                         <?=$event['detalii']?>
                     </div>
+
                     <div class="tags">
                         <?php
                         foreach(explode(",", $event['tags']) as $tag ) {
@@ -118,7 +119,10 @@
                         }
                         ?>
                     </div>
-                    <button class="see-more" onclick="showDetails()">Vezi mai mult</button>
+                    <button class="see-more" onclick="showDetails(<?=$event['id']?>)">Vezi mai mult</button>
+                <?php if ($_SESSION['IS_ADMIN'] ?? false) { ?>
+                    <button class="deleteBtn" onclick="deleteEvent(<?=$event['id']?>)">Sterge eveniment</button>
+                <?php } ?>
                 </div>
             <?php }
         } ?>
@@ -365,33 +369,9 @@
 <!--Card Information-->
 <div id="id05" class="modal">
     <div class="card-info">
-        <header class="article-header">
-            <div class="category-title">
-                <span class="date"><?=$event['data']?></span>
-            </div>
-            <h2 class="article-title">
-                <?=$event['titlu']?>
-            </h2>
-        </header>
-        <div>
-            <?=$event['descriere']?>
-        </div>
-<!--        <div class="author">-->
-<!--            <div class="info-author">-->
-<!--                <div class="caption">Autor de event</div>-->
-<!--                <div class="name">Maria Popescu</div>-->
-<!--            </div>-->
-<!--        </div>-->
-        <div class="tags">
-            <?php
-            foreach(explode(",", $event['tags']) as $tag ) {
-                if (!empty($tag)) {
-                    echo "<div>$tag</div>";
-                }
-            }
-            ?>
-        </div>
-        <button class="closeBtn" onclick="document.getElementById('id05').style.display='none'">Close</button>
+        <div id="modal-content-05"></div>
+        <button class="closeBtn" onclick="document.getElementById('id05').style.display='none'">Închide</button>
+
     </div>
 </div>
 <!-- FOOTER -->

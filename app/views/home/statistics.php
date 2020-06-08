@@ -24,6 +24,13 @@
 <body>
 <section id="Buttons">
     <div class="statsButtonClass">
+        <div class="selectBtn">
+            <label for="downloadInfo">Alege perioada:</label>
+            <select name="perioada" id="downloadInfo">
+                <option value="daily">Zi</option>
+                <option value="monthly">Luna</option>
+            </select>
+        </div>
         <button class="statsButton" onclick="download('csv')" id="CSV"><i class="fas fa-download"></i> Descarca CSV</button>
         <button class="statsButton" onclick="download('json')" id="JSON"><i class="fas fa-download"></i> Descarca JSON</button>
         <button class="statsButton" onclick="document.location.href='userPage'"><i class="fas fa-arrow-alt-circle-left"></i> Înapoi</button>

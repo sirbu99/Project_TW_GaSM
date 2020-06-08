@@ -1,5 +1,7 @@
 async function download(type) {
-    const response = await fetch(`/api/getdata/${type}`, {
+    const time =document.getElementById("downloadInfo").value;
+    console.log(time);
+    const response = await fetch(`/api/getdata/${type}?report=${time}`, {
         method: 'GET',
     })
     .then(response => response.blob())
