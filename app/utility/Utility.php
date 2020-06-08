@@ -6,10 +6,16 @@ class Utility
     static public function report_routine()
     {
         $lastRunLog = '../app/logs/lastrun.log';
+
+
+        if (!file_exists($lastRunLog)) {
+            file_put_contents($lastRunLog, 0);
+        }
+
+
         if (file_exists($lastRunLog)) {
             $lastRun = file_get_contents($lastRunLog);
             if (time() - $lastRun >= 2592000) {
-                echo 'here';
                 $cron = self::report();
                 file_put_contents($lastRunLog, time());
             }
@@ -37,10 +43,11 @@ class Utility
         $result = $statement->get_result();
         $comp1 = [];
         $comp2 = [];
-        $res = '';
         while ($row = $result->fetch_row()) {
+
             foreach ($counties as $county => $value) {
                 if ($value[0] >= $row[2] and $value[1] >= $row[3] and $value[2] <= $row[2] and $value[3] <= $row[3]) {
+
                     if ($row[1] == 1) {
                         if (!isset($comp1[$county])) {
                             $comp1 += [$county => 1];
@@ -81,20 +88,19 @@ class Utility
                 }
             }
         }
-        $total_materials = 0;
-        foreach ($collected as $mats) {
-            $total_materials += $mats;
-        }
-        foreach ($recycled as $mats) {
-            $total_materials -= $mats;
-        }
-        $county = 1;
         $query = "insert into generated_reports values(null, ?, CURDATE(), ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        for($i = 0; $i < count($collected); $i++){
-            $params = [1];
-            $params = array_merge($params, array_merge($collected[$i], $recycled[$i]));
-            $params[] = $comp1[$county];
-            $params[] = $comp2[$county];
+        foreach ($collected as $key => $val){
+            $total_materials = 0;
+            foreach ($val as $mats) {
+                $total_materials += $mats;
+            }
+            foreach ($recycled[$key] as $mats) {
+                $total_materials -= $mats;
+            }
+            $params = [$key];
+            $params = array_merge($params, array_merge($val, $recycled[$key]));
+            $params[] = $comp1[$key] ?? 0;
+            $params[] = $comp2[$key] ?? 0;
             $params[] = $total_materials;
             $statement = $conn->prepare($query);
             $statement->bind_param('dddddddddddddddd', ...$params);
