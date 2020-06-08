@@ -50,7 +50,7 @@ class Api extends Controller
         if (!$statement) {
             die('Error at statement' . var_dump($conn->error_list));
         }
-        $statement->bind_param('ssdsss', $title, $date,$author_id,$details, $tags, $description);
+        $statement->bind_param('ssdsss', $title, $date, $author_id, $details, $tags, $description);
         $date = $_POST["date"]; //validare si corectare format data
         $title = $_POST["title"];
         $author_id = intval($_SESSION["ID"] ?? 0);
@@ -129,8 +129,8 @@ class Api extends Controller
         if (!$statement) {
             die('Error at statement' . var_dump($conn->error_list));
         }
-        if($params)
-        $statement->bind_param($def, ...$params);
+        if ($params)
+            $statement->bind_param($def, ...$params);
         // $statement = $this->bindparams($query, $params);
 
         $statement->execute();
@@ -226,7 +226,52 @@ class Api extends Controller
         }
     }
 
-    public function getlocations(){
-        
+    private function isInside($circle_x, $circle_y,
+                              $rad, $x, $y)
+    {
+        // Compare radius of circle
+        // with distance of its center
+        // from given point
+        if (($x - $circle_x) * ($x - $circle_x) +
+            ($y - $circle_y) * ($y - $circle_y) <=
+            $rad * $rad)
+            return true;
+        else
+            return false;
     }
+
+    public function getlocations()
+    {
+        $conn = Database::instance()->getconnection();
+        $query = "select name, county_id, lat, lng from locations";
+        $statement = $conn->prepare($query);
+        $statement->execute();
+        $result = $statement->get_result();
+        $locs = [];
+        while ($row = $result->fetch_row()) {
+            $query = "select lat, lng, type from reports";
+            $statement2 = $conn->prepare($query);
+            $statement2->execute();
+            if (!$statement) {
+                die('Error at statement' . var_dump($conn->error_list));
+            }
+            $repres = $statement2->get_result();
+            $count1 = 0;
+            $count2 = 0;
+            while ($rrow = $repres->fetch_row()) {
+                if($this->isInside($row[2], $row[3], 0.007, $rrow[0], $rrow[1])){
+                    if($rrow[2] == 1){
+                        $count1++;
+                    }else{
+                        $count2++;
+                    }
+                }
+            }
+            $locs[] = ['name' => $row[0], 'county_id' => $row[1], 'complaints1' => $count1, 'complaints2' => $count2, 'latitude' => $row[2], 'longitude' => $row[3]];
+        }
+
+        header('Content-Type: application/json');
+        echo json_encode($locs);
+    }
+
 }

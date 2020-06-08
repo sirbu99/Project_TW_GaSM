@@ -19,8 +19,8 @@ serialize = function(obj) {
 }
 
 async function repForm(){
-    let lat = tempe.latlng.lat.toPrecision(4).valueOf();
-    let lng = tempe.latlng.lng.toPrecision(4).valueOf();
+    let lat = tempe.latlng.lat.valueOf();
+    let lng = tempe.latlng.lng.valueOf();
     let form = document.getElementById('rform');
     let data = {
         latitude: lat,
