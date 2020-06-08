@@ -91,13 +91,13 @@ class Home extends Controller
             require_once ERROR_PATH . '405_error.php';
         }
     }
-    public function logoff(){
-        unset($_SESSION['LOGGED_IN']);
-        unset($_SESSION['IS_ADMIN']);
-        unset($_SESSION['ID']);
-        unset($_SESSION['LOCATION_ID']);
-        $this->redirect('/home/loginpage');
-    }
+//    public function logoff(){
+//        unset($_SESSION['LOGGED_IN']);
+//        unset($_SESSION['IS_ADMIN']);
+//        unset($_SESSION['ID']);
+//        unset($_SESSION['LOCATION_ID']);
+//        $this->redirect('/home/loginpage');
+//    }
     public function login()
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {

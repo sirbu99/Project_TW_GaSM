@@ -6,6 +6,7 @@ class RolesMiddleware
     const ADMIN_PAGES = [
         'api:insertdata',
         'api:insertevent',
+        'api:deleteEvent',
     ];
 
     public static function run($controller, $method)

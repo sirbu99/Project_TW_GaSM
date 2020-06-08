@@ -62,6 +62,30 @@ class Api extends Controller
         http_response_code(200);
 
     }
+    public function insertcomment()
+    {
+        if ($_SERVER['REQUEST_METHOD'] != 'POST') {
+            http_response_code(405);
+            require_once '../app/errors/405_error.php';
+            exit;
+        }
+
+        file_put_contents('../app/logs/error.log', $_POST);
+        $conn = Database::instance()->getconnection();
+        $query = 'insert into comentarii (text,id_event,data,user_id) values (?, ?, ?, ?)';
+        $statement = $conn->prepare($query);
+        if (!$statement) {
+            die('Error at statement' . var_dump($conn->error_list));
+        }
+        $statement->bind_param('sdsd', $description, $idEvent, $data,$user_id);
+        $description = $_POST["description"];
+        $data = date("Y-m-d");
+        $idEvent = intval($_POST["id"]);
+        $user_id=$_SESSION["ID"];
+        $statement->execute();
+        http_response_code(200);
+
+    }
 
     static function bindparams($query, $params)
     {
@@ -274,4 +298,65 @@ class Api extends Controller
         echo json_encode($locs);
     }
 
+    public function getEventInfo(){
+        if (!isset($_GET['id'])) {
+            return [];
+        }
+        $query = "select * from event where id = ?";
+        $conn = Database::instance()->getconnection();
+        $id_event=$_GET['id'];
+        $statement = $conn->prepare($query);
+        if (!$statement) {
+            die('Error at statement' . var_dump($conn->error_list));
+        }
+        if (isset($_GET['id'])) {
+            $statement->bind_param('d', $id_event);
+        }
+        $statement->execute();
+        $result = $statement->get_result();
+        header("Content-Type:application/json");
+        $event = $result->fetch_assoc();
+        $event['comments'] = $this->getComments($id_event);
+        echo json_encode($event);
+        exit;
+    }
+
+    public function getComments($eventId)
+    {
+        $query = "select comentarii.*, users.first_name, users.last_name from comentarii left join users on comentarii.user_id=users.id where id_event = ? ";
+        $conn = Database::instance()->getconnection();
+        $statement = $conn->prepare($query);
+        if (!$statement) {
+            die('Error at statement' . var_dump($conn->error_list));
+        }
+        $statement->bind_param('d', $eventId);
+
+        $statement->execute();
+        $result = $statement->get_result();
+        $data = [];
+        while ($row = $result->fetch_assoc()) {
+            $data[] = $row;
+        }
+        return $data;
+    }
+    
+    public function deleteEvent(){
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $query = "delete from event where id = ?";
+            $conn = Database::instance()->getconnection();
+            $statement = $conn->prepare($query);
+            if (!$statement) {
+                die('Error at statement' . var_dump($conn->error_list));
+            }
+            $statement->bind_param('d', $eventId);
+            $eventId=$_POST["id"];
+
+            $statement->execute();
+        }
+        else {
+            http_response_code(405);
+            require_once ERROR_PATH . '405_error.php';
+        }
+
+    }
 }

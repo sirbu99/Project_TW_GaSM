@@ -15,7 +15,7 @@ async function saveEvent() {
         cache: 'no-cache',
         credentials: 'same-origin',
         headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
+            'Content-Type': 'application/x-www-form-urlencoded',
         },
         redirect: 'follow',
         referrerPolicy: 'no-referrer',
@@ -27,7 +27,83 @@ async function saveEvent() {
             }
         });
 }
-function showDetails(){
-    document.getElementById('id05').style.display='block';
+async function showDetails(id) {
+    document.getElementById('id05').style.display = 'block';
+    const response = await fetch(`/api/getEventInfo?id=${id}`, {
+        method: 'GET',
+    })
+        .then(response => response.json())
+        .then(data => {
+            let tags = data['tags'].split(',');
+            tags = tags.filter(Boolean);
+            tags = tags.map((tag) => {
+                return (`<div>${tag}</div>`);
+            });
+
+
+            document.getElementById('modal-content-05').innerHTML = `
+                <header class="article-header">
+                    <div class="category-title">
+                        <span class="date">${data['data']}</span>
+                    </div>
+                    <h2 class="article-title">${data['titlu']}</h2>
+                </header>
+                <div>
+                    ${data['descriere'] || 'fara descriere'}
+                </div>
+                <div class="tags">
+                    ${tags.join('')}
+                </div>
+                <div class="comments">
+                    ${data["comments"].map((comment) => `<div class="commentInfo"> <div class="commentAuthor">${comment['first_name'] } ${comment['last_name'] }:</div> <div class="commentText"> ${comment['text']}  </div> <div class="commentDate">Data : ${comment['data']}</div></div>`).join("")}
+                
+                    <textarea id="eventComment"  rows="5" placeholder="Scrie un comentariu aici.."></textarea>
+                    <button id="commentBtn" onclick="addComment(${data['id']})">Posteaza</button>
+                </div>
+            `;
+        });
+}
+
+async function addComment(id) {
+    const description = document.getElementById("eventComment").value;
+    const response = await fetch('/api/insertcomment', {
+        method: 'POST',
+        mode: 'cors',
+        cache: 'no-cache',
+        credentials: 'same-origin',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        redirect: 'follow',
+        referrerPolicy: 'no-referrer',
+        body: serialize({id, description}),
+    })
+        .then(data => {
+            if (data.status === 200) {
+                location.reload();
+            }
+        });
+
+
+}
+
+async function deleteEvent(id) {
+    const response = await fetch('/api/deleteEvent', {
+        method: 'POST',
+        mode: 'cors',
+        cache: 'no-cache',
+        credentials: 'same-origin',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        redirect: 'follow',
+        referrerPolicy: 'no-referrer',
+        body: serialize({id}),
+    })
+        .then(data => {
+            if (data.status === 200) {
+                location.reload();
+            }
+        });
 
 }
