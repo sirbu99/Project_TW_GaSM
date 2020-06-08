@@ -143,8 +143,8 @@
                         <input type="text" id="text-article" required>
                     </h2>
                 </header>
-                <textarea id="event-details" cols="20" rows="5" placeholder="Adauga O Descriere Scurta"></textarea>
-                <textarea id="event-description" cols="20" rows="5" placeholder="Scrie Toate Detaliile"></textarea>
+                <textarea id="event-details" cols="20"  placeholder="Adauga O Descriere Scurta"></textarea>
+                <textarea id="event-description" cols="20"  placeholder="Scrie Toate Detaliile"></textarea>
                 <div class="tags">
                     Adauga 3 tag-uri importante:
                     <input type="text" class="tag-article" required>
