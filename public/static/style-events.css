@@ -148,11 +148,10 @@
 }
 .card-info{
     width: 60%;
-    height: 60%;
+    height: 80%;
     margin: auto;
     border-radius: 20px;
     background-color: whitesmoke;
-    overflow: auto;
 }
 .closeBtn{
     border-radius: 10px;
@@ -204,8 +203,18 @@
 
 }
 .comments textarea{
-    width: 83%;
-    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 5px;
+    margin: 5px;
+    overflow-y: auto;
+}
+
+.write-comments{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }
 .tags{
     margin: auto;

@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/public/static/style.css">
     <link rel="stylesheet" href="/public/static/loginStyle.css">
-    <link rel="stylesheet" href="./public/static/style-events.css">
+    <link rel="stylesheet" href="/public/static/style-events.css">
+    <link rel="stylesheet" href="/public/static/statisticsStyle.css">
     <title>User Page</title>
     <script src="https://kit.fontawesome.com/342e71a7d6.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -317,7 +318,7 @@
                 <option value="2">Colectare a gunoiului necorespunzătoare</option>
             </select>
             <label for="reporttext">Detalii:</label>
-            <textarea name="reporttext" rows="5" cols="60" placeholder="Detalii problemă"></textarea>
+            <textarea name="reporttext" rows="5" cols="50" placeholder="Detalii problemă"></textarea>
         </div>
         <div>
             <button type="submit" class="submitbutton" onclick="document.getElementById('id03').style.display='none'"
