@@ -63,16 +63,21 @@ class Utility
         $statement = $conn->prepare($query);
         $statement->execute();
         $result = $statement->get_result();
-        $collected = [0, 0, 0, 0, 0, 0];
-        $recycled = [0, 0, 0, 0, 0, 0];
+        $collected = [];
+        $recycled = [];
         while ($row = $result->fetch_row()) {
+            if(!isset($collected[$row[7]])){
+                $collected[$row[7]] = [0, 0, 0, 0, 0, 0];
+                $recycled[$row[7]] = [0, 0, 0, 0, 0, 0];
+            }
+
             if ($row[0] == 1) {
                 for($i = 0; $i < 6; $i++){
-                    $collected[$i] += $row[$i+1];
+                    $collected[$row[7]][$i] += $row[$i+1];
                 }
             } else {
                 for($i = 0; $i < 6; $i++){
-                    $recycled[$i] += $row[$i+1];
+                    $recycled[$row[7]][$i] += $row[$i+1];
                 }
             }
         }
@@ -85,13 +90,16 @@ class Utility
         }
         $county = 1;
         $query = "insert into generated_reports values(null, ?, CURDATE(), ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        $params = [1];
-        $params = array_merge($params, array_merge($collected, $recycled));
-        $params[] = $comp1[$county];
-        $params[] = $comp2[$county];
-        $params[] = $total_materials;
-        $statement = $conn->prepare($query);
-        $statement->bind_param('dddddddddddddddd', ...$params);
-        $statement->execute();
+        for($i = 0; $i < count($collected); $i++){
+            $params = [1];
+            $params = array_merge($params, array_merge($collected[$i], $recycled[$i]));
+            $params[] = $comp1[$county];
+            $params[] = $comp2[$county];
+            $params[] = $total_materials;
+            $statement = $conn->prepare($query);
+            $statement->bind_param('dddddddddddddddd', ...$params);
+            $statement->execute();
+        }
+
     }
 }

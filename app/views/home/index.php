@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="description" content="Garbage site">
     <title>Login</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/public/static/cssLogin/style-container.css">
@@ -14,18 +15,19 @@
 </head>
 
 <body>
-    <div class="main-display">
-        <div class="container">
+<div class="main-display">
+    <div class="container">
 
-            <div class="switch-buttons">
-                <button type="button" id="button-login" class="switch-button-login" onclick="openForm(this)">Log In
-                </button>
-                <button type="button" id="button-register" class="switch-button-green switch-button-register"
+        <div class="switch-buttons">
+            <button type="button" id="button-login" class="switch-button-login" onclick="openForm(this)">Log In
+            </button>
+            <button type="button" id="button-register" class="switch-button-green switch-button-register"
                     onclick="openForm(this)">Register
-                </button>
-            </div>
+            </button>
+        </div>
 
-            <!-- login -->
+        <!-- login -->
+        <main>
             <form id="login" class="grid-container" action="<?= BASE_URL . "/home/login" ?>" method="POST">
                 <div class="left-side">
                     <!-- left side -->
@@ -35,8 +37,10 @@
                 </div>
                 <div class="right-side">
                     <!-- right side -->
-                    <input type="text" id="email" name="email" placeholder="Email adress" class="icon-email" required>
-                    <input type="password" id="pass" name="password" placeholder="Password" class="icon-pass" required>
+                    <input type="text" id="email" name="email" placeholder="Email address" class="icon-email"
+                           required>
+                    <input type="password" id="pass" name="password" placeholder="Password" class="icon-pass"
+                           required>
                     <div id="error-message"></div>
                 </div>
 
@@ -48,68 +52,69 @@
                     </div>
                 </div>
             </form>
-
-            <!-- register -->
-            <form id="register" class="grid-container" style="display:none;" action="<?= BASE_URL . "/home/register" ?>" method="POST">
-                <div class="left-side">
-                    <!-- left side -->
-                    <div class="flex-logo">
-                        <img src="/public/static/images/recicleaza1.jpg" alt="LOGO" class="logo-register">
-                    </div>
-                    <input type="text" id="fname" name="firstname" placeholder="First Name" class="icon-user" required>
-                    <input type="text" id="lname" name="lastname" placeholder="Last Name" class="icon-user" required>
-                    <div class="account">
-                        <input type="radio" id="user" name="accountType" value="0" required>
-                        <label for="user">User</label>
-                        <input type="radio" id="employee" name="accountType" value="1" required>
-                        <label for="employee">Employee</label>
-                    </div>
-                    
+        </main>
+        <!-- register -->
+        <form id="register" class="grid-container" style="display:none;" action="<?= BASE_URL . "/home/register" ?>"
+              method="POST">
+            <div class="left-side">
+                <!-- left side -->
+                <div class="flex-logo">
+                    <img src="/public/static/images/recicleaza1.jpg" alt="LOGO" class="logo-register">
                 </div>
-                <div class="right-side">
-                    <!-- right side -->
-                    <input type="email" id="email" name="email" placeholder="Email adress" class="icon-email" required>
-                    <input type="password" id="pass1" name="password" placeholder="Password"
-                        pattern="^(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$" title="Must contain at least one number, at least
+                <input type="text" id="fname" name="firstname" placeholder="First Name" class="icon-user" required>
+                <input type="text" id="lname" name="lastname" placeholder="Last Name" class="icon-user" required>
+                <div class="account">
+                    <input type="radio" id="user" name="accountType" value="0" required>
+                    <label for="user">User</label>
+                    <input type="radio" id="employee" name="accountType" value="1" required>
+                    <label for="employee">Employee</label>
+                </div>
+
+            </div>
+            <div class="right-side">
+                <!-- right side -->
+                <input type="email" id="email" name="email" placeholder="Email adress" class="icon-email" required>
+                <input type="password" id="pass1" name="password" placeholder="Password"
+                       pattern="^(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$" title="Must contain at least one number, at least
 one special character and at least 8  characters" class="icon-pass" required>
-                    <input type="password" id="pass2" name="password" placeholder="Validate Password" class="icon-pass"
-                        required>
-                    <select id="street" class="chooseStreet icon-map">
-                        <option value="" disabled selected>Choose your street</option>
-                        <?php
-                            foreach ($data['locations'] as $loc){
-                                echo '<option>' . $loc . '</option>';
-                            }
-                        ?>
-                    </select>
-                </div>
-                <div class="down-side">
-                    <!-- down side -->
-                    <button type="submit" class="submit-button" >Submit</button>
-                </div>
-            </form>
-        </div>
+                <input type="password" id="pass2" name="password" placeholder="Validate Password" class="icon-pass"
+                       required>
+                <select id="street" class="chooseStreet icon-map">
+                    <option value="" disabled selected>Choose your street</option>
+                    <?php
+                    foreach ($data['locations'] as $loc) {
+                        echo '<option>' . $loc . '</option>';
+                    }
+                    ?>
+                </select>
+            </div>
+            <div class="down-side">
+                <!-- down side -->
+                <button type="submit" class="submit-button">Submit</button>
+            </div>
+        </form>
     </div>
-    <script>
-        //function which make switch between login form and register form
-        let currentPage = 'login';
+</div>
+<script>
+    //function which make switch between login form and register form
+    let currentPage = 'login';
 
-        function openForm(elem) {
-            if (elem.id === 'button-register' && currentPage === 'login') {
-                document.getElementById('login').style.display = 'none';
-                document.getElementById('register').removeAttribute('style');
-                document.getElementById('button-login').classList.toggle('switch-button-green');
-                document.getElementById('button-register').classList.toggle('switch-button-green');
-                currentPage = 'register';
-            } else if (elem.id === 'button-login' && currentPage === 'register') {
-                document.getElementById('register').style.display = 'none';
-                document.getElementById('login').removeAttribute('style');
-                document.getElementById('button-login').classList.toggle('switch-button-green');
-                document.getElementById('button-register').classList.toggle('switch-button-green');
-                currentPage = 'login';
-            }
+    function openForm(elem) {
+        if (elem.id === 'button-register' && currentPage === 'login') {
+            document.getElementById('login').style.display = 'none';
+            document.getElementById('register').removeAttribute('style');
+            document.getElementById('button-login').classList.toggle('switch-button-green');
+            document.getElementById('button-register').classList.toggle('switch-button-green');
+            currentPage = 'register';
+        } else if (elem.id === 'button-login' && currentPage === 'register') {
+            document.getElementById('register').style.display = 'none';
+            document.getElementById('login').removeAttribute('style');
+            document.getElementById('button-login').classList.toggle('switch-button-green');
+            document.getElementById('button-register').classList.toggle('switch-button-green');
+            currentPage = 'login';
         }
-    </script>
+    }
+</script>
 </body>
 
 </html>

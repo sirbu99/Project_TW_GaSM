@@ -4,13 +4,13 @@
 <head>
     <!-- make page responsive-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Garbage Site">
     <link rel="stylesheet" href="/public/static/style.css">
     <link rel="stylesheet" href="/public/static/loginStyle.css">
     <link rel="stylesheet" href="/public/static/style-events.css">
     <title>User Page</title>
-    <script src="https://kit.fontawesome.com/342e71a7d6.js" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript" src="/public/static/js/piechart.js"></script>
+    <script src="https://kit.fontawesome.com/342e71a7d6.js" crossorigin="anonymous" async></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js" async></script>
     <script type="text/javascript" src="/public/static/js/misc.js"></script>
     <script type="text/javascript" src="/public/static/js/recycle_info.js"></script>
     <script type="text/javascript" src="/public/static/js/map.js"></script>
@@ -23,7 +23,7 @@
           crossorigin=""/>
     <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
             integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
-            crossorigin=""></script>
+            crossorigin="" async></script>
     <!-- <script type="text/javascript" src="../static/js/map.js"></script> -->
 </head>
 
@@ -43,11 +43,12 @@
                 <a href="#Informatie" class="droplink"><i class="fas fa-recycle"></i> Informații adiționale</a>
                 <a href='stats' class="droplink"><i class="fas fa-recycle"></i> Statistici</a>
                 <?php if ($_SESSION['IS_ADMIN'] ?? false) { ?>
-                    <a class="droplink" onclick="document.getElementById('id04').style.display='block'"><i class="fas fa-recycle"></i>Creează un raport</a>
+                    <a class="droplink" onclick="document.getElementById('id04').style.display='block'"><i
+                                class="fas fa-recycle"></i>Creează un raport</a>
                 <?php } ?>
                 <a href='logout' class="droplink"><i class="fas fa-recycle"></i> Logout</a>
             </div>
-<!--            <button class="navbutton" onclick="document.location.href='logout'">Logout</button>-->
+            <!--            <button class="navbutton" onclick="document.location.href='logout'">Logout</button>-->
         </div>
 
         <ul class="menu-options">
@@ -61,12 +62,15 @@
             <li class="option"><a href="#Informatie" class="navbarlink"><i class="fas fa-recycle"></i>
                     Informații adiționale</a>
             </li>
-            <li class="option"><a href="#Situatia" class="navbarlink"><i class="fas fa-recycle"></i> Raportează o problemă</a></li>
+            <li class="option"><a href="#Situatia" class="navbarlink"><i class="fas fa-recycle"></i> Raportează o
+                    problemă</a></li>
             <li class="option"><a href='stats' class="navbarlink"><i class="fas fa-recycle"></i> Statistici</a></li>
 
 
             <?php if ($_SESSION['IS_ADMIN'] ?? false) { ?>
-                <li class="option"><a class="navbarlink" onclick="document.getElementById('id04').style.display='block'"><i class="fas fa-recycle"></i>Creează un raport</a></li>
+                <li class="option"><a class="navbarlink"
+                                      onclick="document.getElementById('id04').style.display='block'"><i
+                                class="fas fa-recycle"></i>Creează un raport</a></li>
             <?php } ?>
             <li class="option"><a href='logout' class="navbarlink"><i class="fas fa-recycle"></i> Logout</a></li>
 
@@ -95,23 +99,23 @@
 <section id="Evenimente">
     <div class="title-event"> Ajuta natura! Participa la evenimentele de ecologizare!</div>
     <div class="card-container">
-        <?php  if (isset($data)) {
-            foreach($data['events'] as $event) { ?>
+        <?php if (isset($data)) {
+            foreach ($data['events'] as $event) { ?>
                 <div class="card">
                     <header class="article-header">
                         <div class="event-date">
-                            <span class="date"><?=$event['data']?></span>
+                            <span class="date"><?= $event['data'] ?></span>
                         </div>
                         <h2 class="article-title">
-                            <?=$event['titlu']?>
+                            <?= $event['titlu'] ?>
                         </h2>
                     </header>
                     <div class="event-details">
-                        <?=$event['detalii']?>
+                        <?= $event['detalii'] ?>
                     </div>
                     <div class="tags">
                         <?php
-                        foreach(explode(",", $event['tags']) as $tag ) {
+                        foreach (explode(",", $event['tags']) as $tag) {
                             if (!empty($tag)) {
                                 echo "<div>$tag</div>";
                             }
@@ -144,7 +148,7 @@
                     <input type="text" class="tag-article" required>
                 </div>
                 <button type="submit" class="createEvent" onclick="saveEvent()">Creaza Eveniment!</button>
-          </div>
+            </div>
         <?php } ?>
 
 </section>
@@ -276,21 +280,22 @@
     <div class="info-content">
         <div class="info">
             <img src="/public/static/images/deseuri.jpg" alt="image" class="info-image">
-            <a href="https://salubris.ro/servicii/colectarea-separata-a-deseurilor/" target="_blank">Colectarea
-                separată
-                a
-                deșeurilor</a>
+            <a href="https://salubris.ro/servicii/colectarea-separata-a-deseurilor/" rel="noreferrer target=" _blank">Colectarea
+            separată
+            a
+            deșeurilor</a>
         </div>
         <div class="info">
             <img src="/public/static/images/deseuri.jpg" alt="image" class="info-image">
             <a href="https://salubris.ro/orasul-verde/impreuna-colectam-separat/activitati-de-promovare-a-colectarii-separate/"
-               target="_blank">Activități de promovare a colectării separate</a>
+               rel="noreferrer
+               target=" _blank">Activități de promovare a colectării separate</a>
         </div>
         <div class="info">
             <img src="/public/static/images/deseuri.jpg" alt="image" class="info-image">
-            <a href="https://salubris.ro/orasul-verde/impactul-colectarii-separate/" target="_blank">Impactul
-                colectării
-                separate</a>
+            <a href="https://salubris.ro/orasul-verde/impactul-colectarii-separate/" rel="noreferrer target=" _blank">Impactul
+            colectării
+            separate</a>
         </div>
     </div>
 </section>
@@ -367,24 +372,24 @@
     <div class="card-info">
         <header class="article-header">
             <div class="category-title">
-                <span class="date"><?=$event['data']?></span>
+                <span class="date"><?= $event['data'] ?></span>
             </div>
             <h2 class="article-title">
-                <?=$event['titlu']?>
+                <?= $event['titlu'] ?>
             </h2>
         </header>
         <div>
-            <?=$event['descriere']?>
+            <?= $event['descriere'] ?>
         </div>
-<!--        <div class="author">-->
-<!--            <div class="info-author">-->
-<!--                <div class="caption">Autor de event</div>-->
-<!--                <div class="name">Maria Popescu</div>-->
-<!--            </div>-->
-<!--        </div>-->
+        <!--        <div class="author">-->
+        <!--            <div class="info-author">-->
+        <!--                <div class="caption">Autor de event</div>-->
+        <!--                <div class="name">Maria Popescu</div>-->
+        <!--            </div>-->
+        <!--        </div>-->
         <div class="tags">
             <?php
-            foreach(explode(",", $event['tags']) as $tag ) {
+            foreach (explode(",", $event['tags']) as $tag) {
                 if (!empty($tag)) {
                     echo "<div>$tag</div>";
                 }

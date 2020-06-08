@@ -13,7 +13,7 @@ function onMapClick(e) {
     //47.20, 27.46; 47.12, 27.67
 }
 
-function initMap() {
+async function initMap() {
     popup = L.popup();
     //to do: initialize position with user's county
     mymap = L.map('map').setView([47.17, 27.58], 9);
@@ -32,8 +32,8 @@ function initMap() {
     mymap.on('click', onMapClick);
 }
 
-function initSMap() {
-    mymap = L.map('map').setView([47.17, 27.58], 9);
+async function initSMap() {
+    mymap = L.map('map').setView([47.17, 27.58], 15);
     L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
         attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
         maxZoom: 18,

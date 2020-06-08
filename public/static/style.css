@@ -10,7 +10,7 @@ body {
     font-family: Segoe UI;
     margin: 0;
     text-align: center;
-    background-image: url(./images/grass.jpg);
+    background-image: url(./images/grass.webp);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
