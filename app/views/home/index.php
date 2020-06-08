@@ -67,7 +67,7 @@
             </div>
             <div class="right-side">
                 <!-- right side -->
-                <input type="email" id="email" name="email" placeholder="Email adress" class="icon-email" required>
+                <input type="email" id="register-email" name="email" placeholder="Email adress" class="icon-email" required>
                 <input type="password" id="pass1" name="password" placeholder="Password"
                        pattern="^(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$" title="Must contain at least one number, at least
 one special character and at least 8  characters" class="icon-pass" required>
@@ -81,10 +81,11 @@ one special character and at least 8  characters" class="icon-pass" required>
                     }
                     ?>
                 </select>
+                <div id="error-message-register"></div>
             </div>
             <div class="down-side">
                 <!-- down side -->
-                <button type="submit" class="submit-button">Submit</button>
+                <button onclick="register(event)" type="submit" class="submit-button">Submit</button>
             </div>
         </form>
     </div>

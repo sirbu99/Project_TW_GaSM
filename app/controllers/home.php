@@ -71,21 +71,35 @@ class Home extends Controller
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $conn = Database::instance()->getconnection();
+            $query = "SELECT * FROM users where email = ?";
+            $statement = $conn->prepare($query);
+            if (!$statement) {
+                die('Error at statement' . var_dump($conn->error_list));
+            }
+            $statement->bind_param('s', $email);
+            $email = $_POST['email'];
+            $statement->execute();
+            $result = $statement->get_result();
+            if ($result->num_rows > 0)
+            {
+                http_response_code(400);
+                exit;
+            }
+
             $query = "INSERT INTO users values(null, ?, ?, ?, ?, ?, ?)";
             $statement = $conn->prepare($query);
             if (!$statement) {
                 die('Error at statement' . var_dump($conn->error_list));
             }
             $statement->bind_param('ssssdd', $firstname, $lastname, $email, $password, $location, $admin);
-            $firstname = $_POST['firstname'];
-            $lastname = $_POST['lastname'];
+            $firstname = $_POST['first_name'];
+            $lastname = $_POST['last_name'];
             $email = $_POST['email'];
             $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
             var_dump($_POST);
             $admin = 0;
             $location = $_POST['street'] ?? 1;
             $statement->execute();
-            $this->redirect('/home');
             exit;
         } else {
             http_response_code(405);

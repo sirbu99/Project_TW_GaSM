@@ -82,7 +82,7 @@ async function addComment(id) {
     })
         .then(data => {
             if (data.status === 200) {
-                location.reload();
+                showDetails(id);
             }
         });
 
