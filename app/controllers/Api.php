@@ -36,6 +36,57 @@ class Api extends Controller
         }
     }
 
+    public function insertevent()
+    {
+        if ($_SERVER['REQUEST_METHOD'] != 'POST') {
+            http_response_code(405);
+            require_once '../app/errors/405_error.php';
+            exit;
+        }
+        file_put_contents('../app/logs/error.log', $_POST);
+        $conn = Database::instance()->getconnection();
+        $query = 'insert into event (titlu,data,id_autor,detalii, tags, descriere) values (?, ?, ?, ?, ?, ?)';
+        $statement = $conn->prepare($query);
+        if (!$statement) {
+            die('Error at statement' . var_dump($conn->error_list));
+        }
+        $statement->bind_param('ssdsss', $title, $date,$author_id,$details, $tags, $description);
+        $date = $_POST["date"]; //validare si corectare format data
+        $title = $_POST["title"];
+        $author_id = intval($_SESSION["ID"] ?? 0);
+        $details = $_POST["details"];
+        $tags = $_POST["tags"];
+        $description = $_POST["description"];
+
+        $statement->execute();
+        http_response_code(200);
+
+    }
+    public function insertcomment()
+    {
+        if ($_SERVER['REQUEST_METHOD'] != 'POST') {
+            http_response_code(405);
+            require_once '../app/errors/405_error.php';
+            exit;
+        }
+
+        file_put_contents('../app/logs/error.log', $_POST);
+        $conn = Database::instance()->getconnection();
+        $query = 'insert into comentarii (text,id_event,data,user_id) values (?, ?, ?, ?)';
+        $statement = $conn->prepare($query);
+        if (!$statement) {
+            die('Error at statement' . var_dump($conn->error_list));
+        }
+        $statement->bind_param('sdsd', $description, $idEvent, $data,$user_id);
+        $description = $_POST["description"];
+        $data = date("Y-m-d");
+        $idEvent = intval($_POST["id"]);
+        $user_id=$_SESSION["ID"];
+        $statement->execute();
+        http_response_code(200);
+
+    }
+
     static function bindparams($query, $params)
     {
         $conn = Database::instance()->getconnection();
@@ -66,6 +117,7 @@ class Api extends Controller
 
     private function processdata()
     {
+        $conn = Database::instance()->getconnection();
         $data = [];
         // $conn = Database::instance()->getconnection();
         $params = [];
@@ -73,29 +125,37 @@ class Api extends Controller
         if (isset($_GET['location'])) {
             $id = $this->getlocid($_GET['location']);
         }
+        $def = '';
         $query = 'select name, address, report_date, paper, plastic, metal, glass, waste, mixed from materials m join locations l on m.location_id = l.id';
         if (isset($_GET['location']) && isset($_GET['date'])) {
             $query = $query . ' where ';
             $query = $query . 'report_date = ? ';
             $query = $query . 'and location_id = ?';
             $date = $_GET['date'];
-            $params[] = 'sd';
-            $params[] = &$date;
-            $params[] = &$id;
+            $def = 'sd';
+            $params[] = $date;
+            $params[] = $id;
         } elseif (isset($_GET['location'])) {
             $query = $query . ' where ';
             $query = $query . 'location_id = ?';
             $location = $_GET['location'];
-            $params[] = 'd';
-            $params[] = &$id;
+            $def = 'd';
+            $params[] = $id;
         } elseif (isset($_GET['date'])) {
             $query = $query . ' where ';
             $query = $query . 'report_date = ?';
             $date = $_GET['date'];
-            $params[] = 's';
-            $params[] = &$date;
+            $def = 's';
+            $params[] = $date;
         }
-        $statement = $this->bindparams($query, $params);
+        $query = $query . ' order by m.id desc';
+        $statement = $conn->prepare($query);
+        if (!$statement) {
+            die('Error at statement' . var_dump($conn->error_list));
+        }
+        if($params)
+        $statement->bind_param($def, ...$params);
+        // $statement = $this->bindparams($query, $params);
 
         $statement->execute();
         $result = $statement->get_result();
@@ -129,25 +189,27 @@ class Api extends Controller
         }
     }
 
-    private function processrep(){
+    private function processrep()
+    {
         $county = 1;
         $query = "select * from generated_reports";
         $conn = Database::instance()->getconnection();
-        if(isset($_GET['county'])){
+        if (isset($_GET['county'])) {
             $county = $_GET['county'];
             $query = $query . ' where county_id = ?';
         }
+        $query = $query . ' order by id desc';
         $statement = $conn->prepare($query);
         if (!$statement) {
             die('Error at statement' . var_dump($conn->error_list));
         }
-        if(isset($_GET['county'])){
+        if (isset($_GET['county'])) {
             $statement->bind_param('d', $_GET['county']);
         }
         $statement->execute();
         $result = $statement->get_result();
         $data = [];
-        while($row = $result->fetch_row()){
+        while ($row = $result->fetch_row()) {
             $data[] = array('county_id' => $row[1], 'date' => $row[2], 'added_paper' => $row[3], 'added_metal' => $row[4], 'added_glass' => $row[5], 'added_waste' => $row[6], 'added_plastic' => $row[7], 'added_mixed' => $row[8], 'recycled_paper' => $row[9], 'recycled_metal' => $row[10], 'recycled_glass' => $row[11], 'recycled_waste' => $row[12], 'recycled_plastic' => $row[13], 'processed_mixed' => $row[14], 'litter_complaints' => $row[15], 'collecting_complaints' => $row[16], 'net_materials' => $row[17]);
         }
         return $data;
@@ -157,15 +219,15 @@ class Api extends Controller
     public function getdata($params = [])
     {
         $method = 'processdata';
-        if(isset($_GET['report']))
-        switch ($_GET['report']){
-            case 'monthly':
-                $method = 'processrep';
-                break;
-            default:
-                $method = 'processdata';
+        if (isset($_GET['report']))
+            switch ($_GET['report']) {
+                case 'monthly':
+                    $method = 'processrep';
+                    break;
+                default:
+                    $method = 'processdata';
 
-        }
+            }
         switch ($params ?? 'json') {
             default:
                 header('Content-Type: application/json');
@@ -186,5 +248,70 @@ class Api extends Controller
                 echo 'pdf';
                 break;
         }
+    }
+
+    public function getlocations(){
+        
+    }
+
+    public function getEventInfo(){
+        if (!isset($_GET['id'])) {
+            return [];
+        }
+        $query = "select * from event where id = ?";
+        $conn = Database::instance()->getconnection();
+        $id_event=$_GET['id'];
+        $statement = $conn->prepare($query);
+        if (!$statement) {
+            die('Error at statement' . var_dump($conn->error_list));
+        }
+        if (isset($_GET['id'])) {
+            $statement->bind_param('d', $id_event);
+        }
+        $statement->execute();
+        $result = $statement->get_result();
+        header("Content-Type:application/json");
+        $event = $result->fetch_assoc();
+        $event['comments'] = $this->getComments($id_event);
+        echo json_encode($event);
+        exit;
+    }
+
+    public function getComments($eventId)
+    {
+        $query = "select comentarii.*, users.first_name, users.last_name from comentarii left join users on comentarii.user_id=users.id where id_event = ? ";
+        $conn = Database::instance()->getconnection();
+        $statement = $conn->prepare($query);
+        if (!$statement) {
+            die('Error at statement' . var_dump($conn->error_list));
+        }
+        $statement->bind_param('d', $eventId);
+
+        $statement->execute();
+        $result = $statement->get_result();
+        $data = [];
+        while ($row = $result->fetch_assoc()) {
+            $data[] = $row;
+        }
+        return $data;
+    }
+    public function deleteEvent(){
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $query = "delete from event where id = ?";
+            $conn = Database::instance()->getconnection();
+            $statement = $conn->prepare($query);
+            if (!$statement) {
+                die('Error at statement' . var_dump($conn->error_list));
+            }
+            $statement->bind_param('d', $eventId);
+            $eventId=$_POST["id"];
+
+            $statement->execute();
+        }
+        else {
+            http_response_code(405);
+            require_once ERROR_PATH . '405_error.php';
+        }
+
     }
 }

@@ -35,7 +35,7 @@ class App
         $this->controller = new $this->controller;
         $this->params = $url ? array_values($url) : [];
 
-        if (AuthMiddleware::run($this->controller, $this->method)) {
+        if (AuthMiddleware::run($this->controller, $this->method) && RolesMiddleware::run($this->controller, $this->method)) {
             call_user_func_array([$this->controller, $this->method], $this->params);
         } else {
             http_response_code(403);

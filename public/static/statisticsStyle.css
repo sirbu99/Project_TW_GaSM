@@ -38,8 +38,9 @@ section {
     border-radius: 10px;
     background-color: black;
     color: white;
-    padding: 5px;
+    padding: 10px;
     font-weight: bold;
+    border-style: none;
     font-size: large;
     margin: 5px;
 }
@@ -49,4 +50,24 @@ section {
     transform: scale(1.1);
     transition: 200ms;
 
+}
+.statsButtonClass{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.statsButtonClass select, .statsButtonClass label{
+    font-weight: bold;
+    margin: 0;
+    font-size: large;
+    color: white;
+    background-color: black;
+}
+.selectBtn{
+    background-color: black;
+    width: fit-content;
+    padding: 5px;
+    border-radius: 10px;
 }

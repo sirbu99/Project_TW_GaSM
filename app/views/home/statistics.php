@@ -13,7 +13,7 @@
     <script type="text/javascript" src="/public/static/js/recycle_info.js"></script>
     <script type="text/javascript" src="/public/static/js/map.js"></script>
     <script type="text/javascript" src="/public/static/js/stats.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
           integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
           crossorigin=""/>
@@ -24,6 +24,13 @@
 <body>
 <section id="Buttons">
     <div class="statsButtonClass">
+        <div class="selectBtn">
+            <label for="downloadInfo">Alege perioada:</label>
+            <select name="perioada" id="downloadInfo">
+                <option value="daily">Zi</option>
+                <option value="monthly">Luna</option>
+            </select>
+        </div>
         <button class="statsButton" onclick="download('csv')" id="CSV"><i class="fas fa-download"></i> Descarca CSV</button>
         <button class="statsButton" onclick="download('json')" id="JSON"><i class="fas fa-download"></i> Descarca JSON</button>
         <button class="statsButton" onclick="document.location.href='userPage'"><i class="fas fa-arrow-alt-circle-left"></i> Înapoi</button>
@@ -33,13 +40,16 @@
 <section id="Situatia">
     <div class="situation-elements">
         <div id="piechart" class="chart"></div>
+        <canvas id="myChart" class="chart"></canvas>
         <div class="map-container">
-            <div id="map"></div>
+            <div id="map" class="map-controller"></div>
         </div>
     </div>
 </section>
+
+
 <script>
-    window.onload = initMap;
+    window.onload = initSMap;
 </script>
 </body>
 </html>

@@ -9,6 +9,7 @@ class Utility
         if (file_exists($lastRunLog)) {
             $lastRun = file_get_contents($lastRunLog);
             if (time() - $lastRun >= 2592000) {
+                echo 'here';
                 $cron = self::report();
                 file_put_contents($lastRunLog, time());
             }

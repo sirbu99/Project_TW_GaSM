@@ -1,15 +1,18 @@
+#Evenimente {
+    overflow-x: auto;
+}
 .title-event{
     padding: 30px;
-    color: aliceblue;
-    text-shadow: 0px 1px;
+    color: white;
+    text-shadow: 0 1px;
     font-size:2vw;
 }
 .card-container {
-    overflow-x: scroll;
     display: flex;
     padding: 15px;
     padding-top:30px;
 }
+
 .card {
     min-width: 300px;
     height: 350px;
@@ -27,7 +30,7 @@
 .tags {
     display: flex;
     flex-wrap: wrap;
-    margin: 5px;
+    margin: 5px auto;
 }
 .tags>*{
     font-size: 9px;
@@ -37,7 +40,7 @@
     border-radius: 15px;
 }
 
-.card .category-title {
+.card .event-date {
     font-size: 14px;
     color: #8a8a8a;
     margin-bottom: 5px;
@@ -48,9 +51,6 @@
     font-weight: 700;
 }
 
-.card .article-header {
-    margin-bottom: auto;
-}
 
 .card .author {
     margin-top: 20px;
@@ -131,9 +131,88 @@
   display: table;
 }
 
-.add-card{
-    width: 70px;
-    height: 70px;
+.createEvent{
+    border: none;
+    border-radius: 15px;
+    background-color: red;
+    color: white;
+    width: 100%;
+    padding: 5px;
+}
+.tag-article{
+    width: 100%;
+    margin: 3px;
+}
+.card textarea{
+    margin: 3px;
+}
+.card-info{
+    width: 60%;
+    height: 60%;
+    margin: auto;
+    border-radius: 20px;
+    background-color: whitesmoke;
+    overflow: auto;
+}
+.closeBtn{
+    border-radius: 10px;
+    padding: 5px 20px ;
+    margin: 5px;
+    font-weight: bold;
+    background-color: red;
+    color: white;
+    border-style: none;
+}
+.event-details{
+    font-size: larger;
+    margin: auto;
+}
+.see-more{
+    border-radius: 10px;
+    background-color: #2d6b22;
+    color: white;
+    border-style: none;
+    padding: 5px;
+}
+.deleteBtn, #commentBtn{
+    border-radius: 10px;
+    background-color: red;
+    color: white;
+    border-style: none;
+    margin: 5px 0px;
+    padding: 5px;
+    vertical-align: middle;
+
+}
+.commentInfo{
+    background-color: #dbf6ee;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    border-radius: 10px;
+    width: 90%;
+    padding: 5px;
+    margin:5px auto;
+
+}
+.commentAuthor{
+    color: #8a8a8a;
+}
+.commentDate{
+    color: #8a8a8a;
+
+}
+.comments textarea{
+    width: 83%;
+    margin: auto;
+}
+.tags{
+    margin: auto;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    background: #c2c9d2;
 }
 
 .createEvent{
