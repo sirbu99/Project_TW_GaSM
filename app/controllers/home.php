@@ -174,6 +174,10 @@ class Home extends Controller
     {
         $this->view('home/statistics', []);
     }
+    public function doc()
+    {
+        $this->view('home/doc', []);
+    }
 
     public function logout()
     {
