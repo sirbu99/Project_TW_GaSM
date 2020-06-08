@@ -48,14 +48,16 @@ async function showDetails(id) {
                     </div>
                     <h2 class="article-title">${data['titlu']}</h2>
                 </header>
-                <div>
+                <div class="eventDescription">
                     ${data['descriere'] || 'fara descriere'}
                 </div>
-                <div class="tags">
-                    ${tags.join('')}
+                <div class="tagsClass">
+                    <div class="tags">
+                        ${tags.join('')}
+                    </div>
                 </div>
                 <div class="comments">
-                    ${data["comments"].map((comment) => `<div class="commentInfo"> <div class="commentAuthor">${comment['first_name'] } ${comment['last_name'] }:</div> <div class="commentText"> ${comment['text']}  </div> <div class="commentDate">Data : ${comment['data']}</div></div>`).join("")}
+                    ${data["comments"].map((comment) => `<div class="commentInfo"> <div class="commentAuthor">${comment['first_name'] } ${comment['last_name'] }:</div> <div class="commentText">  ${comment['text']}  </div> <div class="commentDate">Data : ${comment['data']}</div></div>`).join("")}
                 
                     <textarea id="eventComment"  rows="5" placeholder="Scrie un comentariu aici.."></textarea>
                     <button id="commentBtn" onclick="addComment(${data['id']})">Posteaza</button>

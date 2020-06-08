@@ -148,7 +148,7 @@
 }
 .card-info{
     width: 60%;
-    height: 60%;
+    height: 90%;
     margin: auto;
     border-radius: 20px;
     background-color: whitesmoke;
@@ -184,6 +184,9 @@
     vertical-align: middle;
 
 }
+#commentBtn{
+    background-color: #2d6b22;
+}
 .commentInfo{
     background-color: #dbf6ee;
     display: flex;
@@ -207,10 +210,13 @@
     width: 83%;
     margin: auto;
 }
-.tags{
+.tagsClass{
     margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
-::-webkit-scrollbar-thumb {
-    border-radius: 8px;
-    background: #c2c9d2;
+.eventDescription{
+    width:90%;
+    margin: auto;
 }
