@@ -6,7 +6,7 @@ class Home extends Controller
     private function getlocations()
     {
         $conn = Database::instance()->getconnection();
-        $query = "SELECT name FROM locations";
+        $query = "SELECT name, id FROM locations";
         $statement = $conn->prepare($query);
         if (!$statement) {
             die('Error at statement' . var_dump($conn->error_list));
@@ -17,7 +17,7 @@ class Home extends Controller
         if ($result->num_rows > 0) {
             // output data of each row
             while ($row = $result->fetch_row()) {
-                $locations[] = $row[0];
+                $locations += [$row[1] => $row[0]];
             }
 
         }
@@ -81,8 +81,9 @@ class Home extends Controller
             $lastname = $_POST['lastname'];
             $email = $_POST['email'];
             $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-            $location = 1;
-            $admin = $_POST['accountType'];
+            var_dump($_POST);
+            $admin = 0;
+            $location = $_POST['street'] ?? 1;
             $statement->execute();
             $this->redirect('/home');
             exit;

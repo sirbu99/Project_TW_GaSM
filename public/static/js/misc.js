@@ -72,7 +72,7 @@ async function matForm(){
     return response.json();
 }
 
-window.addEventListener('resize', function (event) {
-    document.getElementById("drop1").style.display = "none";
-});
+// window.addEventListener('resize', function (event) {
+//     document.getElementById("drop1").style.display = "none";
+// });
 

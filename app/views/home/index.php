@@ -63,12 +63,6 @@
                 </div>
                 <input type="text" id="fname" name="firstname" placeholder="First Name" class="icon-user" required>
                 <input type="text" id="lname" name="lastname" placeholder="Last Name" class="icon-user" required>
-                <div class="account">
-                    <input type="radio" id="user" name="accountType" value="0" required>
-                    <label for="user">User</label>
-                    <input type="radio" id="employee" name="accountType" value="1" required>
-                    <label for="employee">Employee</label>
-                </div>
 
             </div>
             <div class="right-side">
@@ -79,11 +73,11 @@
 one special character and at least 8  characters" class="icon-pass" required>
                 <input type="password" id="pass2" name="password" placeholder="Validate Password" class="icon-pass"
                        required>
-                <select id="street" class="chooseStreet icon-map">
+                <select id="street" name="street" class="chooseStreet icon-map">
                     <option value="" disabled selected>Choose your street</option>
                     <?php
-                    foreach ($data['locations'] as $loc) {
-                        echo '<option>' . $loc . '</option>';
+                    foreach ($data['locations'] as $id => $loc) {
+                        echo '<option value = "' . $id . '">' . $loc . '</option>';
                     }
                     ?>
                 </select>
