@@ -7,7 +7,7 @@ function recycleChart() {
 }
 
 // Draw the chart and set the chart values
-function drawChart() {
+async function drawChart() {
     fetch('/api/getdata/json')
         .then(response => response.json())
         .then(function (data) {
@@ -31,7 +31,7 @@ function drawChart() {
         });
 
 
-    fetch('/api/getdata/json?report=monthly')
+    fetch('/api/getdata/json?report=monthly&county=1')
         .then(response => response.json())
         .then(function (data) {
             let ctx = document.getElementById('myChart').getContext('2d');

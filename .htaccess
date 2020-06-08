@@ -9,3 +9,5 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^public/(.*)$ /$1 [L]
 
 RewriteRule ^(.+)$ index.php
+
+RedirectMatch ^/$ /home/
