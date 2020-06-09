@@ -21,11 +21,10 @@ section {
     overflow: hidden;
 }
 .map-container {
-    height: 750px;
+    height: fit-content;
     width: 100%;
     display: flex;
     justify-content: center;
-    padding: 70px;
 }
 
 #map {
@@ -74,4 +73,14 @@ section {
     border-color: #dad6d6;
     margin: 0px 3px;
     padding: 2px;
+}
+@media only screen and (max-width: 600px) {
+    body{
+        padding: 0;
+    }
+    #map{
+        width:98%;
+        height: 300px;
+    }
+
 }
