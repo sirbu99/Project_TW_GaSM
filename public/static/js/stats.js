@@ -1,48 +1,44 @@
 async function download(type) {
-    const time =document.getElementById("downloadInfo").value;
+    const time = document.getElementById("downloadInfo").value;
     console.log(time);
     const response = await fetch(`/api/getdata/${type}?report=${time}`, {
         method: 'GET',
     })
-    .then(response => response.blob())
-    .then(blob => {
-        const a = document.createElement('a');
-        a.href = window.URL.createObjectURL(blob);
-        a.download = `filename.${type}`;
-        a.click();
-        return false
-    });
+        .then(response => response.blob())
+        .then(blob => {
+            const a = document.createElement('a');
+            a.href = window.URL.createObjectURL(blob);
+            a.download = `filename.${type}`;
+            a.click();
+            return false
+        });
 }
 
-async function upload(type){
+async function upload() {
     let files = document.getElementById('jsonFile').files;
+    let fileName = document.querySelector('#jsonFile').value;
+    let extension = fileName.substring(fileName.lastIndexOf('.') + 1);
     if (files.length <= 0) {
         return false;
     }
 
     let fr = new FileReader();
 
-    fr.onload = function(e) {
+    fr.onload = function (e) {
         let result;
-        if(type === 'json'){
+        if (extension === 'json') {
             result = JSON.parse(e.target.result);
+            result = JSON.stringify(result, null, 2);
+        } else if (extension === 'csv') {
+            result = csvJSON(e.target.result);
         }
-        else{
-            result = Papa.parse(e.target.result);
-            console.log(result);
-        }
-        let formatted = JSON.stringify(result, null, 2);
         fetch('/api/insertdata/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(data),
+            body: result,
         })
-            .then(response => response.json())
-            .then(data => {
-                console.log('Success:', data);
-            })
     }
 
     fr.readAsText(files.item(0));
