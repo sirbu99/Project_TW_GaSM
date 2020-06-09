@@ -230,4 +230,9 @@
     .title-event{
         font-size: initial;
     }
+    .card-info{
+        width: 90%;
+        margin: auto;
+        padding: 0;
+    }
 }

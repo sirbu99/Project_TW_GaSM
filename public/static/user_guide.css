@@ -11,7 +11,7 @@ body{
 }
 .cardGuide{
     width: 60%;
-    height:auto;
+    height: auto;
     border: none;
     border-radius: 20px;
     display: flex;
