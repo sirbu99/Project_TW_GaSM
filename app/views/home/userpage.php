@@ -132,7 +132,7 @@
         } ?>
         <!-- card for admin -->
         <?php if ($_SESSION['IS_ADMIN'] ?? false) { ?>
-            <div class="card">
+            <div class="card" id="adminCard">
                 <header class="article-header">
                     <div class="event-date">
                         Data:
@@ -151,6 +151,7 @@
                     <input type="text" class="tag-article" required>
                     <input type="text" class="tag-article" required>
                 </div>
+                <div id="error-message-admin"></div>
                 <button type="submit" class="createEvent" onclick="saveEvent()">Creaza Eveniment!</button>
             </div>
         <?php } ?>
@@ -323,7 +324,7 @@
                 <option value="2">Colectare a gunoiului necorespunzătoare</option>
             </select>
             <label for="reporttext">Detalii:</label>
-            <textarea name="reporttext" rows="5" cols="60" placeholder="Detalii problemă"></textarea>
+            <textarea id="reporttext" rows="5" cols="60" placeholder="Detalii problemă"></textarea>
         </div>
         <div>
             <button type="submit" class="submitbutton" onclick="document.getElementById('id03').style.display='none'"

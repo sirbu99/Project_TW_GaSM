@@ -162,7 +162,10 @@ section {
     text-decoration: none;
     color: white;
 }
-
+#error-message-card,#error-message-admin{
+    color: red;
+    font-weight: bold;
+}
 .garbage-info .garbage-type button:hover {
     transform: scale(1.1);
     background-color: #2d6b22;
