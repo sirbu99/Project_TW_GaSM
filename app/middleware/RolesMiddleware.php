@@ -4,7 +4,7 @@
 class RolesMiddleware
 {
     const ADMIN_PAGES = [
-       // 'api:insertdata',
+        'api:insertdata',
         'api:insertevent',
         'api:deleteEvent',
     ];
