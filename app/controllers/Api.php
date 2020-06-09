@@ -7,7 +7,9 @@ class Api extends Controller
 
     public function insertdata()
     {
+        $headers = apache_request_headers();
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
             $conn = Database::instance()->getconnection();
             $query = 'insert into materials values (null,?, ?, ?, ?, ?, ?, ?, ?, ?)';
             $statement = $conn->prepare($query);
@@ -17,16 +19,35 @@ class Api extends Controller
                 die;
             }
             $statement->bind_param('dsddddddd', $location, $date, $type, $paper, $metal, $waste, $glass, $plastic, $mixed);
-            $location = $this->getlocid($_POST['location']);
-            $date = date('Y-m-d H:i:s');
-            $paper = $_POST['paper'] ?? 0;
-            $metal = $_POST['metal'] ?? 0;
-            $plastic = $_POST['plastic'] ?? 0;
-            $waste = $_POST['waste'] ?? 0;
-            $glass = $_POST['glass'] ?? 0;
-            $mixed = $_POST['mixedGarbage'] ?? 0;
-            $type = $_POST['type'] ?? 1;
-            $statement->execute();
+            if(in_array('application/json', $headers)){
+
+                $inputJSON = file_get_contents('php://input');
+                $input = json_decode($inputJSON, TRUE);
+                foreach ($input as $part){
+                    $location = $this->getlocid($part['LocationName']);
+                    $date = $part['Date'] ?? date('Y-m-d H:i:s');
+                    $paper = $part['paper'] ?? 0;
+                    $metal = $part['metal'] ?? 0;
+                    $plastic = $part['plastic'] ?? 0;
+                    $waste = $part['waste'] ?? 0;
+                    $glass = $part['glass'] ?? 0;
+                    $mixed = $part['mixedGarbage'] ?? 0;
+                    $type = $part['type'] ?? 1;
+                    $statement->execute();
+                }
+            }else{
+                $location = $this->getlocid($_POST['location']);
+                $date = date('Y-m-d H:i:s');
+                $paper = $_POST['paper'] ?? 0;
+                $metal = $_POST['metal'] ?? 0;
+                $plastic = $_POST['plastic'] ?? 0;
+                $waste = $_POST['waste'] ?? 0;
+                $glass = $_POST['glass'] ?? 0;
+                $mixed = $_POST['mixedGarbage'] ?? 0;
+                $type = $_POST['type'] ?? 1;
+                $statement->execute();
+            }
+
             http_response_code(200);
             exit;
 
@@ -136,7 +157,7 @@ class Api extends Controller
             $id = $this->getlocid($_GET['location']);
         }
         $def = '';
-        $query = 'select name, address, report_date, paper, plastic, metal, glass, waste, mixed from materials m join locations l on m.location_id = l.id';
+        $query = 'select name, address, report_date, paper, plastic, metal, glass, waste, mixed, type from materials m join locations l on m.location_id = l.id';
         if (isset($_GET['location']) && isset($_GET['date'])) {
             $query = $query . ' where ';
             $query = $query . 'report_date = ? ';
@@ -172,7 +193,7 @@ class Api extends Controller
         $statement->execute();
         $result = $statement->get_result();
         while ($row = $result->fetch_row()) {
-            $data[] = array('LocationName' => $row[0], 'Address' => $row[1], 'Date' => $row[2], 'paper' => $row[3], 'plastic' => $row[4], 'metal' => $row[5], 'glass' => $row[6], 'waste' => $row[7], 'mixed' => $row[8]);
+            $data[] = array('LocationName' => $row[0], 'Address' => $row[1], 'Date' => $row[2], 'type' => $row[9], 'paper' => $row[3], 'plastic' => $row[4], 'metal' => $row[5], 'glass' => $row[6], 'waste' => $row[7], 'mixed' => $row[8]);
         }
 
         return $data;
@@ -186,7 +207,7 @@ class Api extends Controller
             $query = 'insert into reports values(null, ?, ?, ?, ?, ?, ?)';
             $statement = $db->prepare($query);
             if (!$statement) {
-                file_put_contents('../app/logs/error.log', 'Error at statement' . var_dump($conn->error_list), FILE_APPEND | LOCK_EX);
+                file_put_contents('../app/logs/error.log', 'Error at statement' . var_dump($db->error_list), FILE_APPEND | LOCK_EX);
                 http_response_code(500);
                 die;
             }
@@ -212,7 +233,6 @@ class Api extends Controller
         $query = "select * from generated_reports";
         $conn = Database::instance()->getconnection();
         if (isset($_GET['county'])) {
-            $county = $_GET['county'];
             $query = $query . ' where county_id = ?';
         }
         $query = $query . ' order by id desc';

@@ -33,8 +33,9 @@
         </div>
         <button class="statsButton" onclick="download('csv')" id="CSV"><i class="fas fa-download"></i> Descarca CSV</button>
         <button class="statsButton" onclick="download('json')" id="JSON"><i class="fas fa-download"></i> Descarca JSON</button>
+        <button class="statsButton" onclick="upload()" id="UJSON"><i class="fas fa-download"></i> Încarcă JSON</button>
+        <input type="file" id="jsonFile" value="Import" /><br />
         <button class="statsButton" onclick="document.location.href='userPage'"><i class="fas fa-arrow-alt-circle-left"></i> Înapoi</button>
-
     </div>
 </section>
 <section id="Situatia">
