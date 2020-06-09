@@ -86,5 +86,18 @@ section {
         width:98%;
         height: 300px;
     }
+    .chart{
+        width: 98%;
+    }
+    .statsButtonClass select, .statsButtonClass label{
+        font-size: small;
+        padding: 5px;
+        font-weight: initial;
+    }
+    .statsButton, .uploadBtn, #downloadInfo{
+        font-size: small;
+        padding: 5px;
+        font-weight: initial;
+    }
 
 }

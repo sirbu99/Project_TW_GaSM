@@ -9,9 +9,10 @@
 </head>
 
 <body>
-<article>
-    <header>
-        <h1>GaSM</h1>
+<section class="docBackground">
+<section>
+    <header >
+        <h2 class="centerText">Garbage Smart Monitor - GaSM</h2>
     </header>
     <div>
         <ol>
@@ -118,7 +119,7 @@
             <p></p>
         </section>
     </section>
-    <h2>Detalii tehnice</h2>
+    <h2 class="centerText">Detalii tehnice</h2>
     <hr>
     <section>
         <h2>Register</h2>
@@ -377,7 +378,7 @@
     </section>
     <hr>
     <section>
-        <h2>Referințe</h2>
+        <h2 class="centerText">Referințe</h2>
         <ul>
             <li>
                 <a href="https://developer.mozilla.org/en-US/">MDN Web Docs</a>
@@ -393,6 +394,7 @@
             </li>
         </ul>
     </section>
-</article>
+</section>
+</section>
 
 </body>

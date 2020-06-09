@@ -9,6 +9,10 @@ html {
 body {
     font-family: Segoe UI;
     margin: 20px 100px;
+    background-image: url(./images/grass.webp);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
 }
 
 section {
@@ -18,6 +22,13 @@ img{
     width: 48%;
     height: auto;
 }
+.docBackground{
+    background-color: rgb(212, 211, 211);
+    opacity: 0.9;
+    width: 100%;
+    border-radius: 20px;
+    padding:20px;
+}
 .center {
     display: flex;
     margin-left: auto;
@@ -26,10 +37,28 @@ img{
     margin-bottom: 5px;
     width: 50%;
 }
+.centerText{
+    text-align: center;
+    border-style: dashed;
+    width: fit-content;
+    padding: 5px 10px;
+    border-radius: 10px;
+    margin: auto;
+}
+
 @media only screen and (max-width: 600px) {
     body{
         word-wrap: break-word;
         margin:10px;
         overflow-x: auto;
+    }
+    img, .center{
+        width: 100%;
+    }
+    pre{
+        white-space: pre-wrap;
+    }
+    .docBackground{
+        padding: 10px;
     }
 }

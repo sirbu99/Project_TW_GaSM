@@ -22,8 +22,6 @@ async function drawChart() {
             ]);
             let options = {
                 'title': 'Collected Garbage',
-                'width': 550,
-                'height': 400,
                 backgroundColor: {fill: 'transparent'}
             };
             let chart = new google.visualization.PieChart(document.getElementById('piechart'));

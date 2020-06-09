@@ -324,7 +324,7 @@
                 <option value="2">Colectare a gunoiului necorespunzătoare</option>
             </select>
             <label for="reporttext">Detalii:</label>
-            <textarea id="reporttext" rows="5" cols="60" placeholder="Detalii problemă"></textarea>
+            <textarea id="reporttext" rows="5" placeholder="Detalii problemă"></textarea>
         </div>
         <div>
             <button type="submit" class="submitbutton" onclick="document.getElementById('id03').style.display='none'"

@@ -249,7 +249,9 @@ section {
     margin: auto;
     margin-bottom:10px;
 }
-
+#piechart{
+    min-height: 400px;
+}
 
 
 .show {
@@ -287,7 +289,7 @@ section {
 
 /* small screens */
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 700px) {
     .menu-container {
         display: flex;
         justify-content: space-around;
@@ -345,6 +347,19 @@ section {
         width:98%;
         height: 300px;
     }
-
+    .chart{
+        width: 98%;
+        height: auto;
+    }
+    #piechart{
+        max-height: 200px;
+    }
+    .card{
+        max-width: 200px;
+        height: auto;
+    }
+    .docBtn{
+        padding: 2px;
+    }
 
 }
