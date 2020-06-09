@@ -169,6 +169,10 @@ class Home extends Controller
     {
         $this->view('home/doc', []);
     }
+    public function userGuide()
+    {
+        $this->view('home/userguide', []);
+    }
 
     public function logout()
     {

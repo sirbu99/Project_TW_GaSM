@@ -388,7 +388,7 @@
         </div>
         <div class="docInfo">
             <button class="docBtn" onclick="document.location.href='doc'"> Documentatia Tehnica</button>
-            <button  class="docBtn">Ghidul utilizatorului</button>
+            <button  class="docBtn" onclick="document.location.href='userGuide'">Ghidul utilizatorului</button>
         </div>
     </div>
 </footer>

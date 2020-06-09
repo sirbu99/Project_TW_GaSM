@@ -33,10 +33,12 @@
         </div>
         <button class="statsButton hoverAction" onclick="download('csv')" id="CSV"><i class="fas fa-download"></i> Descarca CSV</button>
         <button class="statsButton hoverAction" onclick="download('json')" id="JSON"><i class="fas fa-download"></i> Descarca JSON</button>
+        <?php if ($_SESSION['IS_ADMIN'] ?? false) { ?>
         <div class="statsButton ">
             <input type="file" id="jsonFile" value="Import" />
             <button class="uploadBtn hoverAction" onclick="upload()" id="UJSON"><i class="fas fa-upload"></i> Încarcă</button>
         </div>
+        <?php } ?>
         <button class="statsButton hoverAction" onclick="document.location.href='userPage'"><i class="fas fa-arrow-alt-circle-left"></i> Înapoi</button>
     </div>
 </section>
