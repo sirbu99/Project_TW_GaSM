@@ -15,6 +15,7 @@
 
 .card {
     min-width: 300px;
+    min-height: 350px;
     height: auto;
     border-radius: 16px;
     background-color: whitesmoke;

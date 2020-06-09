@@ -45,9 +45,6 @@ class Home extends Controller
         return $locations;
     }
 
-    public function test(){
-        var_dump($_GET);
-    }
     public function page_404()
     {
         http_response_code(404);
@@ -106,13 +103,7 @@ class Home extends Controller
             require_once ERROR_PATH . '405_error.php';
         }
     }
-//    public function logoff(){
-//        unset($_SESSION['LOGGED_IN']);
-//        unset($_SESSION['IS_ADMIN']);
-//        unset($_SESSION['ID']);
-//        unset($_SESSION['LOCATION_ID']);
-//        $this->redirect('/home/loginpage');
-//    }
+
     public function login()
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {

@@ -132,7 +132,7 @@
         } ?>
         <!-- card for admin -->
         <?php if ($_SESSION['IS_ADMIN'] ?? false) { ?>
-            <div class="card">
+            <div class="card" id="adminCard">
                 <header class="article-header">
                     <div class="event-date">
                         Data:
@@ -151,6 +151,7 @@
                     <input type="text" class="tag-article" required>
                     <input type="text" class="tag-article" required>
                 </div>
+                <div id="error-message-admin"></div>
                 <button type="submit" class="createEvent" onclick="saveEvent()">Creaza Eveniment!</button>
             </div>
         <?php } ?>
@@ -284,7 +285,7 @@
     <div class="info-content">
         <div class="info">
             <img src="/public/static/images/deseuri.jpg" alt="image" class="info-image">
-            <a href="https://salubris.ro/servicii/colectarea-separata-a-deseurilor/" rel="noreferrer target=" _blank">Colectarea
+            <a href="https://salubris.ro/servicii/colectarea-separata-a-deseurilor/" rel="noreferrer" target=" _blank">Colectarea
             separată
             a
             deșeurilor</a>
@@ -292,12 +293,12 @@
         <div class="info">
             <img src="/public/static/images/deseuri.jpg" alt="image" class="info-image">
             <a href="https://salubris.ro/orasul-verde/impreuna-colectam-separat/activitati-de-promovare-a-colectarii-separate/"
-               rel="noreferrer
+               rel="noreferrer"
                target=" _blank">Activități de promovare a colectării separate</a>
         </div>
         <div class="info">
             <img src="/public/static/images/deseuri.jpg" alt="image" class="info-image">
-            <a href="https://salubris.ro/orasul-verde/impactul-colectarii-separate/" rel="noreferrer target=" _blank">Impactul
+            <a href="https://salubris.ro/orasul-verde/impactul-colectarii-separate/" rel="noreferrer" target=" _blank">Impactul
             colectării
             separate</a>
         </div>
@@ -323,7 +324,7 @@
                 <option value="2">Colectare a gunoiului necorespunzătoare</option>
             </select>
             <label for="reporttext">Detalii:</label>
-            <textarea name="reporttext" rows="5" cols="60" placeholder="Detalii problemă"></textarea>
+            <textarea id="reporttext" rows="5" cols="60" placeholder="Detalii problemă"></textarea>
         </div>
         <div>
             <button type="submit" class="submitbutton" onclick="document.getElementById('id03').style.display='none'"
@@ -381,8 +382,14 @@
 </div>
 <!-- FOOTER -->
 <footer>
-    <div class="authors">
-        Iuliana Holban & Simona Sîrbu & Constantin Suruniuc
+    <div class="projectInfo">
+        <div class="authors">
+            Iuliana Holban & Simona Sîrbu & Constantin Suruniuc
+        </div>
+        <div class="docInfo">
+            <button class="docBtn" onclick="document.location.href='doc'"> Documentatia Tehnica</button>
+            <button  class="docBtn">Ghidul utilizatorului</button>
+        </div>
     </div>
 </footer>
 

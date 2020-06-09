@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ro">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Informatii Utile</title>
-    <script type="text/javascript" src="/public/static/js/recycle_info.js"></script>
+    <script  src="/public/static/js/recycle_info.js"></script>
     <link rel="stylesheet" href="/public/static/infoStyle.css">
 </head>
 <body>
@@ -84,14 +84,14 @@
                 <p>Am găsit câteva idei creative de a transforma hârtia în diferite obiecte realizate manual, utile,
                     sperăm să te inspire pentru câteva proiecte de reutilizare a hârtiei acasă:</p>
                 <ul>
-                    <li>Cum să faci hârtie reciclată acasă:<a href="https://www.youtube.com/watch?v=QxyKvyGC5GA">https://www.youtube.com/watch?v=QxyKvyGC5GA</a>
+                    <li>Cum să faci hârtie reciclată acasă:<a href="https://www.youtube.com/watch?v=QxyKvyGC5GA" rel="noreferrer" target=" _blank">https://www.youtube.com/watch?v=QxyKvyGC5GA</a>
                         O poți colora, adăuga petale de flori și transforma în felicitări hand-made.
                     </li>
                     <li>Transformă un ziar într-o sacoșă pentru cadouri:<a
-                            href="https://www.youtube.com/watch?v=aest2gsxFOw">https://www.youtube.com/watch?v=aest2gsxFOw</a>
+                            href="https://www.youtube.com/watch?v=aest2gsxFOw" rel="noreferrer" target=" _blank">https://www.youtube.com/watch?v=aest2gsxFOw</a>
                     </li>
                     <li>Coșuleț pentru cosmetice din hârtie de la ziare sau reviste:<a
-                            href="https://www.youtube.com/watch?v=uNh4ra1fdI4">https://www.youtube.com/watch?v=uNh4ra1fdI4</a>
+                            href="https://www.youtube.com/watch?v=uNh4ra1fdI4" rel="noreferrer" target=" _blank">https://www.youtube.com/watch?v=uNh4ra1fdI4</a>
                     </li>
                 </ul>
                 <h1>Știați că…</h1>
@@ -308,7 +308,7 @@
                     <li>În unele țări, precum Brazilia sau Columbia, sunt construite case din PET-uri, datorită
                         rezistenței foarte mari a materialului. PET-urile sunt umplute cu pământ și înlocuiesc astfel
                         cărămizile. Un astfel de exemplu găsiți aici:<a
-                                href="https://www.youtube.com/watch?v=-wPMpzpAYqg">https://www.youtube.com/watch?v=-wPMpzpAYqg</a>
+                                href="https://www.youtube.com/watch?v=-wPMpzpAYqg" rel="noreferrer" target=" _blank">https://www.youtube.com/watch?v=-wPMpzpAYqg</a>
                     </li>
                 </ul>
             </div>
@@ -455,7 +455,7 @@
                             <li>Utilizează baterii</li>
                             <li>Necesită încărcare</li>
                             <li>Are o imagine cu o pubelă pe roți tăiată cu o cruce <img
-                                    src="/public/static/images/DEEE.jpg"></li>
+                                    src="/public/static/images/DEEE.jpg" alt="not found"></li>
                         </ul>
                     </li>
                     <li>Becurile și tuburile de neon pot fi predate centrelor sau punctelor de colectare specializate în
@@ -493,7 +493,7 @@
                             <li>Utilizează baterii</li>
                             <li>Necesită încărcare</li>
                             <li>Are o imagine cu o pubelă pe roți tăiată cu un „X <img
-                                    src="/public/static/images/DEEE.jpg"></li>
+                                    src="/public/static/images/DEEE.jpg" alt="not found"></li>
                         </ul>
                     </li>
                     <li>În cazul în care nu există opțiunea predării aparatului vechi la livrarea celui nou, DEEE-urile
@@ -550,7 +550,7 @@
                             <li>Utilizează baterii</li>
                             <li>Necesită încărcare</li>
                             <li>Are o imagine cu o pubelă pe roți tăiată cu un “X” <img
-                                    src="/public/static/images/DEEE.jpg"></li>
+                                    src="/public/static/images/DEEE.jpg" alt="not found"></li>
                         </ul>
                     </li>
                     <li>De multe ori, magazinele care vând produse electrocasnice colectează produsul vechi la livrarea
@@ -582,8 +582,8 @@
                     <li>Tuburile catodice ale televizoarelor vechi (acestea se depozitează)</li>
                     <li>Unele substanțe periculoase existente în interiorul DEEEUnele componente de DEEE</li>
                     <li>Unele componente de DEEE</li>
-                    <p>*Becurile, neoanele si bateriile se recicleaza separate de DEEE</p>
                 </ul>
+                <p>*Becurile, neoanele si bateriile se recicleaza separate de DEEE</p>
                 <h2>Cum se reciclează DEEE?</h2>
                 <p>După colectarea deșeurilor electrice, acestea sunt încărcate și transportate în condiții de siguranță
                     către operatorii de tratare și reciclare. Procesul de tratare include mai multe activităţi de natură
@@ -662,13 +662,13 @@
                     <li>Sticla transparentă este cea mai folosită la îmbutelierea produselor care nu sunt afectate la
                         expunerea la lumină (alcool, apă, sosuri, etc).
                     </li>
-                    <p> Colorarea sticlelor se face prin adăugarea de oxizi coloranți în timpul procesului de
-                        fabricație.
-                        <br><br>
-                        Pentru obținerea sticlei cafenii se adaugă fier, sulf și carbon. Oxidul de crom este utilizat
-                        pentru a crea sticla verde; cu cât este mai mare concentrația, cu atât este mai verde sticla.
-                        Sticla albastră se obține prin adăugarea de oxid de cobalt.</p>
                 </ul>
+                <p> Colorarea sticlelor se face prin adăugarea de oxizi coloranți în timpul procesului de
+                    fabricație.
+                    <br><br>
+                    Pentru obținerea sticlei cafenii se adaugă fier, sulf și carbon. Oxidul de crom este utilizat
+                    pentru a crea sticla verde; cu cât este mai mare concentrația, cu atât este mai verde sticla.
+                    Sticla albastră se obține prin adăugarea de oxid de cobalt.</p>
                 <h2>Cum se reciclează sticla?</h2>
                 <p>Procesul este simplu: sticlele sunt spălate, sortate după culoare, sparte, măcinate, apoi se elimină
                     impuritățile (etichete, hârtie, metal etc.), iar măcinătura este topită și transformată în granule –
@@ -822,7 +822,8 @@
                     lână) fibrele reciclate există mai multe posibilități pe piață. Cu toate acestea, exemplele acestor
                     fibre în comerț sunt mai mult excepții decât regulă, iar cele mai multe provin din denim
                     reciclat.</p>
-                <ul>Procesul de reciclare presupune:
+                <p>Procesul de reciclare presupune:</p>
+                <ul>
                     <li>Colectarea, separarea hainelor (cele ce mai pot fi folosite şi donate de cele distruse)</li>
                     <li>Extragerea poliesterului şi celulozei din articole vestimentare uzate, care au în componenţă mai
                         multe materiale
@@ -833,7 +834,8 @@
                     <li>Materia primă obţinută este transformată la final în noi fire textile.</li>
 
                 </ul>
-                <ul>Din punct de vedere tehnologic, valorificarea textilelor se realizează prin:
+                <p>Din punct de vedere tehnologic, valorificarea textilelor se realizează prin:</p>
+                <ul>
                     <li>dizolvare chimică (prin care materiile prime care compun textilele – de regulă bumbacul și
                         poliesterul – pot fi recuperate separat printr-un proces chimic și transformate în materii prime
                         noi)
@@ -864,7 +866,8 @@
                 <h2>Cum se reutilizează încălțămintea?</h2>
                 <p>Încălțămintea uzată nu se reciclează, ci se reutilizează (dacă mai este corespunzătoare uzului uman)
                     sau se incinerează.</p>
-                <ul>Procesul de reutilizare presupune:
+                <p>Procesul de reutilizare presupune:</p>
+                <ul>
                     <li>Colectarea, separarea încălțămintei (articolele ce mai pot fi folosite şi donate)</li>
                     <li>Se grupează pe perechi (dacă nu au fost deja împerecheate)</li>
                     <li>Se aduc în centre de colectare sau se donează către organizații caritabile</li>

@@ -8,6 +8,10 @@ async function saveEvent() {
     for (let i = 0; i < tags.length; i++) {
         tagValues.push(tags[i].value);
     };
+    if (title.length===0 || details.length===0||description.length===0||date==="") {
+        document.getElementById("error-message-admin").innerHTML = 'Toate câmpurile trebuie completate!';
+        return false;
+    }
 
     const response = await fetch('/api/insertevent', {
         method: 'POST',
@@ -60,14 +64,21 @@ async function showDetails(id) {
                     ${data["comments"].map((comment) => `<div class="commentInfo"> <div class="commentAuthor">${comment['first_name'] } ${comment['last_name'] }:</div> <div class="commentText">  ${comment['text']}  </div> <div class="commentDate">Data : ${comment['data']}</div></div>`).join("")}
                 
                     <textarea id="eventComment"  rows="5" placeholder="Scrie un comentariu aici.."></textarea>
+                    
                     <button id="commentBtn" onclick="addComment(${data['id']})">Posteaza</button>
+                    
                 </div>
+                <div id="error-message-card"></div>
             `;
         });
 }
 
 async function addComment(id) {
     const description = document.getElementById("eventComment").value;
+    if (description.length===0 ) {
+        document.getElementById("error-message-card").innerHTML = 'Comentariul nu poate fi gol!';
+        return false;
+    }
     const response = await fetch('/api/insertcomment', {
         method: 'POST',
         mode: 'cors',

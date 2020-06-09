@@ -134,6 +134,11 @@ section {
     transition: 500ms ease;
     background-color: #b0d3bf;
 }
+.garbage-info .content:not( :hover )
+{
+    transition: 500ms
+
+}
 
 .garbage-info .garbage-type {
     display: flex;
@@ -157,11 +162,18 @@ section {
     text-decoration: none;
     color: white;
 }
-
+#error-message-card,#error-message-admin{
+    color: red;
+    font-weight: bold;
+}
 .garbage-info .garbage-type button:hover {
     transform: scale(1.1);
     background-color: #2d6b22;
     opacity: initial;
+    transition: 200ms;
+}
+.garbage-info .garbage-type button:not( :hover ){
+
     transition: 200ms;
 }
 
@@ -209,11 +221,22 @@ section {
 
 
 
-.authors {
+.projectInfo {
+    display: flex;
+    vertical-align: center;
+    flex-direction: row;
+    justify-content: space-between;
     background-color: #2d6b22;
+    padding: 10px;
     color: white;
     text-align: center;
-    padding: 3px;
+}
+.docBtn{
+    border-radius: 5px;
+    background-color: #2d6b22 ;
+    color: white;
+    border-color: white;
+    padding: 8px;
 }
 
 .chart {
@@ -234,11 +257,10 @@ section {
 }
 
 .map-container {
-    height: 750px;
+    height: fit-content;
     width: 100%;
     display: flex;
     justify-content: center;
-    padding: 70px;
 }
 
 .map-controller {
@@ -317,6 +339,11 @@ section {
 
     .garbage-info .garbage-type button {
         font-size: small;
+    }
+
+    #map{
+        width:98%;
+        height: 300px;
     }
 
 
