@@ -4,10 +4,7 @@ let tempe;
 
 function onMapClick(e) {
     //to do: open a form for the user to report the issue
-    popup
-        .setLatLng(e.latlng)
-        .setContent("You clicked the map at " + e.latlng.toString())
-        .openOn(mymap);
+
     document.getElementById('id03').style.display = 'block';
     tempe = e;
     // document.getElementById("loc").innerHTML = ;
