@@ -284,7 +284,7 @@
     <div class="info-content">
         <div class="info">
             <img src="/public/static/images/deseuri.jpg" alt="image" class="info-image">
-            <a href="https://salubris.ro/servicii/colectarea-separata-a-deseurilor/" rel="noreferrer target=" _blank">Colectarea
+            <a href="https://salubris.ro/servicii/colectarea-separata-a-deseurilor/" rel="noreferrer" target=" _blank">Colectarea
             separată
             a
             deșeurilor</a>
@@ -292,12 +292,12 @@
         <div class="info">
             <img src="/public/static/images/deseuri.jpg" alt="image" class="info-image">
             <a href="https://salubris.ro/orasul-verde/impreuna-colectam-separat/activitati-de-promovare-a-colectarii-separate/"
-               rel="noreferrer
+               rel="noreferrer"
                target=" _blank">Activități de promovare a colectării separate</a>
         </div>
         <div class="info">
             <img src="/public/static/images/deseuri.jpg" alt="image" class="info-image">
-            <a href="https://salubris.ro/orasul-verde/impactul-colectarii-separate/" rel="noreferrer target=" _blank">Impactul
+            <a href="https://salubris.ro/orasul-verde/impactul-colectarii-separate/" rel="noreferrer" target=" _blank">Impactul
             colectării
             separate</a>
         </div>

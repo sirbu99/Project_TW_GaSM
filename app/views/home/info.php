@@ -84,14 +84,14 @@
                 <p>Am găsit câteva idei creative de a transforma hârtia în diferite obiecte realizate manual, utile,
                     sperăm să te inspire pentru câteva proiecte de reutilizare a hârtiei acasă:</p>
                 <ul>
-                    <li>Cum să faci hârtie reciclată acasă:<a href="https://www.youtube.com/watch?v=QxyKvyGC5GA">https://www.youtube.com/watch?v=QxyKvyGC5GA</a>
+                    <li>Cum să faci hârtie reciclată acasă:<a href="https://www.youtube.com/watch?v=QxyKvyGC5GA" rel="noreferrer" target=" _blank">https://www.youtube.com/watch?v=QxyKvyGC5GA</a>
                         O poți colora, adăuga petale de flori și transforma în felicitări hand-made.
                     </li>
                     <li>Transformă un ziar într-o sacoșă pentru cadouri:<a
-                            href="https://www.youtube.com/watch?v=aest2gsxFOw">https://www.youtube.com/watch?v=aest2gsxFOw</a>
+                            href="https://www.youtube.com/watch?v=aest2gsxFOw" rel="noreferrer" target=" _blank">https://www.youtube.com/watch?v=aest2gsxFOw</a>
                     </li>
                     <li>Coșuleț pentru cosmetice din hârtie de la ziare sau reviste:<a
-                            href="https://www.youtube.com/watch?v=uNh4ra1fdI4">https://www.youtube.com/watch?v=uNh4ra1fdI4</a>
+                            href="https://www.youtube.com/watch?v=uNh4ra1fdI4" rel="noreferrer" target=" _blank">https://www.youtube.com/watch?v=uNh4ra1fdI4</a>
                     </li>
                 </ul>
                 <h1>Știați că…</h1>
@@ -308,7 +308,7 @@
                     <li>În unele țări, precum Brazilia sau Columbia, sunt construite case din PET-uri, datorită
                         rezistenței foarte mari a materialului. PET-urile sunt umplute cu pământ și înlocuiesc astfel
                         cărămizile. Un astfel de exemplu găsiți aici:<a
-                                href="https://www.youtube.com/watch?v=-wPMpzpAYqg">https://www.youtube.com/watch?v=-wPMpzpAYqg</a>
+                                href="https://www.youtube.com/watch?v=-wPMpzpAYqg" rel="noreferrer" target=" _blank">https://www.youtube.com/watch?v=-wPMpzpAYqg</a>
                     </li>
                 </ul>
             </div>

@@ -134,6 +134,11 @@ section {
     transition: 500ms ease;
     background-color: #b0d3bf;
 }
+.garbage-info .content:not( :hover )
+{
+    transition: 500ms
+
+}
 
 .garbage-info .garbage-type {
     display: flex;
@@ -162,6 +167,10 @@ section {
     transform: scale(1.1);
     background-color: #2d6b22;
     opacity: initial;
+    transition: 200ms;
+}
+.garbage-info .garbage-type button:not( :hover ){
+
     transition: 200ms;
 }
 
@@ -245,11 +254,10 @@ section {
 }
 
 .map-container {
-    height: 750px;
+    height: fit-content;
     width: 100%;
     display: flex;
     justify-content: center;
-    padding: 70px;
 }
 
 .map-controller {
@@ -328,6 +336,11 @@ section {
 
     .garbage-info .garbage-type button {
         font-size: small;
+    }
+
+    #map{
+        width:98%;
+        height: 300px;
     }
 
 
