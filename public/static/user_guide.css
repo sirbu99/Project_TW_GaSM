@@ -4,14 +4,14 @@ body{
     /* width: 100%; */
     display: flex;
     justify-content: space-around;
-    background-image: url(./images/grass.webp);
+    background-image: url(./images/grass.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
 }
 .cardGuide{
     width: 60%;
-    height: 1200px;
+    height:auto;
     border: none;
     border-radius: 20px;
     display: flex;
@@ -28,10 +28,12 @@ body{
 }
 .subtitle{
     font-size: 20px;
+    margin-top: 20px;
 }
 .special{
     text-align: center;
     font-size: 24px;
+    margin-bottom: 25px;
 }
 .content{
     font-size: 18px;
