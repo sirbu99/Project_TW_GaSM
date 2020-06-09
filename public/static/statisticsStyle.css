@@ -50,6 +50,10 @@ section {
     transition: 200ms;
 
 }
+.hoverAction:not( :hover )
+{
+    transition: 200ms
+}
 .statsButtonClass{
     display: flex;
     flex-direction: row;

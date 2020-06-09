@@ -33,6 +33,10 @@ body{
 	transition: 200ms;
 
 }
+.recycleButtons button:not( :hover )
+{
+	transition: 200ms
+}
 .recycleContent{
 	margin: 1% auto;
 	height: auto;

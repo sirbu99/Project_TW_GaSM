@@ -9,7 +9,6 @@
     <script src="https://kit.fontawesome.com/342e71a7d6.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js "></script>
     <script type="text/javascript" src="/public/static/js/piechart.js"></script>
-    <script type="text/javascript" src="https://unpkg.com/papaparse@latest/papaparse.min.js"></script>
     <script type="text/javascript" src="/public/static/js/misc.js"></script>
     <script type="text/javascript" src="/public/static/js/recycle_info.js"></script>
     <script type="text/javascript" src="/public/static/js/map.js"></script>
