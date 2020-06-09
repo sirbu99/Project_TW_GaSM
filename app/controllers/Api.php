@@ -31,7 +31,7 @@ class Api extends Controller
                     $plastic = $part['plastic'] ?? 0;
                     $waste = $part['waste'] ?? 0;
                     $glass = $part['glass'] ?? 0;
-                    $mixed = $part['mixedGarbage'] ?? 0;
+                    $mixed = $part['mixed'] ?? 0;
                     $type = $part['type'] ?? 1;
                     $statement->execute();
                 }

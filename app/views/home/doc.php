@@ -115,6 +115,7 @@
         </section>
         <section>
             <h2>API pentru inserarea și preluarea de informații</h2>
+            <p></p>
         </section>
     </section>
 </article>
