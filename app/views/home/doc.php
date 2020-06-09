@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width">
     <title>GaSM Scholarly HTML</title>
     <link rel="stylesheet" href="scholarly.css">
+    <link rel="stylesheet" href="/public/static/docStyle.css">
 </head>
 
 <body>
@@ -64,12 +65,56 @@
                 <li>Informații despre reciclare</li>
                 <li>Hartă pentru raportarea de probleme</li>
             </ul>
+            <li>Pagină cu informații în detaliu despre reciclare</li>
             <li>Pagină pentru vizualizarea și descărcarea de statistici</li>
             <li>API pentru inserarea și preluarea de informații</li>
         </ul>
         <section>
             <h2>Login/Register</h2>
-            
+            <p>
+                User-ul se poate autentifica cu ajutorul email-ului si a unei parole si se poate înregistra cu : nume, prenume, email, parola și locație. 
+            </p>
+            <img src="/public/static/images/documentation/login.png" alt="image" class="center">
+            <img src="/public/static/images/documentation/register.png" alt="image" class="center">
+        </section>
+        <section>
+            <h2>Pagina principală</h2>
+            <p>
+                Sistemul oferă suport pentru inițierea unor campanii de sensibilizare a locuitorilor privitoare la colectarea selectivă a gunoiului prin oferirea posibilității de a participa la evenimente. Un utilizator simplu poate vizualiza lista de evenimente, iar dacă este interesat de eveniment, poate vedea mai multe informații apăsând pe butonul "Vezi mai mult". Aici utilizatorul va avea afișate toate detaliile despre eveniment si va putea scrie comentarii. Un admin poate adăuga și șterge un eveniment.
+            </p>
+            <img src="/public/static/images/documentation/event_admin.PNG" alt="image" class="center">
+            <img src="/public/static/images/documentation/eventUser.PNG" alt="image" class="center">
+            <img src="/public/static/images/documentation/eventDescription.PNG" alt="image" class="center">
+
+            <p>
+                User-ul are la dispoziție informații pe scurt despre modul în care trebuie să recicleze, iar dacă dorește sa citeasca mai în detaliu, are la dispoziție butonul 'mai mult', care îl va redirecționa la pagina cu toate informațiile disponibile.
+
+            </p>
+            <img src="/public/static/images/documentation/info.png" alt="image" class="center">
+            <img src="/public/static/images/documentation/infoPage.PNG" alt="image" class="center">
+            <p>
+                Sistemul oferă și posibilitarea de a raporta anumite probleme legate de cantități excesive de gunoi și colectarea necorespunzătoare a
+                gunoiului. Pentru a putea crea un raport, utilizatorul trebuie sa aleaga locatia respectivă pe hartă și să completeze informațiile cerute.
+            </p>
+            <img src="/public/static/images/documentation/harta.png" alt="image" class="center">
+
+            <p>
+                Pentru utilizatorii care sunt admini, sistemul ofera si posibilitatea de a creea un raport cu detalii despre colectarea / reciclarea gunoiului (butonul "Creează un raport" din meniu).
+            </p>
+            <img src="/public/static/images/documentation/report.png" alt="image" class="center">
+
+        </section>
+        <section>
+            <h2>Pagina pentru vizualizarea și descărcarea de statistici</h2>
+            <p>
+                Pagina poate fi accesata cu ajutorul butonului din meniu "Statistici". Ea pune la dispoziție posibilitatea de a descărca rapoarte în format JSON sau CSV pentru anumite perioade (zi/luna). Deasemenea în pagina sunt afișate grafice care reprezintă situația actuală. În pagină mai este afișată o harta care ofera informatii despre numărul și tipul de plângeri depuse pentru o anumită zonă.
+            </p>
+            <img src="/public/static/images/documentation/reports.png" alt="image" class="center">
+            <img src="/public/static/images/documentation/map.png" alt="image" class="center">
+
+        </section>
+        <section>
+            <h2>API pentru inserarea și preluarea de informații</h2>
         </section>
     </section>
 </article>

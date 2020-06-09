@@ -14,9 +14,8 @@ async function download(type) {
     });
 }
 
-async function upload(){
+async function upload(type){
     let files = document.getElementById('jsonFile').files;
-    console.log(files);
     if (files.length <= 0) {
         return false;
     }
@@ -24,8 +23,14 @@ async function upload(){
     let fr = new FileReader();
 
     fr.onload = function(e) {
-        console.log(e);
-        let result = JSON.parse(e.target.result);
+        let result;
+        if(type === 'json'){
+            result = JSON.parse(e.target.result);
+        }
+        else{
+            result = Papa.parse(e.target.result);
+            console.log(result);
+        }
         let formatted = JSON.stringify(result, null, 2);
         fetch('/api/insertdata/', {
             method: 'POST',

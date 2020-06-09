@@ -9,6 +9,7 @@
     <script src="https://kit.fontawesome.com/342e71a7d6.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js "></script>
     <script type="text/javascript" src="/public/static/js/piechart.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/papaparse@latest/papaparse.min.js"></script>
     <script type="text/javascript" src="/public/static/js/misc.js"></script>
     <script type="text/javascript" src="/public/static/js/recycle_info.js"></script>
     <script type="text/javascript" src="/public/static/js/map.js"></script>
@@ -33,7 +34,7 @@
         </div>
         <button class="statsButton" onclick="download('csv')" id="CSV"><i class="fas fa-download"></i> Descarca CSV</button>
         <button class="statsButton" onclick="download('json')" id="JSON"><i class="fas fa-download"></i> Descarca JSON</button>
-        <button class="statsButton" onclick="upload()" id="UJSON"><i class="fas fa-download"></i> Încarcă JSON</button>
+        <button class="statsButton" onclick="upload('csv')" id="UJSON"><i class="fas fa-download"></i> Încarcă JSON</button>
         <input type="file" id="jsonFile" value="Import" /><br />
         <button class="statsButton" onclick="document.location.href='userPage'"><i class="fas fa-arrow-alt-circle-left"></i> Înapoi</button>
     </div>
