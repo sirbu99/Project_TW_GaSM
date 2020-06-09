@@ -1,3 +1,5 @@
+
+
 form {
     width: 50%;
     margin: auto;
@@ -77,9 +79,10 @@ button[class="submitbutton"] {
     border-radius: 20px;
     cursor: pointer;
 }
- .modal textarea{
-     border-radius: 5px;
-     margin-top: 5px;
+.modal textarea{
+    border-radius: 5px;
+    margin-top: 5px;
+    resize: none;
  }
 
 /*stilizare button cancel din formular report*/
