@@ -381,8 +381,14 @@
 </div>
 <!-- FOOTER -->
 <footer>
-    <div class="authors">
-        Iuliana Holban & Simona Sîrbu & Constantin Suruniuc
+    <div class="projectInfo">
+        <div class="authors">
+            Iuliana Holban & Simona Sîrbu & Constantin Suruniuc
+        </div>
+        <div class="docInfo">
+            <button class="docBtn" onclick="document.location.href='doc'"> Documentatia Tehnica</button>
+            <button  class="docBtn">Ghidul utilizatorului</button>
+        </div>
     </div>
 </footer>
 

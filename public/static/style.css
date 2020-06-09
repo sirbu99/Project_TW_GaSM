@@ -209,11 +209,22 @@ section {
 
 
 
-.authors {
+.projectInfo {
+    display: flex;
+    vertical-align: center;
+    flex-direction: row;
+    justify-content: space-between;
     background-color: #2d6b22;
+    padding: 10px;
     color: white;
     text-align: center;
-    padding: 3px;
+}
+.docBtn{
+    border-radius: 5px;
+    background-color: #2d6b22 ;
+    color: white;
+    border-color: white;
+    padding: 8px;
 }
 
 .chart {
