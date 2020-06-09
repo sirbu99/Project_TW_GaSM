@@ -47,9 +47,7 @@
                 <div class="down-side">
                     <!-- down side -->
                     <button onclick="login(event)" type="submit" class="submit-button">Submit</button>
-                    <div>
-                        <a href="">Forgot password?</a>
-                    </div>
+                    
                 </div>
             </form>
         </main>
