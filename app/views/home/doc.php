@@ -116,7 +116,7 @@
         </section>
         <section>
             <h2>API pentru inserarea și preluarea de informații</h2>
-            <p></p>
+            <p>API-ul oferă metode pentru încărcarea și descărcarea de informații legate de colectarea și reciclarea gunoiului, metode pentru gestionarea evenimentelor și obținerea de rapoarte generate lunar</p>
         </section>
     </section>
     <h2 class="centerText">Detalii tehnice</h2>
